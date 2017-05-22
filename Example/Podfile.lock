@@ -1,0 +1,16 @@
+PODS:
+  - CBPic2ker (0.0.1)
+
+DEPENDENCIES:
+  - CBPic2ker (from `../`)
+
+EXTERNAL SOURCES:
+  CBPic2ker:
+    :path: ../
+
+SPEC CHECKSUMS:
+  CBPic2ker: aa121e8fe039aae1177e76cd626a9d2e3d2aa257
+
+PODFILE CHECKSUM: 32a2e432a25888f814a22d357145564def4f4d14
+
+COCOAPODS: 1.2.1

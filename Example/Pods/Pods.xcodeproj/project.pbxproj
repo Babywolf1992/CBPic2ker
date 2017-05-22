@@ -1,0 +1,726 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0A55A0BE91DB44EF49E569880FF18F34 /* CBPic2kerAssetModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F844809D8D014EB78184158D17975D9 /* CBPic2kerAssetModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0DD320C354F5B07F2CCA38EEDC5CC042 /* CBPic2kerAssetSectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48DB354F9AEFB6F0FCE8F5772F623CD2 /* CBPic2kerAssetSectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21FEEE4C6914BE96D90290BCA954CB01 /* UIImage+CBPic2ker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CE5674F48A1ADAB01C99B5639992C6A /* UIImage+CBPic2ker.m */; };
+		257439F9A1A7BEA82D924DA2D53C22FC /* CBPic2kerAdapterHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 6861CA6F6895A3CFDA48E90E04B0806E /* CBPic2kerAdapterHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		25F21A821EC2AE73828B6E4D20F516D3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
+		2629724FACB90B5515B71A283AB9879F /* CBPic2kerDelegateProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = BF18D5E1D6B1E6051225F21C40630D4C /* CBPic2kerDelegateProxy.m */; };
+		279756D4C311F4276DFCC36C1C88967F /* CBPic2ker.h in Headers */ = {isa = PBXBuildFile; fileRef = 530373AA8B849ABF64989D20B10BC6B0 /* CBPic2ker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2B268089BC641331F5E9DB3757A641CB /* CBPic2kerPhotoLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = DB4F43F1BF86B97780E15522C1B9EF18 /* CBPic2kerPhotoLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		300EAC0F920465EE637EFAB9F7CF42B8 /* UIImage+CBPic2ker.h in Headers */ = {isa = PBXBuildFile; fileRef = F00EE573D8EAD9970D6BD24EC3070125 /* UIImage+CBPic2ker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		358A692F902EBAC3C06F34FEBBD68386 /* CBPic2kerAdapterDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = F9C1DAEFF252C63DF1028877D686F59D /* CBPic2kerAdapterDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		393C60FDEE6A1F17B975586317F2F413 /* CBPic2kerAlbumView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA79ACB5B1F2B8B8B023F318959DA516 /* CBPic2kerAlbumView.m */; };
+		3AD8CF8B1A819E71113B4E0B663806AD /* CBPic2kerDelegateProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C63E2375270A6CE94DD26F54AAA95BA /* CBPic2kerDelegateProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3C47DCC99505EE80B7A07DFC62BF48CD /* CBPic2kerAssetSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD76C9A18D8827C6E002CDB0DCCE3E6 /* CBPic2kerAssetSectionView.m */; };
+		41784774BAE327A5AE44B1A759E1F67E /* CBPic2kerAdapterHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DFCA2C53CBD78C08BBCDB4D3FCA87E /* CBPic2kerAdapterHelper.m */; };
+		41EABE6E1BE8927EE4C297D592562EE2 /* CBPic2kerTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = FED11B831AF1F3E3F538C46770E48468 /* CBPic2kerTitleView.m */; };
+		47FE9E4F3E92F476B231B93AC9A643B3 /* CBPic2kerAlbumView.h in Headers */ = {isa = PBXBuildFile; fileRef = B45BECB0EA4EF0CC4FE4C46866A26840 /* CBPic2kerAlbumView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49A23A6F9F9351822131393D40972112 /* CBPic2kerAdapter+scrollViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F92FECB6218592192DEB03238E070D46 /* CBPic2kerAdapter+scrollViewDelegate.m */; };
+		54A178869A44F260665B32FECF088DED /* UIColor+CBPic2ker.h in Headers */ = {isa = PBXBuildFile; fileRef = FBF359543189A45896460AA62FB84E74 /* UIColor+CBPic2ker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		57E4CCC4632655977DE9926C1EFB2810 /* CBPic2kerCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E4EE8BDD6E56B2A8921667EBB77461 /* CBPic2kerCollectionView.m */; };
+		589D931CA3D9FB8D34C357DC154E5177 /* CBPic2kerAlbumSectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B3CF16AFBEB18B85BECE07E78B6F69B /* CBPic2kerAlbumSectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		59F6A2ADFEF2186B45C46473B130D18F /* CBPic2kerAssetSectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7674AD0DF910F1198D74BF6E6DB9A2E4 /* CBPic2kerAssetSectionViewCell.m */; };
+		6490AEC267351433A9070329F3E36067 /* CBPic2kerAlbumSectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CFA5F65D3F0809DC67FDA7951A92BDF5 /* CBPic2kerAlbumSectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64CD2E859CA3B4BF878EECFF8C187609 /* CBPic2kerPhotoLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFBCD498333926CE772A7564C394EBB /* CBPic2kerPhotoLibrary.m */; };
+		650369B44967B5D6D2E242F49DC845B9 /* CBPic2kerSectionController.h in Headers */ = {isa = PBXBuildFile; fileRef = D3BC76DD3FDB8C52F535B24B9CEC7AC3 /* CBPic2kerSectionController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		66E80C23716FE97739167A3CDE26FB21 /* CBPic2kerAdapter+collectionViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EC4663714448127D3E390485A8EF42 /* CBPic2kerAdapter+collectionViewDelegate.m */; };
+		6729339D3D2BE5D0D6ED5857EE2473E7 /* CBPic2kerAlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D29F3CCBC30B8E57C397D97D342CD422 /* CBPic2kerAlbumModel.m */; };
+		703A2F5BFC8BCF42C0FFF38B1C8C5519 /* CBPic2kerAssetSectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 05F4BD696E5467B39552F73FA901458F /* CBPic2kerAssetSectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		72C83BC1537A9C35407048F753740CE4 /* CBPic2kerAdapter+context.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B8B9FD285DF4A7504F51301C7F64C23 /* CBPic2kerAdapter+context.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		774267BC5D8D3CDD9FB7DDE49FD65FE3 /* CBPic2kerSectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84836A201865CB04CAA520561CA98728 /* CBPic2kerSectionController.m */; };
+		77CC6D5D078A15568B3B410B6F9EEFB4 /* CBPic2kerController.m in Sources */ = {isa = PBXBuildFile; fileRef = B74F296D613B845025BF33DA0C0A7E8F /* CBPic2kerController.m */; };
+		7D88189E55F3C5F6B26F95B054FF01CF /* CBPic2kerAdapter+context.m in Sources */ = {isa = PBXBuildFile; fileRef = F885616E319F9340223DB5A8C64BE0AD /* CBPic2kerAdapter+context.m */; };
+		91BF5182BD4F3EABE290D83A19A9EB74 /* CBPic2kerAlbumSectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49358E0A77E8B6947F728FB307E0C608 /* CBPic2kerAlbumSectionViewCell.m */; };
+		956A0DB7BBD51BC6A2F57FB129ED8F44 /* CBPic2kerAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5C866E579F0DFDE68742FC0F1648E9 /* CBPic2kerAssetModel.m */; };
+		95DB94EFACB7DE32FC932867D5964699 /* CBPic2kerContextProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B410093CB7A5BF5499E396BEBF50ACB /* CBPic2kerContextProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		98F5F2369837AE0EC122F4D7689793BE /* Pods-CBPic2ker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E09B536B3BE7778A7002919EB48451 /* Pods-CBPic2ker-dummy.m */; };
+		A1D0875B60EB20B1BF8E9A382155E63C /* CBPick2kerPermissionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A406BBAA08EEB3BA1747C4F5CB5904 /* CBPick2kerPermissionView.m */; };
+		AB24EE49E3B04C4534601A43D58B159B /* CBPic2kerScrollDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = FA368A5EF99182B113CB8B71AD7DC565 /* CBPic2kerScrollDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B0C2E960E7FA623898A0B27C07955E31 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */; };
+		B3A75D71FC590DAC86877D5DC092358E /* CBPic2kerAlbumModel.h in Headers */ = {isa = PBXBuildFile; fileRef = D3781800FB45378A9ABE4B42B701F647 /* CBPic2kerAlbumModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B715C4C9589FBFF773A628CBDB2077EC /* CBPick2kerPermissionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9507EAC64BD1E2DD6B5CAEC1F05BE147 /* CBPick2kerPermissionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B993FD89880E87FD0DBC9DCB44F12465 /* CBPic2kerTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 96D29B1CA6E844AFA3C6FB1D6A4000B4 /* CBPic2kerTitleView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C215DA5C7E3A767F98A316B0EAEDA7E8 /* UIColor+CBPic2ker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9824F6974E4F02A4A2C0EC41575614ED /* UIColor+CBPic2ker.m */; };
+		C348D9CAE7E5B3C24B6BE1D62F5CD76D /* CBPic2kerCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = D2568148DBBB83C47FA5E6F5F3D7D617 /* CBPic2kerCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CF69687A38ADD4B71E3CF0CB1818A4D5 /* CBPic2kerAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = A106A5EB64D2F282B8C41CDE0E2DD475 /* CBPic2kerAdapter.m */; };
+		D6DAD3E91A9505AE9D48B60F8C57068C /* CBPickerControllerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 0283F0CD366DE222642C647743C5FAFE /* CBPickerControllerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8E891150E3CF666DBD16046FD3D3441 /* CBPic2ker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BACF54B224E5F35190754DA75DDB99 /* CBPic2ker-dummy.m */; };
+		DB2E18880FCABAEC58BA9F8EB97E11E2 /* CBPic2kerAlbumSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0DCB5234A27B6DC005CB3B8AEFD79B /* CBPic2kerAlbumSectionView.m */; };
+		DC1AFEC9CE067B8B7972048FA6AA9D13 /* CBPic2kerAdapter+scrollViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C039A8F2F88B6D928F7A75C66AE4B36 /* CBPic2kerAdapter+scrollViewDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9E90BE5B4B9141BACD52E38202E0A55 /* CBPic2kerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 69D9A5E2D234D9C44528F46FAEBE903E /* CBPic2kerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EA645850150175A29AD90766DB727B3E /* CBPic2kerAdapter+collectionViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = D6B3AC894B10C65C42C7E73A629C732F /* CBPic2kerAdapter+collectionViewDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F69ECBEC5CF602A2E02587620E536219 /* CBPic2kerAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = DB7FA2E5588577115C7E3D4089E24187 /* CBPic2kerAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F702F1FFE9DFCBEF453A58B1D35E318C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		73A51019416F1797C60E12EA85541308 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB3FCE0228F7B242DD32BC11A769845C;
+			remoteInfo = CBPic2ker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0283F0CD366DE222642C647743C5FAFE /* CBPickerControllerDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPickerControllerDelegate.h; sourceTree = "<group>"; };
+		05F4BD696E5467B39552F73FA901458F /* CBPic2kerAssetSectionViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPic2kerAssetSectionViewCell.h; sourceTree = "<group>"; };
+		07A2FC0FF8F78E6B6A44719CED3E1D34 /* CBPic2kerPicker.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; path = CBPic2kerPicker.bundle; sourceTree = "<group>"; };
+		0CE5674F48A1ADAB01C99B5639992C6A /* UIImage+CBPic2ker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CBPic2ker.m"; sourceTree = "<group>"; };
+		10E4EE8BDD6E56B2A8921667EBB77461 /* CBPic2kerCollectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPic2kerCollectionView.m; sourceTree = "<group>"; };
+		1C039A8F2F88B6D928F7A75C66AE4B36 /* CBPic2kerAdapter+scrollViewDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CBPic2kerAdapter+scrollViewDelegate.h"; sourceTree = "<group>"; };
+		30BACF54B224E5F35190754DA75DDB99 /* CBPic2ker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CBPic2ker-dummy.m"; sourceTree = "<group>"; };
+		3445BB296C2E6442241F8F508D4B77E5 /* Pods-CBPic2ker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CBPic2ker.release.xcconfig"; sourceTree = "<group>"; };
+		3B0DCB5234A27B6DC005CB3B8AEFD79B /* CBPic2kerAlbumSectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPic2kerAlbumSectionView.m; sourceTree = "<group>"; };
+		3B8B9FD285DF4A7504F51301C7F64C23 /* CBPic2kerAdapter+context.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CBPic2kerAdapter+context.h"; sourceTree = "<group>"; };
+		3F7E38DDD9702249A90ED98589656B23 /* Pods-CBPic2ker-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CBPic2ker-acknowledgements.markdown"; sourceTree = "<group>"; };
+		48DB354F9AEFB6F0FCE8F5772F623CD2 /* CBPic2kerAssetSectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPic2kerAssetSectionView.h; sourceTree = "<group>"; };
+		49358E0A77E8B6947F728FB307E0C608 /* CBPic2kerAlbumSectionViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPic2kerAlbumSectionViewCell.m; sourceTree = "<group>"; };
+		4DD76C9A18D8827C6E002CDB0DCCE3E6 /* CBPic2kerAssetSectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPic2kerAssetSectionView.m; sourceTree = "<group>"; };
+		530373AA8B849ABF64989D20B10BC6B0 /* CBPic2ker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPic2ker.h; sourceTree = "<group>"; };
+		60A406BBAA08EEB3BA1747C4F5CB5904 /* CBPick2kerPermissionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPick2kerPermissionView.m; sourceTree = "<group>"; };
+		6861CA6F6895A3CFDA48E90E04B0806E /* CBPic2kerAdapterHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPic2kerAdapterHelper.h; sourceTree = "<group>"; };
+		69D9A5E2D234D9C44528F46FAEBE903E /* CBPic2kerController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPic2kerController.h; sourceTree = "<group>"; };
+		6B410093CB7A5BF5499E396BEBF50ACB /* CBPic2kerContextProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPic2kerContextProtocol.h; sourceTree = "<group>"; };
+		7674AD0DF910F1198D74BF6E6DB9A2E4 /* CBPic2kerAssetSectionViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPic2kerAssetSectionViewCell.m; sourceTree = "<group>"; };
+		84836A201865CB04CAA520561CA98728 /* CBPic2kerSectionController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPic2kerSectionController.m; sourceTree = "<group>"; };
+		8C63E2375270A6CE94DD26F54AAA95BA /* CBPic2kerDelegateProxy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPic2kerDelegateProxy.h; sourceTree = "<group>"; };
+		8DED4A71624AC587491F755788EAEC8E /* Pods-CBPic2ker-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CBPic2ker-acknowledgements.plist"; sourceTree = "<group>"; };
+		8F844809D8D014EB78184158D17975D9 /* CBPic2kerAssetModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPic2kerAssetModel.h; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9507EAC64BD1E2DD6B5CAEC1F05BE147 /* CBPick2kerPermissionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPick2kerPermissionView.h; sourceTree = "<group>"; };
+		96D29B1CA6E844AFA3C6FB1D6A4000B4 /* CBPic2kerTitleView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPic2kerTitleView.h; sourceTree = "<group>"; };
+		9824F6974E4F02A4A2C0EC41575614ED /* UIColor+CBPic2ker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CBPic2ker.m"; sourceTree = "<group>"; };
+		9B3CF16AFBEB18B85BECE07E78B6F69B /* CBPic2kerAlbumSectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPic2kerAlbumSectionView.h; sourceTree = "<group>"; };
+		A106A5EB64D2F282B8C41CDE0E2DD475 /* CBPic2kerAdapter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPic2kerAdapter.m; sourceTree = "<group>"; };
+		A1EC4663714448127D3E390485A8EF42 /* CBPic2kerAdapter+collectionViewDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CBPic2kerAdapter+collectionViewDelegate.m"; sourceTree = "<group>"; };
+		A6564642C7B28884E8AE731057DCCCC8 /* Pods-CBPic2ker-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CBPic2ker-resources.sh"; sourceTree = "<group>"; };
+		B45BECB0EA4EF0CC4FE4C46866A26840 /* CBPic2kerAlbumView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPic2kerAlbumView.h; sourceTree = "<group>"; };
+		B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		B74F296D613B845025BF33DA0C0A7E8F /* CBPic2kerController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPic2kerController.m; sourceTree = "<group>"; };
+		B77DA176F7F05635D28F8F5DB5DCF577 /* CBPic2ker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CBPic2ker.xcconfig; sourceTree = "<group>"; };
+		BB5C866E579F0DFDE68742FC0F1648E9 /* CBPic2kerAssetModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPic2kerAssetModel.m; sourceTree = "<group>"; };
+		BF18D5E1D6B1E6051225F21C40630D4C /* CBPic2kerDelegateProxy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPic2kerDelegateProxy.m; sourceTree = "<group>"; };
+		C3B9CEB708947FCD851E40ED71C8A603 /* Pods-CBPic2ker-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CBPic2ker-frameworks.sh"; sourceTree = "<group>"; };
+		C4658301B0A5DB593B6BACE0CE36CD51 /* libCBPic2ker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libCBPic2ker.a; path = libCBPic2ker.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5DFCA2C53CBD78C08BBCDB4D3FCA87E /* CBPic2kerAdapterHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPic2kerAdapterHelper.m; sourceTree = "<group>"; };
+		CFA5F65D3F0809DC67FDA7951A92BDF5 /* CBPic2kerAlbumSectionViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPic2kerAlbumSectionViewCell.h; sourceTree = "<group>"; };
+		D2568148DBBB83C47FA5E6F5F3D7D617 /* CBPic2kerCollectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPic2kerCollectionView.h; sourceTree = "<group>"; };
+		D29F3CCBC30B8E57C397D97D342CD422 /* CBPic2kerAlbumModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPic2kerAlbumModel.m; sourceTree = "<group>"; };
+		D3781800FB45378A9ABE4B42B701F647 /* CBPic2kerAlbumModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPic2kerAlbumModel.h; sourceTree = "<group>"; };
+		D3BC76DD3FDB8C52F535B24B9CEC7AC3 /* CBPic2kerSectionController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPic2kerSectionController.h; sourceTree = "<group>"; };
+		D3E09B536B3BE7778A7002919EB48451 /* Pods-CBPic2ker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CBPic2ker-dummy.m"; sourceTree = "<group>"; };
+		D4823EB183BFC1C12F25C8059E1651CC /* Pods-CBPic2ker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CBPic2ker.debug.xcconfig"; sourceTree = "<group>"; };
+		D6B3AC894B10C65C42C7E73A629C732F /* CBPic2kerAdapter+collectionViewDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CBPic2kerAdapter+collectionViewDelegate.h"; sourceTree = "<group>"; };
+		D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		DB4F43F1BF86B97780E15522C1B9EF18 /* CBPic2kerPhotoLibrary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPic2kerPhotoLibrary.h; sourceTree = "<group>"; };
+		DB7FA2E5588577115C7E3D4089E24187 /* CBPic2kerAdapter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPic2kerAdapter.h; sourceTree = "<group>"; };
+		E0F141F5152BB17B4E2C90B660CB6458 /* libPods-CBPic2ker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-CBPic2ker.a"; path = "libPods-CBPic2ker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA79ACB5B1F2B8B8B023F318959DA516 /* CBPic2kerAlbumView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPic2kerAlbumView.m; sourceTree = "<group>"; };
+		EAC290B3BDB00A0E8E09227BC0B7DE15 /* CBPic2ker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CBPic2ker-prefix.pch"; sourceTree = "<group>"; };
+		ECFBCD498333926CE772A7564C394EBB /* CBPic2kerPhotoLibrary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPic2kerPhotoLibrary.m; sourceTree = "<group>"; };
+		F00EE573D8EAD9970D6BD24EC3070125 /* UIImage+CBPic2ker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIImage+CBPic2ker.h"; sourceTree = "<group>"; };
+		F885616E319F9340223DB5A8C64BE0AD /* CBPic2kerAdapter+context.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CBPic2kerAdapter+context.m"; sourceTree = "<group>"; };
+		F92FECB6218592192DEB03238E070D46 /* CBPic2kerAdapter+scrollViewDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CBPic2kerAdapter+scrollViewDelegate.m"; sourceTree = "<group>"; };
+		F9C1DAEFF252C63DF1028877D686F59D /* CBPic2kerAdapterDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPic2kerAdapterDataSource.h; sourceTree = "<group>"; };
+		FA368A5EF99182B113CB8B71AD7DC565 /* CBPic2kerScrollDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPic2kerScrollDelegate.h; sourceTree = "<group>"; };
+		FBF359543189A45896460AA62FB84E74 /* UIColor+CBPic2ker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIColor+CBPic2ker.h"; sourceTree = "<group>"; };
+		FED11B831AF1F3E3F538C46770E48468 /* CBPic2kerTitleView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPic2kerTitleView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3199E9D067A2B364839496DAE2451FD1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25F21A821EC2AE73828B6E4D20F516D3 /* Foundation.framework in Frameworks */,
+				B0C2E960E7FA623898A0B27C07955E31 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6DAC2FFBA692EA54B4ECFDF853C762D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F702F1FFE9DFCBEF453A58B1D35E318C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1E17865D39051C1958C15156CB30C8D8 /* CBPic2ker */ = {
+			isa = PBXGroup;
+			children = (
+				C2D7EB33228C638CC6D4B46E60D54FDC /* Classes */,
+			);
+			name = CBPic2ker;
+			path = CBPic2ker;
+			sourceTree = "<group>";
+		};
+		200D3FB611152492FE25F1FCCA67A867 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2330EEBCC979442576F6884A197BCDD3 /* CBPic2ker */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		21A9372EA858363D202B621D2579A83C /* Pods-CBPic2ker */ = {
+			isa = PBXGroup;
+			children = (
+				3F7E38DDD9702249A90ED98589656B23 /* Pods-CBPic2ker-acknowledgements.markdown */,
+				8DED4A71624AC587491F755788EAEC8E /* Pods-CBPic2ker-acknowledgements.plist */,
+				D3E09B536B3BE7778A7002919EB48451 /* Pods-CBPic2ker-dummy.m */,
+				C3B9CEB708947FCD851E40ED71C8A603 /* Pods-CBPic2ker-frameworks.sh */,
+				A6564642C7B28884E8AE731057DCCCC8 /* Pods-CBPic2ker-resources.sh */,
+				D4823EB183BFC1C12F25C8059E1651CC /* Pods-CBPic2ker.debug.xcconfig */,
+				3445BB296C2E6442241F8F508D4B77E5 /* Pods-CBPic2ker.release.xcconfig */,
+			);
+			name = "Pods-CBPic2ker";
+			path = "Target Support Files/Pods-CBPic2ker";
+			sourceTree = "<group>";
+		};
+		2330EEBCC979442576F6884A197BCDD3 /* CBPic2ker */ = {
+			isa = PBXGroup;
+			children = (
+				1E17865D39051C1958C15156CB30C8D8 /* CBPic2ker */,
+				CEA4532AC06B41571B8BCAB3AF7F1082 /* Resources */,
+				2CD1BB473E8973FDE4238CE2E5C6772C /* Support Files */,
+			);
+			name = CBPic2ker;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		2CD1BB473E8973FDE4238CE2E5C6772C /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B77DA176F7F05635D28F8F5DB5DCF577 /* CBPic2ker.xcconfig */,
+				30BACF54B224E5F35190754DA75DDB99 /* CBPic2ker-dummy.m */,
+				EAC290B3BDB00A0E8E09227BC0B7DE15 /* CBPic2ker-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/CBPic2ker";
+			sourceTree = "<group>";
+		};
+		2F14932C9AB3096DE4BFED64D5683690 /* CBPic2ker */ = {
+			isa = PBXGroup;
+			children = (
+				52E3A0328BE35537111E530FC7C9B349 /* Resources */,
+			);
+			name = CBPic2ker;
+			path = CBPic2ker;
+			sourceTree = "<group>";
+		};
+		42F70B8642A9E9028A20A6AAFE23373A /* PhotoPicker */ = {
+			isa = PBXGroup;
+			children = (
+				D3781800FB45378A9ABE4B42B701F647 /* CBPic2kerAlbumModel.h */,
+				D29F3CCBC30B8E57C397D97D342CD422 /* CBPic2kerAlbumModel.m */,
+				9B3CF16AFBEB18B85BECE07E78B6F69B /* CBPic2kerAlbumSectionView.h */,
+				3B0DCB5234A27B6DC005CB3B8AEFD79B /* CBPic2kerAlbumSectionView.m */,
+				CFA5F65D3F0809DC67FDA7951A92BDF5 /* CBPic2kerAlbumSectionViewCell.h */,
+				49358E0A77E8B6947F728FB307E0C608 /* CBPic2kerAlbumSectionViewCell.m */,
+				B45BECB0EA4EF0CC4FE4C46866A26840 /* CBPic2kerAlbumView.h */,
+				EA79ACB5B1F2B8B8B023F318959DA516 /* CBPic2kerAlbumView.m */,
+				8F844809D8D014EB78184158D17975D9 /* CBPic2kerAssetModel.h */,
+				BB5C866E579F0DFDE68742FC0F1648E9 /* CBPic2kerAssetModel.m */,
+				48DB354F9AEFB6F0FCE8F5772F623CD2 /* CBPic2kerAssetSectionView.h */,
+				4DD76C9A18D8827C6E002CDB0DCCE3E6 /* CBPic2kerAssetSectionView.m */,
+				05F4BD696E5467B39552F73FA901458F /* CBPic2kerAssetSectionViewCell.h */,
+				7674AD0DF910F1198D74BF6E6DB9A2E4 /* CBPic2kerAssetSectionViewCell.m */,
+				69D9A5E2D234D9C44528F46FAEBE903E /* CBPic2kerController.h */,
+				B74F296D613B845025BF33DA0C0A7E8F /* CBPic2kerController.m */,
+				DB4F43F1BF86B97780E15522C1B9EF18 /* CBPic2kerPhotoLibrary.h */,
+				ECFBCD498333926CE772A7564C394EBB /* CBPic2kerPhotoLibrary.m */,
+				96D29B1CA6E844AFA3C6FB1D6A4000B4 /* CBPic2kerTitleView.h */,
+				FED11B831AF1F3E3F538C46770E48468 /* CBPic2kerTitleView.m */,
+				9507EAC64BD1E2DD6B5CAEC1F05BE147 /* CBPick2kerPermissionView.h */,
+				60A406BBAA08EEB3BA1747C4F5CB5904 /* CBPick2kerPermissionView.m */,
+				0283F0CD366DE222642C647743C5FAFE /* CBPickerControllerDelegate.h */,
+				FBF359543189A45896460AA62FB84E74 /* UIColor+CBPic2ker.h */,
+				9824F6974E4F02A4A2C0EC41575614ED /* UIColor+CBPic2ker.m */,
+				F00EE573D8EAD9970D6BD24EC3070125 /* UIImage+CBPic2ker.h */,
+				0CE5674F48A1ADAB01C99B5639992C6A /* UIImage+CBPic2ker.m */,
+			);
+			name = PhotoPicker;
+			path = PhotoPicker;
+			sourceTree = "<group>";
+		};
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				438B396F6B4147076630CAEFE34282C1 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		438B396F6B4147076630CAEFE34282C1 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */,
+				B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		479A46960D38DF3C6CF8304C4A494025 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C4658301B0A5DB593B6BACE0CE36CD51 /* libCBPic2ker.a */,
+				E0F141F5152BB17B4E2C90B660CB6458 /* libPods-CBPic2ker.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		52E3A0328BE35537111E530FC7C9B349 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				07A2FC0FF8F78E6B6A44719CED3E1D34 /* CBPic2kerPicker.bundle */,
+			);
+			name = Resources;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7293E160379ED916F9C5FB111FCB8CCE /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				21A9372EA858363D202B621D2579A83C /* Pods-CBPic2ker */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				200D3FB611152492FE25F1FCCA67A867 /* Development Pods */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				479A46960D38DF3C6CF8304C4A494025 /* Products */,
+				7293E160379ED916F9C5FB111FCB8CCE /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		A598AF67E35FF34B454127880AB1555F /* CollectionHelper */ = {
+			isa = PBXGroup;
+			children = (
+				DB7FA2E5588577115C7E3D4089E24187 /* CBPic2kerAdapter.h */,
+				A106A5EB64D2F282B8C41CDE0E2DD475 /* CBPic2kerAdapter.m */,
+				D6B3AC894B10C65C42C7E73A629C732F /* CBPic2kerAdapter+collectionViewDelegate.h */,
+				A1EC4663714448127D3E390485A8EF42 /* CBPic2kerAdapter+collectionViewDelegate.m */,
+				3B8B9FD285DF4A7504F51301C7F64C23 /* CBPic2kerAdapter+context.h */,
+				F885616E319F9340223DB5A8C64BE0AD /* CBPic2kerAdapter+context.m */,
+				1C039A8F2F88B6D928F7A75C66AE4B36 /* CBPic2kerAdapter+scrollViewDelegate.h */,
+				F92FECB6218592192DEB03238E070D46 /* CBPic2kerAdapter+scrollViewDelegate.m */,
+				F9C1DAEFF252C63DF1028877D686F59D /* CBPic2kerAdapterDataSource.h */,
+				6861CA6F6895A3CFDA48E90E04B0806E /* CBPic2kerAdapterHelper.h */,
+				C5DFCA2C53CBD78C08BBCDB4D3FCA87E /* CBPic2kerAdapterHelper.m */,
+				D2568148DBBB83C47FA5E6F5F3D7D617 /* CBPic2kerCollectionView.h */,
+				10E4EE8BDD6E56B2A8921667EBB77461 /* CBPic2kerCollectionView.m */,
+				6B410093CB7A5BF5499E396BEBF50ACB /* CBPic2kerContextProtocol.h */,
+				8C63E2375270A6CE94DD26F54AAA95BA /* CBPic2kerDelegateProxy.h */,
+				BF18D5E1D6B1E6051225F21C40630D4C /* CBPic2kerDelegateProxy.m */,
+				FA368A5EF99182B113CB8B71AD7DC565 /* CBPic2kerScrollDelegate.h */,
+				D3BC76DD3FDB8C52F535B24B9CEC7AC3 /* CBPic2kerSectionController.h */,
+				84836A201865CB04CAA520561CA98728 /* CBPic2kerSectionController.m */,
+			);
+			name = CollectionHelper;
+			path = CollectionHelper;
+			sourceTree = "<group>";
+		};
+		C2D7EB33228C638CC6D4B46E60D54FDC /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				530373AA8B849ABF64989D20B10BC6B0 /* CBPic2ker.h */,
+				A598AF67E35FF34B454127880AB1555F /* CollectionHelper */,
+				42F70B8642A9E9028A20A6AAFE23373A /* PhotoPicker */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		CEA4532AC06B41571B8BCAB3AF7F1082 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2F14932C9AB3096DE4BFED64D5683690 /* CBPic2ker */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		484F12936456AE9332E2A043245D1349 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				279756D4C311F4276DFCC36C1C88967F /* CBPic2ker.h in Headers */,
+				EA645850150175A29AD90766DB727B3E /* CBPic2kerAdapter+collectionViewDelegate.h in Headers */,
+				72C83BC1537A9C35407048F753740CE4 /* CBPic2kerAdapter+context.h in Headers */,
+				DC1AFEC9CE067B8B7972048FA6AA9D13 /* CBPic2kerAdapter+scrollViewDelegate.h in Headers */,
+				F69ECBEC5CF602A2E02587620E536219 /* CBPic2kerAdapter.h in Headers */,
+				358A692F902EBAC3C06F34FEBBD68386 /* CBPic2kerAdapterDataSource.h in Headers */,
+				257439F9A1A7BEA82D924DA2D53C22FC /* CBPic2kerAdapterHelper.h in Headers */,
+				B3A75D71FC590DAC86877D5DC092358E /* CBPic2kerAlbumModel.h in Headers */,
+				589D931CA3D9FB8D34C357DC154E5177 /* CBPic2kerAlbumSectionView.h in Headers */,
+				6490AEC267351433A9070329F3E36067 /* CBPic2kerAlbumSectionViewCell.h in Headers */,
+				47FE9E4F3E92F476B231B93AC9A643B3 /* CBPic2kerAlbumView.h in Headers */,
+				0A55A0BE91DB44EF49E569880FF18F34 /* CBPic2kerAssetModel.h in Headers */,
+				0DD320C354F5B07F2CCA38EEDC5CC042 /* CBPic2kerAssetSectionView.h in Headers */,
+				703A2F5BFC8BCF42C0FFF38B1C8C5519 /* CBPic2kerAssetSectionViewCell.h in Headers */,
+				C348D9CAE7E5B3C24B6BE1D62F5CD76D /* CBPic2kerCollectionView.h in Headers */,
+				95DB94EFACB7DE32FC932867D5964699 /* CBPic2kerContextProtocol.h in Headers */,
+				E9E90BE5B4B9141BACD52E38202E0A55 /* CBPic2kerController.h in Headers */,
+				3AD8CF8B1A819E71113B4E0B663806AD /* CBPic2kerDelegateProxy.h in Headers */,
+				2B268089BC641331F5E9DB3757A641CB /* CBPic2kerPhotoLibrary.h in Headers */,
+				AB24EE49E3B04C4534601A43D58B159B /* CBPic2kerScrollDelegate.h in Headers */,
+				650369B44967B5D6D2E242F49DC845B9 /* CBPic2kerSectionController.h in Headers */,
+				B993FD89880E87FD0DBC9DCB44F12465 /* CBPic2kerTitleView.h in Headers */,
+				B715C4C9589FBFF773A628CBDB2077EC /* CBPick2kerPermissionView.h in Headers */,
+				D6DAD3E91A9505AE9D48B60F8C57068C /* CBPickerControllerDelegate.h in Headers */,
+				54A178869A44F260665B32FECF088DED /* UIColor+CBPic2ker.h in Headers */,
+				300EAC0F920465EE637EFAB9F7CF42B8 /* UIImage+CBPic2ker.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		35DBB315843540BE47E08EF7C0AB1AFA /* Pods-CBPic2ker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 633F325D589CC1019F859B21A6D8F56A /* Build configuration list for PBXNativeTarget "Pods-CBPic2ker" */;
+			buildPhases = (
+				24808C09C9DB2626449C5AA7CF53D34D /* Sources */,
+				6DAC2FFBA692EA54B4ECFDF853C762D8 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				82C1CFC97B46DB561A73F32D7C86312A /* PBXTargetDependency */,
+			);
+			name = "Pods-CBPic2ker";
+			productName = "Pods-CBPic2ker";
+			productReference = E0F141F5152BB17B4E2C90B660CB6458 /* libPods-CBPic2ker.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		CB3FCE0228F7B242DD32BC11A769845C /* CBPic2ker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2319629A05B1A12D4AB68EF01840530A /* Build configuration list for PBXNativeTarget "CBPic2ker" */;
+			buildPhases = (
+				4861EC6AE48633CBED8BF9DE3B02B629 /* Sources */,
+				3199E9D067A2B364839496DAE2451FD1 /* Frameworks */,
+				484F12936456AE9332E2A043245D1349 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CBPic2ker;
+			productName = CBPic2ker;
+			productReference = C4658301B0A5DB593B6BACE0CE36CD51 /* libCBPic2ker.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 479A46960D38DF3C6CF8304C4A494025 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CB3FCE0228F7B242DD32BC11A769845C /* CBPic2ker */,
+				35DBB315843540BE47E08EF7C0AB1AFA /* Pods-CBPic2ker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		24808C09C9DB2626449C5AA7CF53D34D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98F5F2369837AE0EC122F4D7689793BE /* Pods-CBPic2ker-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4861EC6AE48633CBED8BF9DE3B02B629 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8E891150E3CF666DBD16046FD3D3441 /* CBPic2ker-dummy.m in Sources */,
+				66E80C23716FE97739167A3CDE26FB21 /* CBPic2kerAdapter+collectionViewDelegate.m in Sources */,
+				7D88189E55F3C5F6B26F95B054FF01CF /* CBPic2kerAdapter+context.m in Sources */,
+				49A23A6F9F9351822131393D40972112 /* CBPic2kerAdapter+scrollViewDelegate.m in Sources */,
+				CF69687A38ADD4B71E3CF0CB1818A4D5 /* CBPic2kerAdapter.m in Sources */,
+				41784774BAE327A5AE44B1A759E1F67E /* CBPic2kerAdapterHelper.m in Sources */,
+				6729339D3D2BE5D0D6ED5857EE2473E7 /* CBPic2kerAlbumModel.m in Sources */,
+				DB2E18880FCABAEC58BA9F8EB97E11E2 /* CBPic2kerAlbumSectionView.m in Sources */,
+				91BF5182BD4F3EABE290D83A19A9EB74 /* CBPic2kerAlbumSectionViewCell.m in Sources */,
+				393C60FDEE6A1F17B975586317F2F413 /* CBPic2kerAlbumView.m in Sources */,
+				956A0DB7BBD51BC6A2F57FB129ED8F44 /* CBPic2kerAssetModel.m in Sources */,
+				3C47DCC99505EE80B7A07DFC62BF48CD /* CBPic2kerAssetSectionView.m in Sources */,
+				59F6A2ADFEF2186B45C46473B130D18F /* CBPic2kerAssetSectionViewCell.m in Sources */,
+				57E4CCC4632655977DE9926C1EFB2810 /* CBPic2kerCollectionView.m in Sources */,
+				77CC6D5D078A15568B3B410B6F9EEFB4 /* CBPic2kerController.m in Sources */,
+				2629724FACB90B5515B71A283AB9879F /* CBPic2kerDelegateProxy.m in Sources */,
+				64CD2E859CA3B4BF878EECFF8C187609 /* CBPic2kerPhotoLibrary.m in Sources */,
+				774267BC5D8D3CDD9FB7DDE49FD65FE3 /* CBPic2kerSectionController.m in Sources */,
+				41EABE6E1BE8927EE4C297D592562EE2 /* CBPic2kerTitleView.m in Sources */,
+				A1D0875B60EB20B1BF8E9A382155E63C /* CBPick2kerPermissionView.m in Sources */,
+				C215DA5C7E3A767F98A316B0EAEDA7E8 /* UIColor+CBPic2ker.m in Sources */,
+				21FEEE4C6914BE96D90290BCA954CB01 /* UIImage+CBPic2ker.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		82C1CFC97B46DB561A73F32D7C86312A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CBPic2ker;
+			target = CB3FCE0228F7B242DD32BC11A769845C /* CBPic2ker */;
+			targetProxy = 73A51019416F1797C60E12EA85541308 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		20AE5E39120C05B31DAB2ED54B3344F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B77DA176F7F05635D28F8F5DB5DCF577 /* CBPic2ker.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/CBPic2ker/CBPic2ker-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		2A5098568D1B71CF2A8D882950FA5C6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4823EB183BFC1C12F25C8059E1651CC /* Pods-CBPic2ker.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		34FE9531DA9AF2820790339988D5FF41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9631950D30B1C3C180921ED4C9763423 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3445BB296C2E6442241F8F508D4B77E5 /* Pods-CBPic2ker.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		C104F7F091290C3D1E248192F07FE689 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		E577A1FB995D6E624658404AA5876897 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B77DA176F7F05635D28F8F5DB5DCF577 /* CBPic2ker.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/CBPic2ker/CBPic2ker-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2319629A05B1A12D4AB68EF01840530A /* Build configuration list for PBXNativeTarget "CBPic2ker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20AE5E39120C05B31DAB2ED54B3344F6 /* Debug */,
+				E577A1FB995D6E624658404AA5876897 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C104F7F091290C3D1E248192F07FE689 /* Debug */,
+				34FE9531DA9AF2820790339988D5FF41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		633F325D589CC1019F859B21A6D8F56A /* Build configuration list for PBXNativeTarget "Pods-CBPic2ker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A5098568D1B71CF2A8D882950FA5C6E /* Debug */,
+				9631950D30B1C3C180921ED4C9763423 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
