@@ -1,1 +1,1 @@
-../../../../../CBPic2ker/Classes/PhotoPicker/CBPick2kerPermissionView.h
+../../../../../CBPic2ker/Classes/CBPick2kerPermissionView.h

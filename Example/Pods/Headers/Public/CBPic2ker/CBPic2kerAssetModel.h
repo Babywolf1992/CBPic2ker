@@ -1,1 +1,1 @@
-../../../../../CBPic2ker/Classes/PhotoPicker/CBPic2kerAssetModel.h
+../../../../../CBPic2ker/Classes/CBPic2kerAssetModel.h

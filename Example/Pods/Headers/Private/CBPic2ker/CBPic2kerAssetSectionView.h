@@ -1,1 +1,1 @@
-../../../../../CBPic2ker/Classes/PhotoPicker/CBPic2kerAssetSectionView.h
+../../../../../CBPic2ker/Classes/CBPic2kerAssetSectionView.h

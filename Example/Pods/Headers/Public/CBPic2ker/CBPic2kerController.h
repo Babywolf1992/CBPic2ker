@@ -1,1 +1,1 @@
-../../../../../CBPic2ker/Classes/PhotoPicker/CBPic2kerController.h
+../../../../../CBPic2ker/Classes/CBPic2kerController.h

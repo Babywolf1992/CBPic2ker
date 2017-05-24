@@ -1,4 +1,4 @@
-// CBPic2ker.h
+// CBPic2kerScrollView.m
 // Copyright (c) 2017 陈超邦.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,10 +19,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#ifndef CBPic2ker_h
-#define CBPic2ker_h
+#import "CBPic2kerScrollView.h"
 
-#import <CBPic2ker/CBPic2kerController.h>
-#import <CBPic2ker/CBPic2kerPhotoLibrary.h>
+@implementation CBPic2kerScrollView
 
-#endif /* CBPic2ker_h */
+/*
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect {
+    // Drawing code
+}
+*/
+
+@end

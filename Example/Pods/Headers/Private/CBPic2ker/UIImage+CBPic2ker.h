@@ -1,1 +1,1 @@
-../../../../../CBPic2ker/Classes/PhotoPicker/UIImage+CBPic2ker.h
+../../../../../CBPic2ker/Classes/UIImage+CBPic2ker.h

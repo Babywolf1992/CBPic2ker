@@ -1,1 +1,1 @@
-../../../../../CBPic2ker/Classes/CollectionHelper/CBPic2kerAdapter.h
+../../../../../CBPic2ker/Classes/CBPic2kerAdapter.h

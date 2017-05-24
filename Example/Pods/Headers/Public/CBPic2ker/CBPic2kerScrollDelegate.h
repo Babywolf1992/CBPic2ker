@@ -1,1 +1,1 @@
-../../../../../CBPic2ker/Classes/CollectionHelper/CBPic2kerScrollDelegate.h
+../../../../../CBPic2ker/Classes/CBPic2kerScrollDelegate.h

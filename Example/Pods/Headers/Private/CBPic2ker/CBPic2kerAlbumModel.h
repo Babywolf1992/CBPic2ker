@@ -1,1 +1,1 @@
-../../../../../CBPic2ker/Classes/PhotoPicker/CBPic2kerAlbumModel.h
+../../../../../CBPic2ker/Classes/CBPic2kerAlbumModel.h

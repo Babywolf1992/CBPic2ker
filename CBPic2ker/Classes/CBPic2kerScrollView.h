@@ -1,4 +1,4 @@
-// CBPic2ker.h
+// CBPic2kerScrollView.h
 // Copyright (c) 2017 陈超邦.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,10 +19,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#ifndef CBPic2ker_h
-#define CBPic2ker_h
+#import <UIKit/UIKit.h>
 
-#import <CBPic2ker/CBPic2kerController.h>
-#import <CBPic2ker/CBPic2kerPhotoLibrary.h>
+@interface CBPic2kerScrollView : UIScrollView
 
-#endif /* CBPic2ker_h */
+@end

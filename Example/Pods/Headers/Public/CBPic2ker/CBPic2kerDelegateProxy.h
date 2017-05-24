@@ -1,1 +1,1 @@
-../../../../../CBPic2ker/Classes/CollectionHelper/CBPic2kerDelegateProxy.h
+../../../../../CBPic2ker/Classes/CBPic2kerDelegateProxy.h
