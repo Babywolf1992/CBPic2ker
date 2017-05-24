@@ -37,10 +37,9 @@
 }
 
 - (IBAction)pushLikeYouAreHavingABabyAction:(id)sender {
-    CBPic2kerController *controller = [[CBPic2kerController alloc] initWithDelegate:self];
+    CBPic2kerNavigationController *controller = [[CBPic2kerNavigationController alloc] initWithDelegate:self];
     controller.columnNumber = 4;
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:controller];
-    [self presentViewController:nav animated:YES completion:nil];
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

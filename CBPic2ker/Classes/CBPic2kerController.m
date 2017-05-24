@@ -303,14 +303,5 @@ static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
     return assetSectionView;
 }
 
-#pragma mark - Orientation
--(UIInterfaceOrientationMask)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskPortrait;
-}
-
-- (BOOL)shouldAutorotate {
-    return NO;
-}
-
 @end
 
