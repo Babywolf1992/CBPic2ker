@@ -99,6 +99,10 @@ static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
     [[CBPic2kerPhotoLibrary sharedPhotoLibrary] getCameraRollAlbumWithCompletion:^(CBPic2kerAlbumModel *model) {
         self.currentAlbumModel = model;
         
+        dispatch_async(dispatch_get_main_queue(), ^{
+            !assetSectionView.albumButton ?: [assetSectionView.albumButton setTitle:_currentAlbumModel.name forState:UIControlStateNormal];
+        });
+        
         [self.titleLableView setText:@"Select Photos"];
     }];
     [[CBPic2kerPhotoLibrary sharedPhotoLibrary] getAllAlbumsWithCompletion:^(NSArray<CBPic2kerAlbumModel *> *models) {
@@ -141,10 +145,6 @@ static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:self.collectionView];
     [self.adapter setDataSource:self];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        !assetSectionView.albumButton ?: [assetSectionView.albumButton setTitle:_currentAlbumModel.name forState:UIControlStateNormal];
-    });
 }
 
 - (void)backAction:(id)sender {
@@ -165,16 +165,17 @@ static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
 }
 
 - (void)setupNavigationBartitleLableView {
-    _titleLableView = [[UILabel alloc] initWithFrame:CGRectMake(0, [[UIApplication sharedApplication] statusBarFrame].size.height, self.navigationController.navigationBar.sizeWidth, self.navigationController.navigationBar.sizeHeight)];
-    [_titleLableView setFont:[UIFont fontWithName:@"AvenirNext-Medium" size:18]];
-    [_titleLableView setTextAlignment:NSTextAlignmentCenter];
-    [_titleLableView setTextColor:[UIColor lightGrayColor]];
-    [_titleLableView setText:@"Fetching ..."];
+    self.titleLableView = [[UILabel alloc] init];
+    [self.titleLableView setFont:[UIFont fontWithName:@"AvenirNext-Medium" size:18]];
+    [self.titleLableView setTextAlignment:NSTextAlignmentCenter];
+    [self.titleLableView setTextColor:[UIColor lightGrayColor]];
+    [self.titleLableView setText:@"Fetching ..."];
     
-    self.navigationItem.titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _titleLableView.frame.size.width, _titleLableView.frame.size.height)];
+    self.navigationItem.titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.titleLableView.sizeWidth, self.titleLableView.sizeHeight)];
     
     __weak typeof(self) weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
+        self.titleLableView.frame = CGRectMake(0, [[UIApplication sharedApplication] statusBarFrame].size.height, self.navigationController.navigationBar.sizeWidth, self.navigationController.navigationBar.sizeHeight);
         weakSelf.titleLableView.frame = [weakSelf.view.window convertRect:weakSelf.titleLableView.frame toView:weakSelf.navigationItem.titleView];
         [weakSelf.navigationItem.titleView addSubview:weakSelf.titleLableView];
     });
