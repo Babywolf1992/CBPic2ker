@@ -50,6 +50,8 @@ static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
 
 @property (nonatomic, strong, readwrite) CBPic2kerPhotoLibrary *photoLibrary;
 
+@property (nonatomic, assign, readwrite) UIStatusBarStyle originBarStyle;
+
 @end
 
 @implementation CBPic2kerController {
@@ -66,8 +68,19 @@ static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
     [self setViewsUp];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:_originBarStyle
+                                                animated:NO];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    self.originBarStyle = [[UIApplication sharedApplication] statusBarStyle];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault
+                                                animated:NO];
     
     if (![self.photoLibrary authorizationStatusAuthorized]) {
         [self.view addSubview:self.permissionView];
@@ -119,9 +132,6 @@ static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
 
 - (void)setUpNavigation {
     [self setupNavigationBartitleLableView];
-
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault
-                                                animated:NO];
     
     NSMutableDictionary *itemStyleDic = [[NSMutableDictionary alloc] init];
     itemStyleDic[NSFontAttributeName] = [UIFont fontWithName:@"Euphemia-UCAS" size:15];

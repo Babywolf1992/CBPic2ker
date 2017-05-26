@@ -32,7 +32,7 @@
 @property (nonatomic, assign, readwrite) NSInteger maxSlectedImagesCount;
 
 /**
- Default is 3, Use in photos collectionView, change the number of colum.
+ Default is 3, used in photos collectionView, change the number of colum.
  */
 @property (nonatomic, assign, readwrite) NSInteger columnNumber;
 
