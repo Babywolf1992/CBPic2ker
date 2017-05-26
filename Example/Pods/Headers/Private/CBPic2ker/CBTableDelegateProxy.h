@@ -1,0 +1,1 @@
+../../../../../CBPic2ker/Classes/CBCollectionView/CBTableDelegateProxy.h

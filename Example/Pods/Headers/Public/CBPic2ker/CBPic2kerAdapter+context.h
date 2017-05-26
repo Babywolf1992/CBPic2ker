@@ -1,1 +1,1 @@
-../../../../../CBPic2ker/Classes/CBPic2kerAdapter+context.h
+../../../../../CBPic2ker/Classes/CBCollectionView/CBPic2kerAdapter+context.h

@@ -1,1 +1,1 @@
-../../../../../CBPic2ker/Classes/CBPic2kerAlbumView.h
+../../../../../CBPic2ker/Classes/CBPhotoSelecter/CBPic2kerAlbumView.h
