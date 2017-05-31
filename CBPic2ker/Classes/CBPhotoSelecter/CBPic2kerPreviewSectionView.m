@@ -1,4 +1,4 @@
-// CBCollectionViewSectionController.m
+// CBPic2kerPreviewSectionView.m
 // Copyright (c) 2017 陈超邦.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,44 +19,29 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <CBPic2ker/CBCollectionViewSectionController.h>
-#import <CBPic2ker/CBCollectionViewAdapter.h>
+#import <CBPic2ker/CBPic2kerPreviewSectionView.h>
 
-@implementation CBCollectionViewSectionController
+@implementation CBPic2kerPreviewSectionView
 
-#pragma mark - Init Methods.
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        // do something
-    }
-    return self;
+- (CGSize)sizeForItemAtIndex:(NSInteger)index {
+    return CGSizeMake([[UIScreen mainScreen] bounds].size.width, 150);
 }
 
-#pragma mark - Public methods.
 - (NSInteger)numberOfItems {
     return 1;
 }
 
-- (CGSize)sizeForItemAtIndex:(NSInteger)index {
-    return CGSizeMake(0, 0);
+- (void)didUpdateToObject:(id)object {
 }
 
 - (UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index {
-    NSCAssert(false, @"this method must be override without inheritance");
-    return nil;
+    UICollectionViewCell *cell = [self.collectionContext dequeueReusableCellOfClass:[UICollectionViewCell class]
+                                                               forSectionController:self
+                                                                            atIndex:index];
+    return cell;
 }
 
-- (void)didUpdateToObject:(id)object {}
-
-- (void)didSelectItemAtIndex:(NSInteger)index {}
-
-- (UICollectionReusableView *)viewForSupplementaryElementOfKind:(NSString *)elementKind atIndex:(NSInteger)index {
-    return nil;
-}
-
-- (CGSize)sizeForSupplementaryViewOfKind:(NSString *)elementKind atIndex:(NSInteger)index {
-    return CGSizeZero;
+- (void)didSelectItemAtIndex:(NSInteger)index {
 }
 
 @end

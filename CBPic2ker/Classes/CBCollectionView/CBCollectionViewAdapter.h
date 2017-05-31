@@ -98,6 +98,15 @@ typedef void (^CBPic2kerUpdaterCompletion)(BOOL finished);
  */
 - (void)reloadDataWithCompletion:(nullable CBPic2kerUpdaterCompletion)completion;
 
+/**
+ Update adapater data.
+
+ @param objects New data.
+ @param dataSource DataSource.
+ */
+- (void)updateObjects:(NSArray *)objects
+           dataSource:(id<CBCollectionViewAdapterDataSource>)dataSource;
+
 NS_ASSUME_NONNULL_END
 
 @end

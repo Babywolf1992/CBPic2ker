@@ -46,6 +46,11 @@ static CGFloat const kCBPic2kerPhotoLibraryPreviewMaxWidth = 600;
     return photoLibrary;
 }
 
++ (void)wipeSharedData {
+    [[CBPic2kerPhotoLibrary sharedPhotoLibrary].selectedAssetArr removeAllObjects];
+    [[CBPic2kerPhotoLibrary sharedPhotoLibrary].selectedAssetIdentifierArr removeAllObjects];
+}
+
 - (void)removeSelectedAssetWithIdentifier:(NSString *)identifier {
     if (!identifier.length) { return; }
     

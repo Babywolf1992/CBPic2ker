@@ -121,15 +121,20 @@
 //        return;
 //    }
 //    
-//    NSArray *newObjects = [_dataSource objectsForTimelineAdapter:self];
+//    NSArray *newObjects = [_dataSource objectsForAdapter:self];
 //    if (!newObjects.count) { return; }
 //    
 //    [self updateObjects:newObjects
 //             dataSource:_dataSource];
 //    
+//    void (^updateBlock)() = ^{
+//       
+//    };
+//    
 //    if (animated) {
 //        [_collectionView performBatchUpdates:^{
-//
+//            [_collectionView performBatchUpdates:updateBlock
+//                                      completion:completion];
 //        } completion:nil];
 //    } else {
 //        [CATransaction begin];

@@ -30,6 +30,7 @@
 #import <CBPic2ker/CBPic2kerAssetModel.h>
 #import <CBPic2ker/CBPic2kerAssetSectionView.h>
 #import <CBPic2ker/CBCollectionViewAdapter+collectionViewDelegate.h>
+#import <CBPic2ker/CBPic2kerPreviewSectionView.h>
 
 static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
 
@@ -39,6 +40,7 @@ static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
 @property (nonatomic, strong, readwrite) CBCollectionView *collectionView;
 @property (nonatomic, strong, readwrite) CBPic2kerAlbumView *albumView;
 @property (nonatomic, strong, readwrite) UILabel *titleLableView;
+@property (nonatomic, strong, readwrite) CBPic2kerAssetSectionView *assetSectionView;
 
 @property (nonatomic, strong, readwrite) CBCollectionViewAdapter *adapter;
 
@@ -54,9 +56,7 @@ static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
 
 @end
 
-@implementation CBPic2kerController {
-    CBPic2kerAssetSectionView *assetSectionView;
-}
+@implementation CBPic2kerController
 
 @synthesize currentAlbumModel = _currentAlbumModel;
 
@@ -113,7 +113,7 @@ static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
         self.currentAlbumModel = model;
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            !assetSectionView.albumButton ?: [assetSectionView.albumButton setTitle:_currentAlbumModel.name forState:UIControlStateNormal];
+            !self.assetSectionView.albumButton ?: [self.assetSectionView.albumButton setTitle:_currentAlbumModel.name forState:UIControlStateNormal];
         });
         
         [self.titleLableView setText:@"Select Photos"];
@@ -158,6 +158,8 @@ static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
 }
 
 - (void)backAction:(id)sender {
+    [CBPic2kerPhotoLibrary wipeSharedData];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -170,6 +172,7 @@ static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
     [[CBPic2kerPhotoLibrary sharedPhotoLibrary] getAssetsFromFetchResult:currentAlbumModel.result
                                                               completion:^(NSArray<CBPic2kerAssetModel *> *models) {
                                                                   _currentAlbumAssetsModelsArray = [models mutableCopy];
+                                                                  
                                                                   [self.adapter reloadDataWithCompletion:nil];
                                                               }];
 }
@@ -205,7 +208,7 @@ static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
         _albumView = [[CBPic2kerAlbumView alloc] initWithFrame:CGRectMake(8, self.view.frame.size.height, self.view.frame.size.width - 16, self.view.sizeHeight - self.collectionView.originUp) albumArray:_albumDataArr didSelectedAlbumBlock:^(CBPic2kerAlbumModel *model) {
             self.currentAlbumModel = model;
             
-            !assetSectionView.albumButton ?: [assetSectionView.albumButton setTitle:model.name forState:UIControlStateNormal];
+            !self.assetSectionView.albumButton ?: [self.assetSectionView.albumButton setTitle:model.name forState:UIControlStateNormal];
             
             [UIView animateWithDuration:kCBPic2kerControllerAlbumAnimationDuration
                              animations:^{
@@ -261,6 +264,47 @@ static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
     return _adapter;
 }
 
+- (CBPic2kerAssetSectionView *)assetSectionView {
+    if (!_assetSectionView) {
+        _assetSectionView = [[CBPic2kerAssetSectionView alloc] initWithColumNumber:_columnNumber albumButtonTouchActionBlock:^(id albumButton) {
+            [UIView animateWithDuration:kCBPic2kerControllerAlbumAnimationDuration
+                             animations:^{
+                                 self.albumView.frame = CGRectMake(self.albumView.originLeft, self.collectionView.originUp, self.albumView.sizeWidth, self.albumView.sizeHeight);
+                             } completion:nil];
+        } assetButtonTouchActionBlock:^(CBPic2kerAssetModel *model) {
+            if ([self.photoLibrary.selectedAssetIdentifierArr containsObject:[(PHAsset *)model.asset localIdentifier]]) {
+                [self.photoLibrary removeSelectedAssetWithIdentifier:[(PHAsset *)model.asset localIdentifier]];
+            } else {
+                [self.photoLibrary addSelectedAssetWithModel:model];
+            }
+            self.titleLableView.text = _photoLibrary.selectedAssetArr.count ? [NSString stringWithFormat:@"%lu Photos Selected", (unsigned long)_photoLibrary.selectedAssetArr.count] : @"Select Photos";
+            
+            [self.adapter updateObjects:[self objectsForAdapter:self.adapter] dataSource:self];
+
+            if (self.photoLibrary.selectedAssetArr.count == 0 && self.collectionView.numberOfSections == 2) {
+                [UIView animateWithDuration:0.5
+                                      delay:0
+                     usingSpringWithDamping:0.9
+                      initialSpringVelocity:20
+                                    options:UIViewAnimationOptionCurveEaseOut
+                                 animations:^{
+                                     [self.collectionView deleteSections:[NSIndexSet indexSetWithIndex:0]];
+                                 } completion:nil];
+            } else if (self.photoLibrary.selectedAssetArr.count == 1 && self.collectionView.numberOfSections == 1) {
+                [UIView animateWithDuration:0.5
+                                      delay:0
+                     usingSpringWithDamping:0.65
+                      initialSpringVelocity:20
+                                    options:UIViewAnimationOptionCurveEaseOut
+                                 animations:^{
+                                        [self.collectionView insertSections:[NSIndexSet indexSetWithIndex:0]];
+                                    } completion:nil];
+            }
+        }];
+    }
+    return _assetSectionView;
+}
+
 #pragma mark - Public Methods.
 - (instancetype)init {
     return [self initWithDelegate:nil];
@@ -292,27 +336,21 @@ static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
 
 #pragma mark - Adapter DataSource
 - (NSArray *)objectsForAdapter:(CBCollectionViewAdapter *)adapter {
-    return [NSArray arrayWithObjects:self.currentAlbumAssetsModelsArray, nil];
+    NSMutableArray *adapterDataArr = [[NSMutableArray alloc] init];
+    if (self.photoLibrary.selectedAssetArr.count) {
+        [adapterDataArr addObject:self.photoLibrary.selectedAssetArr];
+    }
+    [adapterDataArr addObject:self.currentAlbumAssetsModelsArray];
+    return adapterDataArr;
 }
 
 - (CBCollectionViewSectionController *)adapter:(CBCollectionViewAdapter *)adapter
-             sectionControllerForObject:(id)object {
-    if (!assetSectionView) {
-        assetSectionView = [[CBPic2kerAssetSectionView alloc] initWithColumNumber:_columnNumber albumButtonTouchActionBlock:^(id albumButton) {
-            [UIView animateWithDuration:kCBPic2kerControllerAlbumAnimationDuration
-                             animations:^{
-                                 self.albumView.frame = CGRectMake(self.albumView.originLeft, self.collectionView.originUp, self.albumView.sizeWidth, self.albumView.sizeHeight);
-                             } completion:nil];
-        } assetButtonTouchActionBlock:^(CBPic2kerAssetModel *model) {
-            if ([self.photoLibrary.selectedAssetIdentifierArr containsObject:[(PHAsset *)model.asset localIdentifier]]) {
-                [self.photoLibrary removeSelectedAssetWithIdentifier:[(PHAsset *)model.asset localIdentifier]];
-            } else {
-                [self.photoLibrary addSelectedAssetWithModel:model];
-            }
-            self.titleLableView.text = _photoLibrary.selectedAssetArr.count ? [NSString stringWithFormat:@"%lu Photos Selected", (unsigned long)_photoLibrary.selectedAssetArr.count] : @"Select Photos";
-        }];
+                    sectionControllerForObject:(id)object {
+    if ([object isKindOfClass:[NSMutableArray class]] && [(NSMutableArray *)object count] && [(NSMutableArray *)object[0] isKindOfClass:[CBPic2kerAssetModel class]] && [(NSMutableArray *)object count] < self.currentAlbumAssetsModelsArray.count) {
+        return [[CBPic2kerPreviewSectionView alloc] init];
+    } else {
+        return self.assetSectionView;
     }
-    return assetSectionView;
 }
 
 @end
