@@ -1,1 +1,1 @@
-../../../../../CBPic2ker/Classes/Categories/UIColor+CBPic2ker.h
+../../../../../CBPic2ker/Classes/Helper/Categories/UIColor+CBPic2ker.h

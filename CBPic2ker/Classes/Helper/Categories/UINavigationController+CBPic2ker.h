@@ -1,4 +1,4 @@
-// ViewController.m
+// UINavigationController+CBPic2ker.h
 // Copyright (c) 2017 陈超邦.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,32 +19,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "ViewController.h"
-#import "CBPic2ker.h"
+#import <UIKit/UIKit.h>
 
-@interface ViewController () <CBPickerControllerDelegate>
+@interface UINavigationController (CBPic2ker)
 
-@end
-
-@implementation ViewController {
-    NSArray *aaa;
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    
-}
-
-- (IBAction)pushLikeYouAreHavingABabyAction:(id)sender {
-    CBPic2kerController *controller = [[CBPic2kerController alloc] initWithDelegate:self];
-    controller.columnNumber = 4;
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:controller];
-    [self presentViewController:nav animated:YES completion:nil];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 @end

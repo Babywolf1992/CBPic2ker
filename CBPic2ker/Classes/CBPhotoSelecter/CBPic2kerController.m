@@ -26,10 +26,10 @@
 #import <CBPic2ker/CBPic2kerAlbumView.h>
 #import <CBPic2ker/CBPic2kerAlbumModel.h>
 #import <CBPic2ker/CBCollectionView.h>
-#import <CBPic2ker/CBCollectionViewAdapter+collectionViewDelegate.h>
-#import <CBPic2ker/CBPic2kerAssetSectionView.h>
 #import <CBPic2ker/UIView+CBPic2ker.h>
 #import <CBPic2ker/CBPic2kerAssetModel.h>
+#import <CBPic2ker/CBPic2kerAssetSectionView.h>
+#import <CBPic2ker/CBCollectionViewAdapter+collectionViewDelegate.h>
 
 static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
 
@@ -246,6 +246,7 @@ static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
     if (!_collectionView) {
         _collectionView = [[CBCollectionView alloc] initWithFrame:CGRectMake(0, self.navigationController.navigationBar.sizeHeight + [[UIApplication sharedApplication] statusBarFrame].size.height, self.view.sizeWidth, self.view.sizeHeight - self.navigationController.navigationBar.sizeHeight - [[UIApplication sharedApplication] statusBarFrame].size.height)];
         _collectionView.showsHorizontalScrollIndicator = YES;
+        _collectionView.scrollsToTop = YES;
         _collectionView.alwaysBounceVertical = YES;
         _collectionView.backgroundColor = [UIColor clearColor];
     }

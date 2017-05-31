@@ -1,1 +1,1 @@
-../../../../../CBPic2ker/Classes/Categories/UIImage+CBPic2ker.h
+../../../../../CBPic2ker/Classes/Helper/Categories/UIImage+CBPic2ker.h

@@ -22,7 +22,7 @@
 #ifndef CBPic2ker_h
 #define CBPic2ker_h
 
-#import <CBPic2ker/CBPic2kerNavigationController.h>
+#import <CBPic2ker/CBPic2kerController.h>
 #import <CBPic2ker/CBPic2kerPhotoLibrary.h>
 
 #endif /* CBPic2ker_h */

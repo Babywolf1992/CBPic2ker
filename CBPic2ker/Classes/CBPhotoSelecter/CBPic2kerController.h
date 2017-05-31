@@ -21,6 +21,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CBPic2ker/CBPickerControllerDelegate.h>
+#import <CBPic2ker/UINavigationController+CBPic2ker.h>
 
 @class CBPic2kerPhotoLibrary;
 
