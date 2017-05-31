@@ -1,4 +1,4 @@
-// CBCollectionViewSectionController.m
+// CBPic2kerPreviewSectionView.h
 // Copyright (c) 2017 陈超邦.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,43 +20,7 @@
 // THE SOFTWARE.
 
 #import <CBPic2ker/CBCollectionViewSectionController.h>
-#import <CBPic2ker/CBCollectionViewAdapter.h>
 
-@implementation CBCollectionViewSectionController
-
-#pragma mark - Init Methods.
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        // do something
-    }
-    return self;
-}
-
-#pragma mark - Public methods.
-- (NSInteger)numberOfItems {
-    return 1;
-}
-
-- (CGSize)sizeForItemAtIndex:(NSInteger)index {
-    return CGSizeMake(0, 0);
-}
-
-- (UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index {
-    NSCAssert(false, @"this method must be override without inheritance");
-    return nil;
-}
-
-- (void)didUpdateToObject:(id)object {}
-
-- (void)didSelectItemAtIndex:(NSInteger)index {}
-
-- (UICollectionReusableView *)viewForSupplementaryElementOfKind:(NSString *)elementKind atIndex:(NSInteger)index {
-    return nil;
-}
-
-- (CGSize)sizeForSupplementaryViewOfKind:(NSString *)elementKind atIndex:(NSInteger)index {
-    return CGSizeZero;
-}
+@interface CBPic2kerPreviewSectionView : CBCollectionViewSectionController
 
 @end

@@ -81,12 +81,6 @@
               selectedActionBlock:^(id model) {
                   !_assetButtonTouchActionBlockInternal ?: _assetButtonTouchActionBlockInternal(model);
               }];
-    
-//    if (self.viewController.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable) {
-//        [self.viewController registerForPreviewingWithDelegate:(id)self
-//                                                    sourceView:cell];
-//    }
-    
     return cell;
 }
 
@@ -94,10 +88,9 @@
                                                         atIndex:(NSInteger)index {
     if ([elementKind isEqualToString:UICollectionElementKindSectionHeader]) {
         UICollectionReusableView *hearderView = [self.collectionContext dequeueReusableSupplementaryViewFromStoryboardOfKind:elementKind viewClass:[UICollectionReusableView class] forSectionController:self atIndex:index];
-        hearderView.frame = CGRectMake(8, 0, self.viewController.view.frame.size.width - 16, 40);
 
         if (!_albumButton) {
-            _albumButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, hearderView.frame.size.width, hearderView.frame.size.height)];
+            _albumButton = [[UIButton alloc] initWithFrame:CGRectMake(8, 0, hearderView.frame.size.width - 16, hearderView.frame.size.height)];
             [_albumButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
             _albumButton.layer.cornerRadius = 3;
             [_albumButton.titleLabel setFont:[UIFont fontWithName:@"AvenirNext-Medium" size:18]];
@@ -115,7 +108,7 @@
 
 - (CGSize)sizeForSupplementaryViewOfKind:(NSString *)elementKind
                                  atIndex:(NSInteger)index {
-    if ([elementKind isEqualToString:UICollectionElementKindSectionHeader]) {
+    if ([elementKind isEqualToString:UICollectionElementKindSectionHeader] && index == self.section) {
         return CGSizeMake(self.viewController.view.frame.size.width - 8, 45);
     } else {
         return CGSizeZero;

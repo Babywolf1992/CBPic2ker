@@ -52,6 +52,11 @@
 + (instancetype)sharedPhotoLibrary;
 
 /**
+ Wipe all shared data.
+ */
++ (void)wipeSharedData;
+
+/**
  Judge if grant the photo permission.
  
  @return YES if permission is granted.
