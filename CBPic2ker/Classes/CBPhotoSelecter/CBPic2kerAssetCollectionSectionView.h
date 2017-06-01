@@ -1,4 +1,4 @@
-// CBPic2kerPreviewSectionView.m
+// CBPic2kerAssetCollectionSectionView.h
 // Copyright (c) 2017 陈超邦.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,43 +19,34 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <CBPic2ker/CBPic2kerPreviewSectionView.h>
+#import <CBPic2ker/CBCollectionViewSectionController.h>
+#import <CBPic2ker/CBCollectionView.h>
 
-@interface CBPic2kerPreviewSectionView()
+@interface CBPic2kerAssetCollectionSectionView : CBCollectionViewSectionController
 
-@property (nonatomic, assign, readwrite) NSInteger preViewHeightInternal;
+/**
+ CollectionView.
+ */
+@property (nonatomic, strong, readwrite) CBCollectionView *collectionView;
 
-@end
+/**
+Asset action block
+ */
+@property (nonatomic, copy, readwrite) void(^assetButtonTouchActionBlockInternal)(id model, id cell, NSInteger index);
 
-@implementation CBPic2kerPreviewSectionView
+/**
+ CollectionView did scroll block.
+ */
+@property (nonatomic, copy, readwrite) void(^collectionViewDidScroll)(id scrollView);
 
-- (instancetype)initWithPreViewHeight:(NSInteger)preViewHeight {
-    self = [super init];
-    if (self) {
-        _preViewHeightInternal = preViewHeight > 0 ?: 150;
-    }
-    return self;
-}
+/**
+ Init Method.
 
-- (CGSize)sizeForItemAtIndex:(NSInteger)index {
-    return CGSizeMake([[UIScreen mainScreen] bounds].size.width, 150);
-}
-
-- (NSInteger)numberOfItems {
-    return 1;
-}
-
-- (void)didUpdateToObject:(id)object {
-}
-
-- (UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index {
-    UICollectionViewCell *cell = [self.collectionContext dequeueReusableCellOfClass:[UICollectionViewCell class]
-                                                               forSectionController:self
-                                                                            atIndex:index];
-    return cell;
-}
-
-- (void)didSelectItemAtIndex:(NSInteger)index {
-}
+ @param columnNumber The colum number of assetCollection.
+ @param preViewHeight The height of pre-scrollView.
+ @return CBPic2kerAssetCollectionSectionView instance.
+ */
+- (instancetype)initWithColumnNumber:(NSInteger)columnNumber
+                       preViewHeight:(NSInteger)preViewHeight;
 
 @end

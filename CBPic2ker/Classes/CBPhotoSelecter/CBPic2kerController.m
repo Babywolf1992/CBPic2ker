@@ -28,11 +28,10 @@
 #import <CBPic2ker/CBCollectionView.h>
 #import <CBPic2ker/UIView+CBPic2ker.h>
 #import <CBPic2ker/CBPic2kerAssetModel.h>
-#import <CBPic2ker/CBPic2kerAssetSectionView.h>
 #import <CBPic2ker/CBCollectionViewAdapter+collectionViewDelegate.h>
 #import <CBPic2ker/CBPic2kerPreviewSectionView.h>
-
-static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
+#import <CBPic2ker/CBPic2kerAlbumButtonSectionView.h>
+#import <CBPic2ker/CBPic2kerAssetCollectionSectionView.h>
 
 @interface CBPic2kerController () <CBCollectionViewAdapterDataSource>
 
@@ -40,23 +39,28 @@ static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
 @property (nonatomic, strong, readwrite) CBCollectionView *collectionView;
 @property (nonatomic, strong, readwrite) CBPic2kerAlbumView *albumView;
 @property (nonatomic, strong, readwrite) UILabel *titleLableView;
-@property (nonatomic, strong, readwrite) CBPic2kerAssetSectionView *assetSectionView;
-
-@property (nonatomic, strong, readwrite) CBCollectionViewAdapter *adapter;
+@property (nonatomic, strong, readwrite) CBPic2kerAssetCollectionSectionView *collectionSectionView;
+@property (nonatomic, strong, readwrite) CBPic2kerAlbumButtonSectionView *albumButtonSectionView;
 
 @property (nonatomic, strong, readwrite) NSMutableArray *albumDataArr;
 @property (nonatomic, strong, readwrite) CBPic2kerAlbumModel *currentAlbumModel;
 @property (nonatomic, strong, readwrite) NSMutableArray<CBPic2kerAssetModel *> *currentAlbumAssetsModelsArray;
 
-@property (nonatomic, strong, readwrite) NSTimer *timer;
-
 @property (nonatomic, strong, readwrite) CBPic2kerPhotoLibrary *photoLibrary;
+@property (nonatomic, strong, readwrite) CBCollectionViewAdapter *adapter;
+
+@property (nonatomic, strong, readwrite) NSTimer *timer;
 
 @property (nonatomic, assign, readwrite) UIStatusBarStyle originBarStyle;
 
 @end
 
-@implementation CBPic2kerController
+@implementation CBPic2kerController {
+    BOOL _alreadyShowPreView;
+    BOOL _shouldScrollOutsideCollectionView;
+    
+    CGFloat tempScrollViewOffset;
+}
 
 @synthesize currentAlbumModel = _currentAlbumModel;
 
@@ -113,7 +117,7 @@ static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
         self.currentAlbumModel = model;
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            !self.assetSectionView.albumButton ?: [self.assetSectionView.albumButton setTitle:_currentAlbumModel.name forState:UIControlStateNormal];
+            !self.albumButtonSectionView.albumButton ?: [self.albumButtonSectionView.albumButton setTitle:_currentAlbumModel.name forState:UIControlStateNormal];
         });
         
         [self.titleLableView setText:@"Select Photos"];
@@ -208,15 +212,96 @@ static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
         _albumView = [[CBPic2kerAlbumView alloc] initWithFrame:CGRectMake(8, self.view.frame.size.height, self.view.frame.size.width - 16, self.view.sizeHeight - self.collectionView.originUp) albumArray:_albumDataArr didSelectedAlbumBlock:^(CBPic2kerAlbumModel *model) {
             self.currentAlbumModel = model;
             
-            !self.assetSectionView.albumButton ?: [self.assetSectionView.albumButton setTitle:model.name forState:UIControlStateNormal];
+            !self.albumButtonSectionView.albumButton ?: [self.albumButtonSectionView.albumButton setTitle:model.name forState:UIControlStateNormal];
             
-            [UIView animateWithDuration:kCBPic2kerControllerAlbumAnimationDuration
+            [UIView animateWithDuration:0.25
                              animations:^{
                                  self.albumView.frame = CGRectMake(self.albumView.originLeft, self.view.originDown, self.albumView.sizeWidth, self.albumView.sizeHeight);
                              }];
         }];;
     }
     return _albumView;
+}
+
+- (CBPic2kerAssetCollectionSectionView *)collectionSectionView {
+    if (!_collectionSectionView) {
+        _collectionSectionView = [[CBPic2kerAssetCollectionSectionView alloc] initWithColumnNumber:_columnNumber preViewHeight:_preScrollViewHeight];
+    
+        _shouldScrollOutsideCollectionView = YES;
+        
+        __weak typeof(self) weakSelf = self;
+        self.collectionSectionView.assetButtonTouchActionBlockInternal = ^(CBPic2kerAssetModel *model, id cell, NSInteger index) {
+            __strong __typeof(self) strongSelf = weakSelf;
+            
+            if ([strongSelf.photoLibrary.selectedAssetIdentifierArr containsObject:[(PHAsset *)model.asset localIdentifier]]) {
+                [strongSelf.photoLibrary removeSelectedAssetWithIdentifier:[(PHAsset *)model.asset localIdentifier]];
+            } else {
+                [strongSelf.photoLibrary addSelectedAssetWithModel:model];
+                
+                if(strongSelf -> _alreadyShowPreView) {
+                    _shouldScrollOutsideCollectionView = NO;
+                    
+                    [UIView animateWithDuration:0.15
+                                     animations:^{
+                                         [strongSelf.collectionSectionView.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:NO];
+                                     } completion:^(BOOL finished) {
+                                         _shouldScrollOutsideCollectionView = YES;
+                                     }];
+                }
+            }
+            
+            strongSelf.titleLableView.text = strongSelf.photoLibrary.selectedAssetArr.count ? [NSString stringWithFormat:@"%lu Photos Selected", (unsigned long)strongSelf.photoLibrary.selectedAssetArr.count] : @"Select Photos";
+            
+            [strongSelf.adapter updateObjects:[strongSelf objectsForAdapter:strongSelf.adapter] dataSource:strongSelf];
+            
+            if (strongSelf.photoLibrary.selectedAssetArr.count == 0 && strongSelf.collectionView.numberOfSections == 3) {
+                [UIView animateWithDuration:0.25
+                                      delay:0
+                     usingSpringWithDamping:0.85
+                      initialSpringVelocity:20
+                                    options:UIViewAnimationOptionCurveEaseOut
+                                 animations:^{
+                                     [strongSelf.collectionView deleteSections:[NSIndexSet indexSetWithIndex:0]];
+//                                     [strongSelf.adapter reloadDataWithCompletion:nil];
+                                 } completion:^(BOOL finished) {
+                                     _alreadyShowPreView = NO;
+                                 }];
+            } else if (strongSelf.photoLibrary.selectedAssetArr.count == 1 && strongSelf.collectionView.numberOfSections == 2) {
+                [UIView animateWithDuration:0.5
+                                      delay:0
+                     usingSpringWithDamping:0.65
+                      initialSpringVelocity:20
+                                    options:UIViewAnimationOptionCurveEaseOut
+                                 animations:^{
+                                     [strongSelf.collectionView insertSections:[NSIndexSet indexSetWithIndex:0]];
+                                 } completion:^(BOOL finished) {
+                                     _alreadyShowPreView = YES;
+                                     
+//                                     CGFloat maxContantOffset = strongSelf.collectionSectionView.collectionView.contentSize.height - strongSelf.collectionSectionView.collectionView.frame.size.height;
+//                                     tempScrollViewOffset = maxContantOffset - strongSelf.collectionSectionView.collectionView.contentOffset.y > strongSelf.preScrollViewHeight ? strongSelf.collectionSectionView.collectionView.contentOffset.y : maxContantOffset - strongSelf.preScrollViewHeight;
+                                     
+                                     tempScrollViewOffset = strongSelf.collectionSectionView.collectionView.contentOffset.y;
+                                     
+                                     _shouldScrollOutsideCollectionView = NO;
+                                     
+                                     [strongSelf.collectionSectionView.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:NO];
+                                     
+                                     _shouldScrollOutsideCollectionView = YES;
+                                 }];
+            }
+        };
+        
+//        _collectionSectionView.collectionViewDidScroll = ^(UICollectionView *collectionView) {
+//            __strong __typeof(self) strongSelf = weakSelf;
+//            if (strongSelf.collectionView.numberOfSections > 2) {
+//                if (strongSelf -> _shouldScrollOutsideCollectionView) {
+//                    CGFloat contentOffset = collectionView.contentOffset.y - tempScrollViewOffset > strongSelf.preScrollViewHeight ? strongSelf.preScrollViewHeight : (collectionView.contentOffset.y - strongSelf -> tempScrollViewOffset < 0 ? 0 : collectionView.contentOffset.y - strongSelf -> tempScrollViewOffset);
+//                    [strongSelf.collectionView setContentOffset:CGPointMake(strongSelf.collectionView.contentOffset.x, contentOffset)];
+//                }
+//            }
+//        };
+    }
+    return _collectionSectionView;
 }
 
 - (NSArray *)albumDataArr {
@@ -252,8 +337,26 @@ static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
         _collectionView.scrollsToTop = YES;
         _collectionView.alwaysBounceVertical = YES;
         _collectionView.backgroundColor = [UIColor clearColor];
+        _collectionView.scrollEnabled = NO;
     }
     return _collectionView;
+}
+
+- (CBPic2kerAlbumButtonSectionView *)albumButtonSectionView {
+    if (!_albumButtonSectionView) {
+        _albumButtonSectionView = [[CBPic2kerAlbumButtonSectionView alloc] init];
+        
+        __weak typeof(self) weakSelf = self;
+        self.albumButtonSectionView.albumButtonTouchActionBlockInternal = ^(id albumButton) {
+            __strong __typeof(self) strongSelf = weakSelf;
+            
+            [UIView animateWithDuration:0.25
+                             animations:^{
+                                 strongSelf.albumView.frame = CGRectMake(strongSelf.albumView.originLeft, strongSelf.collectionView.originUp, strongSelf.albumView.sizeWidth, strongSelf.albumView.sizeHeight);
+                             } completion:nil];
+        };
+    }
+    return _albumButtonSectionView;
 }
 
 - (CBCollectionViewAdapter *)adapter {
@@ -262,47 +365,6 @@ static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
         _adapter.collectionView = self.collectionView;
     }
     return _adapter;
-}
-
-- (CBPic2kerAssetSectionView *)assetSectionView {
-    if (!_assetSectionView) {
-        _assetSectionView = [[CBPic2kerAssetSectionView alloc] initWithColumNumber:_columnNumber albumButtonTouchActionBlock:^(id albumButton) {
-            [UIView animateWithDuration:kCBPic2kerControllerAlbumAnimationDuration
-                             animations:^{
-                                 self.albumView.frame = CGRectMake(self.albumView.originLeft, self.collectionView.originUp, self.albumView.sizeWidth, self.albumView.sizeHeight);
-                             } completion:nil];
-        } assetButtonTouchActionBlock:^(CBPic2kerAssetModel *model) {
-            if ([self.photoLibrary.selectedAssetIdentifierArr containsObject:[(PHAsset *)model.asset localIdentifier]]) {
-                [self.photoLibrary removeSelectedAssetWithIdentifier:[(PHAsset *)model.asset localIdentifier]];
-            } else {
-                [self.photoLibrary addSelectedAssetWithModel:model];
-            }
-            self.titleLableView.text = _photoLibrary.selectedAssetArr.count ? [NSString stringWithFormat:@"%lu Photos Selected", (unsigned long)_photoLibrary.selectedAssetArr.count] : @"Select Photos";
-            
-            [self.adapter updateObjects:[self objectsForAdapter:self.adapter] dataSource:self];
-
-            if (self.photoLibrary.selectedAssetArr.count == 0 && self.collectionView.numberOfSections == 2) {
-                [UIView animateWithDuration:0.5
-                                      delay:0
-                     usingSpringWithDamping:0.9
-                      initialSpringVelocity:20
-                                    options:UIViewAnimationOptionCurveEaseOut
-                                 animations:^{
-                                     [self.collectionView deleteSections:[NSIndexSet indexSetWithIndex:0]];
-                                 } completion:nil];
-            } else if (self.photoLibrary.selectedAssetArr.count == 1 && self.collectionView.numberOfSections == 1) {
-                [UIView animateWithDuration:0.5
-                                      delay:0
-                     usingSpringWithDamping:0.65
-                      initialSpringVelocity:20
-                                    options:UIViewAnimationOptionCurveEaseOut
-                                 animations:^{
-                                        [self.collectionView insertSections:[NSIndexSet indexSetWithIndex:0]];
-                                    } completion:nil];
-            }
-        }];
-    }
-    return _assetSectionView;
 }
 
 #pragma mark - Public Methods.
@@ -318,7 +380,7 @@ static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
 - (instancetype)initWithMaxSelectedImagesCount:(NSInteger)maxSelectedImagesCount
                                       delegate:(id<CBPickerControllerDelegate>)delegate {
     return [self initWithMaxSelectedImagesCount:maxSelectedImagesCount
-                                   columnNumber:3
+                                   columnNumber:4
                                        delegate:delegate];
 }
 
@@ -330,6 +392,7 @@ static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
         _maxSlectedImagesCount = maxSelectedImagesCount;
         _columnNumber = columnNumber;
         _pickerDelegate = delegate;
+        _preScrollViewHeight = 150;
     }
     return self;
 }
@@ -340,6 +403,7 @@ static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
     if (self.photoLibrary.selectedAssetArr.count) {
         [adapterDataArr addObject:self.photoLibrary.selectedAssetArr];
     }
+    [adapterDataArr addObject:@"AlbumButton"];
     [adapterDataArr addObject:self.currentAlbumAssetsModelsArray];
     return adapterDataArr;
 }
@@ -347,9 +411,11 @@ static CGFloat const kCBPic2kerControllerAlbumAnimationDuration = 0.25;
 - (CBCollectionViewSectionController *)adapter:(CBCollectionViewAdapter *)adapter
                     sectionControllerForObject:(id)object {
     if ([object isKindOfClass:[NSMutableArray class]] && [(NSMutableArray *)object count] && [(NSMutableArray *)object[0] isKindOfClass:[CBPic2kerAssetModel class]] && [(NSMutableArray *)object count] < self.currentAlbumAssetsModelsArray.count) {
-        return [[CBPic2kerPreviewSectionView alloc] init];
+        return [[CBPic2kerPreviewSectionView alloc] initWithPreViewHeight:_preScrollViewHeight];
+    } else if([object isKindOfClass:[NSString class]] && [object isEqualToString:@"AlbumButton"]) {
+        return self.albumButtonSectionView;
     } else {
-        return self.assetSectionView;
+        return self.collectionSectionView;
     }
 }
 

@@ -23,4 +23,12 @@
 
 @interface CBPic2kerPreviewSectionView : CBCollectionViewSectionController
 
+/**
+ Init Method.
+ 
+ @param preViewHeight The height of pre-scrollView.
+ @return CBPic2kerAssetCollectionSectionView instance.
+ */
+- (instancetype)initWithPreViewHeight:(NSInteger)preViewHeight;
+
 @end

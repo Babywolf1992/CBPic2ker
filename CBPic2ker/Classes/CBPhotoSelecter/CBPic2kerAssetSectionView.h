@@ -24,19 +24,13 @@
 @interface CBPic2kerAssetSectionView : CBCollectionViewSectionController
 
 /**
- Album button.
- */
-@property (nonatomic, strong, readwrite) UIButton *albumButton;
-/**
  Init methods.
 
  @param columNumber Colum number.
- @param albumButtonTouchActionBlock Touch action block.
  @param assetButtonTouchActionBlock Asset touch action block.
  @return CBPic2kerAssetSectionView insatcne.
  */
 - (instancetype)initWithColumNumber:(NSInteger)columNumber
-        albumButtonTouchActionBlock:(void(^)(id albumButton))albumButtonTouchActionBlock
-        assetButtonTouchActionBlock:(void(^)(id model))assetButtonTouchActionBlock;
+        assetButtonTouchActionBlock:(void (^)(id model, id cell, NSInteger idnex))assetButtonTouchActionBlock;
 
 @end

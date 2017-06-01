@@ -27,15 +27,14 @@
 @property (nonatomic, assign, readwrite) NSInteger columNumber;
 @property (nonatomic, strong, readwrite) NSMutableArray<CBPic2kerAssetModel *> *currentAlbumAssetsModelsArray;
 
-@property (nonatomic, copy, readwrite) void(^albumButtonTouchActionBlockInternal)(id);
-@property (nonatomic, copy, readwrite) void(^assetButtonTouchActionBlockInternal)(id);
+@property (nonatomic, copy, readwrite) void(^assetButtonTouchActionBlockInternal)(id model, id cell, NSInteger idnex);
 
 @end
 
 @implementation CBPic2kerAssetSectionView
 
 - (UIEdgeInsets)inset {
-    return UIEdgeInsetsMake(3, 8, 8, 8);
+    return UIEdgeInsetsMake(0, 8, 8, 8);
 }
 
 - (CGFloat)minimumLineSpacing {
@@ -43,19 +42,13 @@
 }
 
 - (instancetype)initWithColumNumber:(NSInteger)columNumber
-        albumButtonTouchActionBlock:(void (^)(id))albumButtonTouchActionBlock
-        assetButtonTouchActionBlock:(void (^)(id))assetButtonTouchActionBlock {
+        assetButtonTouchActionBlock:(void (^)(id model, id cell, NSInteger idnex))assetButtonTouchActionBlock {
     self = [super init];
     if (self) {
         _columNumber = columNumber;
-        _albumButtonTouchActionBlockInternal = albumButtonTouchActionBlock;
         _assetButtonTouchActionBlockInternal = assetButtonTouchActionBlock;
     }
     return self;
-}
-
-- (void)albumAction:(UIButton *)sender {
-    !_albumButtonTouchActionBlockInternal ?: _albumButtonTouchActionBlockInternal(sender);
 }
 
 - (CGSize)sizeForItemAtIndex:(NSInteger)index {
@@ -79,40 +72,9 @@
     
     [cell configureWithAssetModel:_currentAlbumAssetsModelsArray[index]
               selectedActionBlock:^(id model) {
-                  !_assetButtonTouchActionBlockInternal ?: _assetButtonTouchActionBlockInternal(model);
+                  !_assetButtonTouchActionBlockInternal ?: _assetButtonTouchActionBlockInternal(model, cell, index);
               }];
     return cell;
-}
-
-- (UICollectionReusableView *)viewForSupplementaryElementOfKind:(NSString *)elementKind
-                                                        atIndex:(NSInteger)index {
-    if ([elementKind isEqualToString:UICollectionElementKindSectionHeader]) {
-        UICollectionReusableView *hearderView = [self.collectionContext dequeueReusableSupplementaryViewFromStoryboardOfKind:elementKind viewClass:[UICollectionReusableView class] forSectionController:self atIndex:index];
-
-        if (!_albumButton) {
-            _albumButton = [[UIButton alloc] initWithFrame:CGRectMake(8, 0, hearderView.frame.size.width - 16, hearderView.frame.size.height)];
-            [_albumButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-            _albumButton.layer.cornerRadius = 3;
-            [_albumButton.titleLabel setFont:[UIFont fontWithName:@"AvenirNext-Medium" size:18]];
-            [_albumButton addTarget:self
-                             action:@selector(albumAction:)
-                   forControlEvents:UIControlEventTouchUpInside];
-            _albumButton.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.15];
-            [hearderView addSubview:_albumButton];
-        }
-        
-        return hearderView;
-    }
-    return nil;
-}
-
-- (CGSize)sizeForSupplementaryViewOfKind:(NSString *)elementKind
-                                 atIndex:(NSInteger)index {
-    if ([elementKind isEqualToString:UICollectionElementKindSectionHeader] && index == self.section) {
-        return CGSizeMake(self.viewController.view.frame.size.width - 8, 45);
-    } else {
-        return CGSizeZero;
-    }
 }
 
 @end

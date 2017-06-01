@@ -33,9 +33,14 @@
 @property (nonatomic, assign, readwrite) NSInteger maxSlectedImagesCount;
 
 /**
- Default is 3, used in photos collectionView, change the number of colum.
+ Default is 4, used in photos collectionView, change the number of colum.
  */
 @property (nonatomic, assign, readwrite) NSInteger columnNumber;
+
+/**
+ Default 150, the height of pre scollView.
+ */
+@property (nonatomic, assign, readwrite) NSInteger preScrollViewHeight;
 
 /**
  Just a delegate object.

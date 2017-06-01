@@ -1,4 +1,4 @@
-// CBPic2kerPreviewSectionView.m
+// CBPic2kerAlbumButtonSectionView.m
 // Copyright (c) 2017 陈超邦.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,26 +19,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <CBPic2ker/CBPic2kerPreviewSectionView.h>
+#import <CBPic2ker/CBPic2kerAlbumButtonSectionView.h>
 
-@interface CBPic2kerPreviewSectionView()
+@implementation CBPic2kerAlbumButtonSectionView
 
-@property (nonatomic, assign, readwrite) NSInteger preViewHeightInternal;
-
-@end
-
-@implementation CBPic2kerPreviewSectionView
-
-- (instancetype)initWithPreViewHeight:(NSInteger)preViewHeight {
-    self = [super init];
-    if (self) {
-        _preViewHeightInternal = preViewHeight > 0 ?: 150;
-    }
-    return self;
+- (UIEdgeInsets)inset {
+    return UIEdgeInsetsMake(0, 0, 8, 0);
 }
 
 - (CGSize)sizeForItemAtIndex:(NSInteger)index {
-    return CGSizeMake([[UIScreen mainScreen] bounds].size.width, 150);
+    return CGSizeMake([[UIScreen mainScreen] bounds].size.width, 45);
 }
 
 - (NSInteger)numberOfItems {
@@ -52,10 +42,33 @@
     UICollectionViewCell *cell = [self.collectionContext dequeueReusableCellOfClass:[UICollectionViewCell class]
                                                                forSectionController:self
                                                                             atIndex:index];
+    if (cell && self.albumButton.superview != cell) {
+        [cell.contentView addSubview:self.albumButton];
+    }
+    
     return cell;
 }
 
 - (void)didSelectItemAtIndex:(NSInteger)index {
+}
+
+- (UIButton *)albumButton {
+    if (!_albumButton) {
+        _albumButton = [[UIButton alloc] initWithFrame:CGRectMake(8, 0, self.viewController.view.frame.size.width - 16, 45)];
+        [_albumButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        _albumButton.layer.cornerRadius = 3;
+        [_albumButton.titleLabel setFont:[UIFont fontWithName:@"AvenirNext-Medium" size:18]];
+        [_albumButton addTarget:self
+                         action:@selector(albumAction:)
+               forControlEvents:UIControlEventTouchUpInside];
+        _albumButton.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.15];
+    }
+    return _albumButton;
+}
+
+
+- (void)albumAction:(UIButton *)sender {
+    !_albumButtonTouchActionBlockInternal ?: _albumButtonTouchActionBlockInternal(sender);
 }
 
 @end
