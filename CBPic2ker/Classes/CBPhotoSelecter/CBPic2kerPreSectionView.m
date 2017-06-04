@@ -1,4 +1,4 @@
-// CBPic2kerPreviewSectionView.m
+// CBPic2kerPreSectionView.m
 // Copyright (c) 2017 陈超邦.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,39 +19,42 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <CBPic2ker/CBPic2kerPreviewSectionView.h>
+#import <CBPic2ker/CBPic2kerPreSectionView.h>
+#import <CBPic2ker/CBPic2kerController.h>
 
-@interface CBPic2kerPreviewSectionView()
+@interface CBPic2kerPreSectionView()
 
-@property (nonatomic, assign, readwrite) NSInteger preViewHeightInternal;
+@property (nonatomic, strong, readwrite) NSMutableArray *currentSelectedPhotosArr;
 
 @end
 
-@implementation CBPic2kerPreviewSectionView
+@implementation CBPic2kerPreSectionView
 
-- (instancetype)initWithPreViewHeight:(NSInteger)preViewHeight {
-    self = [super init];
-    if (self) {
-        _preViewHeightInternal = preViewHeight > 0 ?: 150;
-    }
-    return self;
+- (UIEdgeInsets)inset {
+    return UIEdgeInsetsMake(2, 2, 2, 2);
+}
+
+- (CGFloat)minimumLineSpacing {
+    return 2;
 }
 
 - (CGSize)sizeForItemAtIndex:(NSInteger)index {
-    return CGSizeMake([[UIScreen mainScreen] bounds].size.width, 150);
+    return CGSizeMake(200, self.collectionContext.containerSize.height - 4);
 }
 
 - (NSInteger)numberOfItems {
-    return 1;
+    return _currentSelectedPhotosArr.count;
 }
 
 - (void)didUpdateToObject:(id)object {
+    _currentSelectedPhotosArr = object;
 }
 
 - (UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index {
     UICollectionViewCell *cell = [self.collectionContext dequeueReusableCellOfClass:[UICollectionViewCell class]
                                                                forSectionController:self
                                                                             atIndex:index];
+    cell.backgroundColor = [UIColor blackColor];
     return cell;
 }
 

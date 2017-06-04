@@ -1,4 +1,4 @@
-// CBPic2kerPreviewSectionView.h
+// CBPic2kerPreCollectionSectionView.h
 // Copyright (c) 2017 陈超邦.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,7 +21,7 @@
 
 #import <CBPic2ker/CBCollectionViewSectionController.h>
 
-@interface CBPic2kerPreviewSectionView : CBCollectionViewSectionController
+@interface CBPic2kerPreCollectionSectionView : CBCollectionViewSectionController
 
 /**
  Init Method.

@@ -34,7 +34,7 @@
 @implementation CBPic2kerAssetSectionView
 
 - (UIEdgeInsets)inset {
-    return UIEdgeInsetsMake(0, 8, 8, 8);
+    return UIEdgeInsetsMake(0, 2, 2, 2);
 }
 
 - (CGFloat)minimumLineSpacing {
@@ -52,7 +52,7 @@
 }
 
 - (CGSize)sizeForItemAtIndex:(NSInteger)index {
-    return CGSizeMake((self.viewController.view.frame.size.width - (_columNumber - 1) * 1 - 16) / _columNumber, (self.viewController.view.frame.size.width - (_columNumber - 1) * 1 - 16) / _columNumber);
+    return CGSizeMake((self.viewController.view.frame.size.width - (_columNumber - 1) * 1 - 4) / _columNumber, (self.viewController.view.frame.size.width - (_columNumber - 1) * 1 - 4) / _columNumber);
 }
 
 - (NSInteger)numberOfItems {

@@ -20,11 +20,12 @@
 // THE SOFTWARE.
 
 #import <CBPic2ker/CBPic2kerAlbumButtonSectionView.h>
+#import <CBPic2ker/CBPic2kerAlbumButton.h>
 
 @implementation CBPic2kerAlbumButtonSectionView
 
 - (UIEdgeInsets)inset {
-    return UIEdgeInsetsMake(0, 0, 8, 0);
+    return UIEdgeInsetsMake(0, 0, 2, 0);
 }
 
 - (CGSize)sizeForItemAtIndex:(NSInteger)index {
@@ -54,7 +55,7 @@
 
 - (UIButton *)albumButton {
     if (!_albumButton) {
-        _albumButton = [[UIButton alloc] initWithFrame:CGRectMake(8, 0, self.viewController.view.frame.size.width - 16, 45)];
+        _albumButton = [[CBPic2kerAlbumButton alloc] initWithFrame:CGRectMake(2, 0, self.viewController.view.frame.size.width - 4, 45)];
         [_albumButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         _albumButton.layer.cornerRadius = 3;
         [_albumButton.titleLabel setFont:[UIFont fontWithName:@"AvenirNext-Medium" size:18]];

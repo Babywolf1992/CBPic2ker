@@ -76,7 +76,7 @@
 
     [UIView animateWithDuration:0.25
                      animations:^{
-                         self.collectionView.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height - self.viewController.navigationController.navigationBar.sizeHeight - [[UIApplication sharedApplication] statusBarFrame].size.height - 53 - heightOffset);
+                         self.collectionView.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height - self.viewController.navigationController.navigationBar.sizeHeight - [[UIApplication sharedApplication] statusBarFrame].size.height - 47 - heightOffset);
                      }];
     
     return self.collectionView.frame.size;
@@ -87,8 +87,8 @@
 }
 
 - (void)didUpdateToObject:(id)object {
-    if ([(NSArray *)object count] && _assetArray != object) {
-        _assetArray = object;
+    if (_assetArray.count != [(NSMutableArray *)object count]) {
+        self.assetArray = [object mutableCopy];
         [self.adapter reloadDataWithCompletion:nil];
     }
 }
@@ -114,10 +114,9 @@
     UICollectionViewCell *cell = [self.collectionContext dequeueReusableCellOfClass:[UICollectionViewCell class]
                                                                forSectionController:self
                                                                             atIndex:index];
-    if (cell && self.collectionView.superview != cell) {
+    if (cell && self.collectionView.superview != cell.contentView) {
         [cell.contentView addSubview:self.collectionView];
     }
-    
     return cell;
 }
 

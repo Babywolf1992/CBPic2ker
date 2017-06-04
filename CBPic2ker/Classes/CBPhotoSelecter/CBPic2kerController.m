@@ -29,7 +29,7 @@
 #import <CBPic2ker/UIView+CBPic2ker.h>
 #import <CBPic2ker/CBPic2kerAssetModel.h>
 #import <CBPic2ker/CBCollectionViewAdapter+collectionViewDelegate.h>
-#import <CBPic2ker/CBPic2kerPreviewSectionView.h>
+#import <CBPic2ker/CBPic2kerPreCollectionSectionView.h>
 #import <CBPic2ker/CBPic2kerAlbumButtonSectionView.h>
 #import <CBPic2ker/CBPic2kerAssetCollectionSectionView.h>
 
@@ -209,7 +209,7 @@
 
 - (CBPic2kerAlbumView *)albumView {
     if (!_albumView) {
-        _albumView = [[CBPic2kerAlbumView alloc] initWithFrame:CGRectMake(8, self.view.frame.size.height, self.view.frame.size.width - 16, self.view.sizeHeight - self.collectionView.originUp) albumArray:_albumDataArr didSelectedAlbumBlock:^(CBPic2kerAlbumModel *model) {
+        _albumView = [[CBPic2kerAlbumView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.sizeHeight - self.collectionView.originUp) albumArray:_albumDataArr didSelectedAlbumBlock:^(CBPic2kerAlbumModel *model) {
             self.currentAlbumModel = model;
             
             !self.albumButtonSectionView.albumButton ?: [self.albumButtonSectionView.albumButton setTitle:model.name forState:UIControlStateNormal];
@@ -262,7 +262,6 @@
                                     options:UIViewAnimationOptionCurveEaseOut
                                  animations:^{
                                      [strongSelf.collectionView deleteSections:[NSIndexSet indexSetWithIndex:0]];
-//                                     [strongSelf.adapter reloadDataWithCompletion:nil];
                                  } completion:^(BOOL finished) {
                                      _alreadyShowPreView = NO;
                                  }];
@@ -276,9 +275,6 @@
                                      [strongSelf.collectionView insertSections:[NSIndexSet indexSetWithIndex:0]];
                                  } completion:^(BOOL finished) {
                                      _alreadyShowPreView = YES;
-                                     
-//                                     CGFloat maxContantOffset = strongSelf.collectionSectionView.collectionView.contentSize.height - strongSelf.collectionSectionView.collectionView.frame.size.height;
-//                                     tempScrollViewOffset = maxContantOffset - strongSelf.collectionSectionView.collectionView.contentOffset.y > strongSelf.preScrollViewHeight ? strongSelf.collectionSectionView.collectionView.contentOffset.y : maxContantOffset - strongSelf.preScrollViewHeight;
                                      
                                      tempScrollViewOffset = strongSelf.collectionSectionView.collectionView.contentOffset.y;
                                      
@@ -411,7 +407,7 @@
 - (CBCollectionViewSectionController *)adapter:(CBCollectionViewAdapter *)adapter
                     sectionControllerForObject:(id)object {
     if ([object isKindOfClass:[NSMutableArray class]] && [(NSMutableArray *)object count] && [(NSMutableArray *)object[0] isKindOfClass:[CBPic2kerAssetModel class]] && [(NSMutableArray *)object count] < self.currentAlbumAssetsModelsArray.count) {
-        return [[CBPic2kerPreviewSectionView alloc] initWithPreViewHeight:_preScrollViewHeight];
+        return [[CBPic2kerPreCollectionSectionView alloc] initWithPreViewHeight:_preScrollViewHeight];
     } else if([object isKindOfClass:[NSString class]] && [object isEqualToString:@"AlbumButton"]) {
         return self.albumButtonSectionView;
     } else {
