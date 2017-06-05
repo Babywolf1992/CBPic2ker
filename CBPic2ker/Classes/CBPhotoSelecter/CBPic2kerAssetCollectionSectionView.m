@@ -44,8 +44,8 @@
                        preViewHeight:(NSInteger)preViewHeight {
     self = [super init];
     if (self) {
-        _columnNumberInternal = !_columnNumberInternal ? 4 : columnNumber;
-        _preViewHeightInternal = !preViewHeight ? 150 : preViewHeight;
+        _columnNumberInternal = columnNumber;
+        _preViewHeightInternal = preViewHeight;
     }
     return self;
 }

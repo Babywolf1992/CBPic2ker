@@ -47,9 +47,31 @@
 - (instancetype)initWithPreViewHeight:(NSInteger)preViewHeight {
     self = [super init];
     if (self) {
-        _preViewHeightInternal = preViewHeight > 0 ? 150 : preViewHeight;
+        _preViewHeightInternal = preViewHeight;
     }
     return self;
+}
+
+- (void)changeCollectionViewLocation {
+    if (!_selectedPhotosArrInternal.count) { return; }
+    
+    if (!self.photoLibrary.isInsetAsset || _selectedPhotosArrInternal.count != 1)  {
+        [_collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:_selectedPhotosArrInternal.count - 1 inSection:0] atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
+    } else {
+        _collectionView.frame = CGRectMake(self.viewController.view.frame.size.width, 0, _collectionView.frame.size.width * 0.8, _collectionView.frame.size.height * 0.8);
+        _collectionView.center = CGPointMake(_collectionView.center.x, _preViewHeightInternal / 2);
+
+        [_collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:_selectedPhotosArrInternal.count - 1 inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
+        
+        [UIView animateWithDuration:0.5
+                              delay:0
+             usingSpringWithDamping:0.8
+              initialSpringVelocity:20
+                            options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             _collectionView.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, _preViewHeightInternal);
+                         } completion:nil];
+    }
 }
 
 - (CBPic2kerPhotoLibrary *)photoLibrary {
@@ -93,20 +115,17 @@
 
 - (void)didUpdateToObject:(id)object {
     NSInteger changedIndex = [(NSArray *)object findDelectedOrInsertedIndexByComparingWithOldArray:_selectedPhotosArrInternal];
-    BOOL isInsert = _selectedPhotosArrInternal.count < [object count];
     
     self.selectedPhotosArrInternal = [object mutableCopy];
     [self.adapter updateObjects:[self objectsForAdapter:self.adapter]
                      dataSource:self];
     
     if (changedIndex != NSNotFound) {
-        if (changedIndex == 0) {
-            [self.adapter reloadDataWithCompletion:nil];
-            
-            return;
+        if (changedIndex == 0 && _selectedPhotosArrInternal.count == 1) {
+            [self.adapter reloadDataWithCompletion:nil]; return;
         }
         
-        if (!isInsert) {
+        if (!self.photoLibrary.isInsetAsset) {
             [self.collectionView deleteItemsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:changedIndex inSection:0], nil]];
         } else {
             [self.collectionView insertItemsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:changedIndex inSection:0], nil]];

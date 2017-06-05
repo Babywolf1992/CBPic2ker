@@ -58,6 +58,8 @@ static CGFloat const kCBPic2kerPhotoLibraryPreviewMaxWidth = 600;
         NSInteger index = [self.selectedAssetIdentifierArr indexOfObject:identifier];
         [self.selectedAssetIdentifierArr removeObject:identifier];
         [self.selectedAssetArr removeObjectAtIndex:index];
+        
+        _isInsetAsset = NO;
     }
 }
 
@@ -67,6 +69,8 @@ static CGFloat const kCBPic2kerPhotoLibraryPreviewMaxWidth = 600;
     if (![self.selectedAssetIdentifierArr containsObject:[assetMdoel.asset localIdentifier]]) {
         [self.selectedAssetIdentifierArr addObject:[assetMdoel.asset localIdentifier]];
         [self.selectedAssetArr addObject:assetMdoel];
+        
+        _isInsetAsset = YES;
     }
 }
 

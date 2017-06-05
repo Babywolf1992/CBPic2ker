@@ -1,4 +1,4 @@
-// CBPic2kerPreCollectionSectionView.h
+// CBPic2kerPreSectionViewCell.h
 // Copyright (c) 2017 陈超邦.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,21 +19,18 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <CBPic2ker/CBCollectionViewSectionController.h>
+#import <UIKit/UIKit.h>
+#import <CBPic2ker/CBPic2kerAssetModel.h>
 
-@interface CBPic2kerPreCollectionSectionView : CBCollectionViewSectionController
+@interface CBPic2kerPreSectionViewCell : UICollectionViewCell
 
 /**
- Init Method.
+ Configure cell with specified model.
  
- @param preViewHeight The height of pre-scrollView.
- @return CBPic2kerAssetCollectionSectionView instance.
+ @param assetModel Specified model data.
+ @param selectedActionBlock Selected action block.
  */
-- (instancetype)initWithPreViewHeight:(NSInteger)preViewHeight;
-
-/**
- Change collectionView's location.
- */
-- (void)changeCollectionViewLocation;
+- (void)configureWithAssetModel:(CBPic2kerAssetModel *)assetModel
+            selectedActionBlock:(void(^)(id model))selectedActionBlock;
 
 @end

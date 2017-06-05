@@ -38,7 +38,7 @@
 @property (nonatomic, assign, readwrite) NSInteger columnNumber;
 
 /**
- Default 150, the height of pre scollView.
+ Default self.view.frame.size.height / 2, the height of pre scollView.
  */
 @property (nonatomic, assign, readwrite) NSInteger preScrollViewHeight;
 

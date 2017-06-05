@@ -38,9 +38,10 @@
 @property (nonatomic, strong, readwrite) CBPick2kerPermissionView *permissionView;
 @property (nonatomic, strong, readwrite) CBCollectionView *collectionView;
 @property (nonatomic, strong, readwrite) CBPic2kerAlbumView *albumView;
-@property (nonatomic, strong, readwrite) UILabel *titleLableView;
 @property (nonatomic, strong, readwrite) CBPic2kerAssetCollectionSectionView *collectionSectionView;
 @property (nonatomic, strong, readwrite) CBPic2kerAlbumButtonSectionView *albumButtonSectionView;
+@property (nonatomic, strong, readwrite) CBPic2kerPreCollectionSectionView *preCollectionSectionView;
+@property (nonatomic, strong, readwrite) UILabel *titleLableView;
 
 @property (nonatomic, strong, readwrite) NSMutableArray *albumDataArr;
 @property (nonatomic, strong, readwrite) CBPic2kerAlbumModel *currentAlbumModel;
@@ -57,9 +58,6 @@
 
 @implementation CBPic2kerController {
     BOOL _alreadyShowPreView;
-    BOOL _shouldScrollOutsideCollectionView;
-    
-    CGFloat tempScrollViewOffset;
 }
 
 @synthesize currentAlbumModel = _currentAlbumModel;
@@ -122,6 +120,7 @@
         
         [self.titleLableView setText:@"Select Photos"];
     }];
+    
     [[CBPic2kerPhotoLibrary sharedPhotoLibrary] getAllAlbumsWithCompletion:^(NSArray<CBPic2kerAlbumModel *> *models) {
         self.albumDataArr = [models mutableCopy];
         
@@ -226,8 +225,6 @@
 - (CBPic2kerAssetCollectionSectionView *)collectionSectionView {
     if (!_collectionSectionView) {
         _collectionSectionView = [[CBPic2kerAssetCollectionSectionView alloc] initWithColumnNumber:_columnNumber preViewHeight:_preScrollViewHeight];
-    
-        _shouldScrollOutsideCollectionView = YES;
         
         __weak typeof(self) weakSelf = self;
         self.collectionSectionView.assetButtonTouchActionBlockInternal = ^(CBPic2kerAssetModel *model, id cell, NSInteger index) {
@@ -239,14 +236,10 @@
                 [strongSelf.photoLibrary addSelectedAssetWithModel:model];
                 
                 if(strongSelf -> _alreadyShowPreView) {
-                    _shouldScrollOutsideCollectionView = NO;
-                    
                     [UIView animateWithDuration:0.15
                                      animations:^{
                                          [strongSelf.collectionSectionView.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:NO];
-                                     } completion:^(BOOL finished) {
-                                         _shouldScrollOutsideCollectionView = YES;
-                                     }];
+                                     } completion:nil];
                 }
             }
             
@@ -264,6 +257,8 @@
                                      [strongSelf.collectionView deleteSections:[NSIndexSet indexSetWithIndex:0]];
                                  } completion:^(BOOL finished) {
                                      _alreadyShowPreView = NO;
+                                     
+                                     [strongSelf.preCollectionSectionView changeCollectionViewLocation];
                                  }];
             } else if (strongSelf.photoLibrary.selectedAssetArr.count == 1 && strongSelf.collectionView.numberOfSections == 2) {
                 [UIView animateWithDuration:0.5
@@ -276,28 +271,23 @@
                                  } completion:^(BOOL finished) {
                                      _alreadyShowPreView = YES;
                                      
-                                     tempScrollViewOffset = strongSelf.collectionSectionView.collectionView.contentOffset.y;
-                                     
-                                     _shouldScrollOutsideCollectionView = NO;
-                                     
                                      [strongSelf.collectionSectionView.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:NO];
                                      
-                                     _shouldScrollOutsideCollectionView = YES;
+                                     [strongSelf.preCollectionSectionView changeCollectionViewLocation];
                                  }];
+            } else {
+                [strongSelf.preCollectionSectionView changeCollectionViewLocation];
             }
         };
-        
-//        _collectionSectionView.collectionViewDidScroll = ^(UICollectionView *collectionView) {
-//            __strong __typeof(self) strongSelf = weakSelf;
-//            if (strongSelf.collectionView.numberOfSections > 2) {
-//                if (strongSelf -> _shouldScrollOutsideCollectionView) {
-//                    CGFloat contentOffset = collectionView.contentOffset.y - tempScrollViewOffset > strongSelf.preScrollViewHeight ? strongSelf.preScrollViewHeight : (collectionView.contentOffset.y - strongSelf -> tempScrollViewOffset < 0 ? 0 : collectionView.contentOffset.y - strongSelf -> tempScrollViewOffset);
-//                    [strongSelf.collectionView setContentOffset:CGPointMake(strongSelf.collectionView.contentOffset.x, contentOffset)];
-//                }
-//            }
-//        };
     }
     return _collectionSectionView;
+}
+
+- (CBPic2kerPreCollectionSectionView *)preCollectionSectionView {
+    if (!_preCollectionSectionView) {
+        _preCollectionSectionView = [[CBPic2kerPreCollectionSectionView alloc] initWithPreViewHeight:_preScrollViewHeight];
+    }
+    return _preCollectionSectionView;
 }
 
 - (NSArray *)albumDataArr {
@@ -388,7 +378,7 @@
         _maxSlectedImagesCount = maxSelectedImagesCount;
         _columnNumber = columnNumber;
         _pickerDelegate = delegate;
-        _preScrollViewHeight = 150;
+        _preScrollViewHeight = [[UIScreen mainScreen] bounds].size.width / 2.25;
     }
     return self;
 }
@@ -407,7 +397,7 @@
 - (CBCollectionViewSectionController *)adapter:(CBCollectionViewAdapter *)adapter
                     sectionControllerForObject:(id)object {
     if ([object isKindOfClass:[NSMutableArray class]] && [(NSMutableArray *)object count] && [(NSMutableArray *)object[0] isKindOfClass:[CBPic2kerAssetModel class]] && [(NSMutableArray *)object count] < self.currentAlbumAssetsModelsArray.count) {
-        return [[CBPic2kerPreCollectionSectionView alloc] initWithPreViewHeight:_preScrollViewHeight];
+        return self.preCollectionSectionView;
     } else if([object isKindOfClass:[NSString class]] && [object isEqualToString:@"AlbumButton"]) {
         return self.albumButtonSectionView;
     } else {

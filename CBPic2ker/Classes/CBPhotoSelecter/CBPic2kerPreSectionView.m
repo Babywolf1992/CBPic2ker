@@ -21,6 +21,7 @@
 
 #import <CBPic2ker/CBPic2kerPreSectionView.h>
 #import <CBPic2ker/CBPic2kerController.h>
+#import <CBPic2ker/CBPic2kerPreSectionViewCell.h>
 
 @interface CBPic2kerPreSectionView()
 
@@ -31,7 +32,11 @@
 @implementation CBPic2kerPreSectionView
 
 - (UIEdgeInsets)inset {
-    return UIEdgeInsetsMake(2, 2, 2, 2);
+    if (_currentSelectedPhotosArr.count == 1) {
+        return UIEdgeInsetsMake(2, self.collectionContext.containerSize.width * 0.125, 2, 2);
+    } else {
+        return UIEdgeInsetsMake(2, 2, 2, 2);
+    }
 }
 
 - (CGFloat)minimumLineSpacing {
@@ -39,7 +44,7 @@
 }
 
 - (CGSize)sizeForItemAtIndex:(NSInteger)index {
-    return CGSizeMake(200, self.collectionContext.containerSize.height - 4);
+    return CGSizeMake(self.collectionContext.containerSize.width * 0.75, self.collectionContext.containerSize.height - 4);
 }
 
 - (NSInteger)numberOfItems {
@@ -51,10 +56,14 @@
 }
 
 - (UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index {
-    UICollectionViewCell *cell = [self.collectionContext dequeueReusableCellOfClass:[UICollectionViewCell class]
-                                                               forSectionController:self
-                                                                            atIndex:index];
-    cell.backgroundColor = [UIColor blackColor];
+    CBPic2kerPreSectionViewCell *cell = [self.collectionContext dequeueReusableCellOfClass:[CBPic2kerPreSectionViewCell class]
+                                                                      forSectionController:self
+                                                                                   atIndex:index];
+    if (index < _currentSelectedPhotosArr.count) {
+        [cell configureWithAssetModel:_currentSelectedPhotosArr[index] selectedActionBlock:^(id model) {
+            
+        }];
+    }
     return cell;
 }
 

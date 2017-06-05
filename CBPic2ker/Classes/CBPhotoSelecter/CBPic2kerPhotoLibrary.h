@@ -47,6 +47,11 @@
 @property (nonatomic, strong, readwrite) NSMutableArray<NSString *> *selectedAssetIdentifierArr;
 
 /**
+ Used to judge if the library was inseting asset.
+ */
+@property (nonatomic, assign, readwrite) BOOL isInsetAsset;
+
+/**
  Shared instance.
  */
 + (instancetype)sharedPhotoLibrary;
