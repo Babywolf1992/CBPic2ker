@@ -225,15 +225,13 @@ static CGFloat const kCBPic2kerPhotoLibraryPreviewMaxWidth = 600;
     if (!asset || ![asset isKindOfClass:[PHAsset class]]) { return 0; }
     
     CGSize imageSize;
-    if (photoWidth < [UIScreen mainScreen].bounds.size.width && photoWidth < kCBPic2kerPhotoLibraryPreviewMaxWidth) {
-        imageSize = _gridThumbnailSize;
-    } else {
-        PHAsset *phAsset = (PHAsset *)asset;
-        CGFloat aspectRatio = phAsset.pixelWidth / (CGFloat)phAsset.pixelHeight;
-        CGFloat pixelWidth = photoWidth * 2;
-        CGFloat pixelHeight = pixelWidth / aspectRatio;
-        imageSize = CGSizeMake(pixelWidth, pixelHeight);
-    }
+    
+    PHAsset *phAsset = (PHAsset *)asset;
+    CGFloat aspectRatio = phAsset.pixelWidth / (CGFloat)phAsset.pixelHeight;
+    CGFloat pixelWidth = photoWidth * 2;
+    CGFloat pixelHeight = pixelWidth / aspectRatio;
+    imageSize = CGSizeMake(pixelWidth, pixelHeight);
+    
     PHImageRequestOptions *option = [[PHImageRequestOptions alloc] init];
     option.resizeMode = PHImageRequestOptionsResizeModeFast;
     PHImageRequestID imageRequestID = [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:imageSize contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
@@ -242,7 +240,7 @@ static CGFloat const kCBPic2kerPhotoLibraryPreviewMaxWidth = 600;
             result = [UIImage fixOrientation:result];
             if (completion) completion(result,info,[[info objectForKey:PHImageResultIsDegradedKey] boolValue]);
         }
-        // Download image from iCloud / 从iCloud下载图片
+
         if ([info objectForKey:PHImageResultIsInCloudKey] && !result) {
             PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
             options.progressHandler = ^(double progress, NSError *error, BOOL *stop, NSDictionary *info) {

@@ -87,8 +87,12 @@
 }
 
 - (void)didUpdateToObject:(id)object {
-    if (_assetArray.count != [(NSMutableArray *)object count]) {
-        self.assetArray = [object mutableCopy];
+    NSMutableArray *currentAlbumAssetsModelsArray = object[1];
+    
+    if (!currentAlbumAssetsModelsArray.count) { return; }
+    
+    if (_assetArray.count != [(NSMutableArray *)currentAlbumAssetsModelsArray count]) {
+        self.assetArray = currentAlbumAssetsModelsArray;
         [self.adapter reloadDataWithCompletion:nil];
     }
 }

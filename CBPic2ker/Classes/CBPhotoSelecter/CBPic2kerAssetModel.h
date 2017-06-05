@@ -61,9 +61,11 @@ typedef NS_ENUM(NSInteger, CBPic2kerAssetModelMediaType) {
 @property (nonatomic, copy, readwrite) NSString *timeLength;
 
 /**
- If the media type is image, it will be set.
+ Image, set when mediatype is image.
  */
-@property (nonatomic, strong, readwrite) UIImage *image;
+@property (nonatomic, strong, readwrite) UIImage *smallSizeImage;
+@property (nonatomic, strong, readwrite) UIImage *middleSizeImage;
+@property (nonatomic, strong, readwrite) UIImage *fullSizeImage;
 
 /**
  Init a photo dataModel With a asset.

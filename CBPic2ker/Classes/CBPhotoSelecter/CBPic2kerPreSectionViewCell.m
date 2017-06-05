@@ -45,6 +45,7 @@
     switch (assetModel.mediaType) {
         case CBPic2kerAssetModelMediaTypePhoto:
             [self.contentView addSubview:self.imageView];
+            self.imageView.image = _assetModel.fullSizeImage ? _assetModel.fullSizeImage : (_assetModel.middleSizeImage ? _assetModel.middleSizeImage: _assetModel.smallSizeImage);
             break;
         default:
             break;
@@ -53,7 +54,7 @@
     PHImageRequestID imageRequestID = [[CBPic2kerPhotoLibrary sharedPhotoLibrary] getPhotoWithAsset:assetModel.asset photoWidth:self.frame.size.width completion:^(UIImage *photo, NSDictionary *info, BOOL isDegraded) {
         if ([self.representedAssetIdentifier isEqualToString:[(PHAsset *)assetModel.asset localIdentifier]]) {
             self.imageView.image = photo;
-            assetModel.image = photo;
+            assetModel.smallSizeImage = photo;
         } else {
             [[PHImageManager defaultManager] cancelImageRequest:self.imageRequestID];
         }
@@ -67,9 +68,6 @@
         _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
         _imageView.contentMode = UIViewContentModeScaleAspectFill;
         _imageView.clipsToBounds = YES;
-        if (_assetModel.image) {
-            _imageView.image = _assetModel.image;
-        }
     }
     return _imageView;
 }

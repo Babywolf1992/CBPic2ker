@@ -217,7 +217,7 @@
                              animations:^{
                                  self.albumView.frame = CGRectMake(self.albumView.originLeft, self.view.originDown, self.albumView.sizeWidth, self.albumView.sizeHeight);
                              }];
-        }];;
+        }];
     }
     return _albumView;
 }
@@ -235,12 +235,12 @@
             } else {
                 [strongSelf.photoLibrary addSelectedAssetWithModel:model];
                 
-                if(strongSelf -> _alreadyShowPreView) {
-                    [UIView animateWithDuration:0.15
-                                     animations:^{
-                                         [strongSelf.collectionSectionView.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:NO];
-                                     } completion:nil];
-                }
+//                if(strongSelf -> _alreadyShowPreView) {
+//                    [UIView animateWithDuration:0.15
+//                                     animations:^{
+//                                         [strongSelf.collectionSectionView.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:NO];
+//                                     } completion:nil];
+//                }
             }
             
             strongSelf.titleLableView.text = strongSelf.photoLibrary.selectedAssetArr.count ? [NSString stringWithFormat:@"%lu Photos Selected", (unsigned long)strongSelf.photoLibrary.selectedAssetArr.count] : @"Select Photos";
@@ -256,7 +256,7 @@
                                  animations:^{
                                      [strongSelf.collectionView deleteSections:[NSIndexSet indexSetWithIndex:0]];
                                  } completion:^(BOOL finished) {
-                                     _alreadyShowPreView = NO;
+//                                     _alreadyShowPreView = NO;
                                      
                                      [strongSelf.preCollectionSectionView changeCollectionViewLocation];
                                  }];
@@ -269,9 +269,9 @@
                                  animations:^{
                                      [strongSelf.collectionView insertSections:[NSIndexSet indexSetWithIndex:0]];
                                  } completion:^(BOOL finished) {
-                                     _alreadyShowPreView = YES;
+//                                     _alreadyShowPreView = YES;
                                      
-                                     [strongSelf.collectionSectionView.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:NO];
+//                                     [strongSelf.collectionSectionView.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:NO];
                                      
                                      [strongSelf.preCollectionSectionView changeCollectionViewLocation];
                                  }];
@@ -387,18 +387,18 @@
 - (NSArray *)objectsForAdapter:(CBCollectionViewAdapter *)adapter {
     NSMutableArray *adapterDataArr = [[NSMutableArray alloc] init];
     if (self.photoLibrary.selectedAssetArr.count) {
-        [adapterDataArr addObject:self.photoLibrary.selectedAssetArr];
+        [adapterDataArr addObject:[NSMutableArray arrayWithObjects:@"SelectedAssets", self.photoLibrary.selectedAssetArr, nil]];
     }
     [adapterDataArr addObject:@"AlbumButton"];
-    [adapterDataArr addObject:self.currentAlbumAssetsModelsArray];
+    [adapterDataArr addObject:[NSMutableArray arrayWithObjects:@"CurrentAlbumAssets", self.currentAlbumAssetsModelsArray, nil]];
     return adapterDataArr;
 }
 
 - (CBCollectionViewSectionController *)adapter:(CBCollectionViewAdapter *)adapter
                     sectionControllerForObject:(id)object {
-    if ([object isKindOfClass:[NSMutableArray class]] && [(NSMutableArray *)object count] && [(NSMutableArray *)object[0] isKindOfClass:[CBPic2kerAssetModel class]] && [(NSMutableArray *)object count] < self.currentAlbumAssetsModelsArray.count) {
+    if ([object isKindOfClass:[NSMutableArray class]] && [object containsObject:@"SelectedAssets"]) {
         return self.preCollectionSectionView;
-    } else if([object isKindOfClass:[NSString class]] && [object isEqualToString:@"AlbumButton"]) {
+    } else if([object isKindOfClass:[NSString class]]) {
         return self.albumButtonSectionView;
     } else {
         return self.collectionSectionView;

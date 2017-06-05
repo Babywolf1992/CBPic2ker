@@ -69,7 +69,7 @@
     PHImageRequestID imageRequestID = [[CBPic2kerPhotoLibrary sharedPhotoLibrary] getPhotoWithAsset:assetModel.asset photoWidth:self.frame.size.width completion:^(UIImage *photo, NSDictionary *info, BOOL isDegraded) {
         if ([self.representedAssetIdentifier isEqualToString:[(PHAsset *)assetModel.asset localIdentifier]]) {
             self.assetImageView.image = photo;
-            assetModel.image = photo;
+            assetModel.smallSizeImage = photo;
         } else {
             [[PHImageManager defaultManager] cancelImageRequest:self.imageRequestID];
         }

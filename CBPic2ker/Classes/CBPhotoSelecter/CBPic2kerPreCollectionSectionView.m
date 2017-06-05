@@ -65,9 +65,9 @@
         
         [UIView animateWithDuration:0.5
                               delay:0
-             usingSpringWithDamping:0.8
+             usingSpringWithDamping:0.85
               initialSpringVelocity:20
-                            options:UIViewAnimationOptionCurveEaseInOut
+                            options:UIViewAnimationOptionCurveLinear
                          animations:^{
                              _collectionView.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, _preViewHeightInternal);
                          } completion:nil];
@@ -114,9 +114,9 @@
 }
 
 - (void)didUpdateToObject:(id)object {
-    NSInteger changedIndex = [(NSArray *)object findDelectedOrInsertedIndexByComparingWithOldArray:_selectedPhotosArrInternal];
+    NSInteger changedIndex = [(NSArray *)self.photoLibrary.selectedAssetArr findDelectedOrInsertedIndexByComparingWithOldArray:_selectedPhotosArrInternal];
     
-    self.selectedPhotosArrInternal = [object mutableCopy];
+    self.selectedPhotosArrInternal = [self.photoLibrary.selectedAssetArr  mutableCopy];
     [self.adapter updateObjects:[self objectsForAdapter:self.adapter]
                      dataSource:self];
     
@@ -137,10 +137,7 @@
     UICollectionViewCell *cell = [self.collectionContext dequeueReusableCellOfClass:[UICollectionViewCell class]
                                                                forSectionController:self
                                                                             atIndex:index];
-    [cell.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-         [obj removeFromSuperview];
-    }];
-    [cell addSubview:self.collectionView];
+    [cell.contentView addSubview:self.collectionView];
     return cell;
 }
 
