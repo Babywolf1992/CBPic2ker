@@ -1,4 +1,4 @@
-// NSArray+CBPic2ker.h
+// CBPhotoBrowserScrollView.h
 // Copyright (c) 2017 陈超邦.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,26 +19,40 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
-#import <Photos/Photos.h>
-#import <CBPic2ker/CBPhotoSelecterAssetModel.h>
+#import <UIKit/UIKit.h>
+#import <CBPic2ker/CBPhotoBrowserScrollViewDelegate.h>
 
-@interface NSArray (CBPic2ker)
-
-/**
- Determine whether the specified array have the exactly same assets.
-
- @param comparedArray Target array.
- @return Compared result.
- */
-- (BOOL)determineWhetherArrayHaveTheSamePhotosAssetsWithComparedArray:(NSArray<CBPhotoSelecterAssetModel *>*)comparedArray;
+@interface CBPhotoBrowserScrollView : UIScrollView
 
 /**
- Find delected or inserted index by comparing with target array.
-
- @param oldArray Compared array.
- @return Changed index array.
+ Nothing but a delegate object.
  */
-- (NSInteger)findDelectedOrInsertedIndexByComparingWithOldArray:(NSArray<CBPhotoSelecterAssetModel *>*)oldArray;
+@property (nonatomic, weak, readwrite) id <CBPhotoBrowserScrollViewDelegate> imageBrowserDelegate;
+
+/**
+ Current asset array.
+ */
+@property (nonatomic, strong, readwrite) NSMutableArray *currentAssetArray;
+
+/**
+ Init method.
+
+ @param assets Assets array.
+ @return CBPhotoBrowserScrollView instance.
+ */
+- (instancetype)initWithAssets:(NSMutableArray *)assets;
+
+/**
+ Present method.
+
+ @param fromView Target view used to convert.
+ @param container Conatnier view.
+ @param animated Animation option.
+ @param completion Recall block.
+ */
+- (void)presentFromImageView:(UIView *)fromView
+                   container:(UIView *)container
+                    animated:(BOOL)animated
+                  completion:(void (^)(void))completion;
 
 @end

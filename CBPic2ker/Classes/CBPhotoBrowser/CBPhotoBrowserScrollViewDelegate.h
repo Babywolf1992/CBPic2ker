@@ -1,4 +1,4 @@
-// NSArray+CBPic2ker.h
+// CBPhotoBrowserScrollViewDelegate.h
 // Copyright (c) 2017 陈超邦.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,25 +20,18 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-#import <Photos/Photos.h>
-#import <CBPic2ker/CBPhotoSelecterAssetModel.h>
 
-@interface NSArray (CBPic2ker)
+@class CBPhotoBrowserScrollView;
 
-/**
- Determine whether the specified array have the exactly same assets.
-
- @param comparedArray Target array.
- @return Compared result.
- */
-- (BOOL)determineWhetherArrayHaveTheSamePhotosAssetsWithComparedArray:(NSArray<CBPhotoSelecterAssetModel *>*)comparedArray;
+@protocol CBPhotoBrowserScrollViewDelegate <NSObject>
 
 /**
- Find delected or inserted index by comparing with target array.
+ Current browser index.
 
- @param oldArray Compared array.
- @return Changed index array.
+ @param imageBrowserScrollView Browser scrollView.
+ @param currentIndex Current viewing index.
  */
-- (NSInteger)findDelectedOrInsertedIndexByComparingWithOldArray:(NSArray<CBPhotoSelecterAssetModel *>*)oldArray;
+- (void)imageBrowserScrollView:(CBPhotoBrowserScrollView *)imageBrowserScrollView
+                  currentIndex:(NSInteger)currentIndex;
 
 @end

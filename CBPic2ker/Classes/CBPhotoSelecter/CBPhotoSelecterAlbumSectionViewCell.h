@@ -1,4 +1,4 @@
-// NSArray+CBPic2ker.h
+// CBPhotoSelecterAlbumSectionViewCell.h
 // Copyright (c) 2017 陈超邦.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,26 +19,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
-#import <Photos/Photos.h>
-#import <CBPic2ker/CBPhotoSelecterAssetModel.h>
+#import <UIKit/UIKit.h>
+#import <CBPic2ker/CBPhotoSelecterAlbumModel.h>
 
-@interface NSArray (CBPic2ker)
-
-/**
- Determine whether the specified array have the exactly same assets.
-
- @param comparedArray Target array.
- @return Compared result.
- */
-- (BOOL)determineWhetherArrayHaveTheSamePhotosAssetsWithComparedArray:(NSArray<CBPhotoSelecterAssetModel *>*)comparedArray;
+@interface CBPhotoSelecterAlbumSectionViewCell : UICollectionViewCell
 
 /**
- Find delected or inserted index by comparing with target array.
+ Configure cell with specified model.
 
- @param oldArray Compared array.
- @return Changed index array.
+ @param albumModel Specified model data.
  */
-- (NSInteger)findDelectedOrInsertedIndexByComparingWithOldArray:(NSArray<CBPhotoSelecterAssetModel *>*)oldArray;
+- (void)configureWithAlbumModel:(CBPhotoSelecterAlbumModel *)albumModel;
 
 @end

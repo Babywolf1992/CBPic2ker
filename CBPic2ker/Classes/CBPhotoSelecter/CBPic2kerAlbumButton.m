@@ -1,4 +1,4 @@
-// CBPic2kerAlbumButton.m
+// CBPhotoSelecterAlbumButton.m
 // Copyright (c) 2017 陈超邦.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,8 +19,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "CBPic2kerAlbumButton.h"
+#import "CBPhotoSelecterAlbumButton.h"
 
-@implementation CBPic2kerAlbumButton
+@implementation CBPhotoSelecterAlbumButton
 
 @end

@@ -1,4 +1,4 @@
-// NSArray+CBPic2ker.h
+// CBPhotoSelecterPermissionView.h
 // Copyright (c) 2017 陈超邦.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,26 +19,18 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
-#import <Photos/Photos.h>
-#import <CBPic2ker/CBPhotoSelecterAssetModel.h>
+#import <UIKit/UIKit.h>
 
-@interface NSArray (CBPic2ker)
+@interface CBPhotoSelecterPermissionView : UIView
 
 /**
- Determine whether the specified array have the exactly same assets.
+ Init method.
 
- @param comparedArray Target array.
- @return Compared result.
+ @param frame Just frame.
+ @param grantButtonAction utton action.
+ @return CBPhotoSelecterPermissionView instance.
  */
-- (BOOL)determineWhetherArrayHaveTheSamePhotosAssetsWithComparedArray:(NSArray<CBPhotoSelecterAssetModel *>*)comparedArray;
-
-/**
- Find delected or inserted index by comparing with target array.
-
- @param oldArray Compared array.
- @return Changed index array.
- */
-- (NSInteger)findDelectedOrInsertedIndexByComparingWithOldArray:(NSArray<CBPhotoSelecterAssetModel *>*)oldArray;
+- (instancetype)initWithFrame:(CGRect)frame
+            grantButtonAction:(void(^)(void))grantButtonAction;
 
 @end

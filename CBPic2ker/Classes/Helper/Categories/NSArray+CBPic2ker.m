@@ -24,19 +24,19 @@
 
 @implementation NSArray (CBPic2ker)
 
-- (BOOL)determineWhetherArrayHaveTheSamePhotosAssetsWithComparedArray:(NSArray<CBPic2kerAssetModel *> *)comparedArray {
+- (BOOL)determineWhetherArrayHaveTheSamePhotosAssetsWithComparedArray:(NSArray<CBPhotoSelecterAssetModel *> *)comparedArray {
     if (self.count != comparedArray.count) { return NO; }
     if (!self.count) { return YES; }
     
     __block BOOL result = YES;
     
     NSMutableArray *tempComparedArrayIdentifierStringArray = [[NSMutableArray alloc] init];
-    [comparedArray enumerateObjectsUsingBlock:^(CBPic2kerAssetModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [comparedArray enumerateObjectsUsingBlock:^(CBPhotoSelecterAssetModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [tempComparedArrayIdentifierStringArray addObject:[obj.asset localIdentifier]];
     }];
     
     NSMutableArray *tempSelfArrayIdentifierStringArray = [[NSMutableArray alloc] init];
-    [self enumerateObjectsUsingBlock:^(CBPic2kerAssetModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self enumerateObjectsUsingBlock:^(CBPhotoSelecterAssetModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [tempSelfArrayIdentifierStringArray addObject:[obj.asset localIdentifier]];
     }];
     
@@ -55,14 +55,14 @@
     return result;
 }
 
-- (NSInteger)findDelectedOrInsertedIndexByComparingWithOldArray:(NSArray<CBPic2kerAssetModel *> *)oldArray {
+- (NSInteger)findDelectedOrInsertedIndexByComparingWithOldArray:(NSArray<CBPhotoSelecterAssetModel *> *)oldArray {
     NSMutableArray *tempSelfArrayIdentifierStringArray = [[NSMutableArray alloc] init];
-    [self enumerateObjectsUsingBlock:^(CBPic2kerAssetModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self enumerateObjectsUsingBlock:^(CBPhotoSelecterAssetModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [tempSelfArrayIdentifierStringArray addObject:[obj.asset localIdentifier]];
     }];
     
     NSMutableArray *tempComparedArrayIdentifierStringArray = [[NSMutableArray alloc] init];
-    [oldArray enumerateObjectsUsingBlock:^(CBPic2kerAssetModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [oldArray enumerateObjectsUsingBlock:^(CBPhotoSelecterAssetModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [tempComparedArrayIdentifierStringArray addObject:[obj.asset localIdentifier]];
     }];
     

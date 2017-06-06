@@ -1,4 +1,4 @@
-// NSArray+CBPic2ker.h
+// CBPhotoBrowserScrollView.m
 // Copyright (c) 2017 陈超邦.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,26 +19,33 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
-#import <Photos/Photos.h>
-#import <CBPic2ker/CBPhotoSelecterAssetModel.h>
+#import <CBPic2ker/CBPhotoBrowserScrollView.h>
 
-@interface NSArray (CBPic2ker)
+@implementation CBPhotoBrowserScrollView
 
-/**
- Determine whether the specified array have the exactly same assets.
+- (instancetype)initWithAssets:(NSMutableArray *)assets {
+    if (!assets.count) { return nil; }
+    
+    self = [super init];
+    if (self) {
+        _currentAssetArray = assets.mutableCopy;
+        
+    }
+    
+    return self;
+}
 
- @param comparedArray Target array.
- @return Compared result.
- */
-- (BOOL)determineWhetherArrayHaveTheSamePhotosAssetsWithComparedArray:(NSArray<CBPhotoSelecterAssetModel *>*)comparedArray;
+- (void)setCurrentAssetArray:(NSMutableArray *)currentAssetArray {
+    _currentAssetArray = currentAssetArray;
+    
+    
+}
 
-/**
- Find delected or inserted index by comparing with target array.
-
- @param oldArray Compared array.
- @return Changed index array.
- */
-- (NSInteger)findDelectedOrInsertedIndexByComparingWithOldArray:(NSArray<CBPhotoSelecterAssetModel *>*)oldArray;
+- (void)presentFromImageView:(UIView *)fromView
+                   container:(UIView *)container
+                    animated:(BOOL)animated
+                  completion:(void (^)(void))completion {
+    
+}
 
 @end

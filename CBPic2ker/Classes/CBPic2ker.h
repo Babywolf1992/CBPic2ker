@@ -22,7 +22,7 @@
 #ifndef CBPic2ker_h
 #define CBPic2ker_h
 
-#import <CBPic2ker/CBPic2kerController.h>
-#import <CBPic2ker/CBPic2kerPhotoLibrary.h>
+#import <CBPic2ker/CBPhotoSelecterController.h>
+#import <CBPic2ker/CBPhotoSelecterPhotoLibrary.h>
 
 #endif /* CBPic2ker_h */

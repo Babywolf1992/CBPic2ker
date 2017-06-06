@@ -1,4 +1,4 @@
-// NSArray+CBPic2ker.h
+// CBPhotoSelecterAlbumModel.m
 // Copyright (c) 2017 陈超邦.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,26 +19,20 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
-#import <Photos/Photos.h>
-#import <CBPic2ker/CBPhotoSelecterAssetModel.h>
+#import <CBPic2ker/CBPhotoSelecterAlbumModel.h>
 
-@interface NSArray (CBPic2ker)
+@implementation CBPhotoSelecterAlbumModel
 
-/**
- Determine whether the specified array have the exactly same assets.
-
- @param comparedArray Target array.
- @return Compared result.
- */
-- (BOOL)determineWhetherArrayHaveTheSamePhotosAssetsWithComparedArray:(NSArray<CBPhotoSelecterAssetModel *>*)comparedArray;
-
-/**
- Find delected or inserted index by comparing with target array.
-
- @param oldArray Compared array.
- @return Changed index array.
- */
-- (NSInteger)findDelectedOrInsertedIndexByComparingWithOldArray:(NSArray<CBPhotoSelecterAssetModel *>*)oldArray;
++ (instancetype)modelWithResult:(PHFetchResult *)result
+                           name:(NSString *)name {
+    if (![result isKindOfClass:[PHFetchResult class]]) { return nil; }
+    
+    CBPhotoSelecterAlbumModel *model = [[CBPhotoSelecterAlbumModel alloc] init];
+    model.result = result;
+    model.name = name;
+    model.count = result.count;
+    
+    return model;
+}
 
 @end

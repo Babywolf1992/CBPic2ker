@@ -1,4 +1,4 @@
-// NSArray+CBPic2ker.h
+// CBPhotoSelecterAssetSectionView.h
 // Copyright (c) 2017 陈超邦.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,26 +19,18 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
-#import <Photos/Photos.h>
-#import <CBPic2ker/CBPhotoSelecterAssetModel.h>
+#import <CBPic2ker/CBCollectionViewSectionController.h>
 
-@interface NSArray (CBPic2ker)
+@interface CBPhotoSelecterAssetSectionView : CBCollectionViewSectionController
 
 /**
- Determine whether the specified array have the exactly same assets.
+ Init methods.
 
- @param comparedArray Target array.
- @return Compared result.
+ @param columNumber Colum number.
+ @param assetButtonTouchActionBlock Asset touch action block.
+ @return CBPhotoSelecterAssetSectionView insatcne.
  */
-- (BOOL)determineWhetherArrayHaveTheSamePhotosAssetsWithComparedArray:(NSArray<CBPhotoSelecterAssetModel *>*)comparedArray;
-
-/**
- Find delected or inserted index by comparing with target array.
-
- @param oldArray Compared array.
- @return Changed index array.
- */
-- (NSInteger)findDelectedOrInsertedIndexByComparingWithOldArray:(NSArray<CBPhotoSelecterAssetModel *>*)oldArray;
+- (instancetype)initWithColumNumber:(NSInteger)columNumber
+        assetButtonTouchActionBlock:(void (^)(id model, id cell, NSInteger idnex))assetButtonTouchActionBlock;
 
 @end

@@ -1,4 +1,4 @@
-// NSArray+CBPic2ker.h
+// CBPhotoSelecterAssetModel.m
 // Copyright (c) 2017 陈超邦.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,26 +19,26 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
-#import <Photos/Photos.h>
 #import <CBPic2ker/CBPhotoSelecterAssetModel.h>
 
-@interface NSArray (CBPic2ker)
+@implementation CBPhotoSelecterAssetModel
 
-/**
- Determine whether the specified array have the exactly same assets.
++ (instancetype)modelWithAsset:(id)asset
+                          type:(CBPhotoSelecterAssetModelMediaType)type {
+    CBPhotoSelecterAssetModel *model = [[CBPhotoSelecterAssetModel alloc] init];
+    model.asset = asset;
+    model.isSelected = NO;
+    model.mediaType = type;
+    return model;
+}
 
- @param comparedArray Target array.
- @return Compared result.
- */
-- (BOOL)determineWhetherArrayHaveTheSamePhotosAssetsWithComparedArray:(NSArray<CBPhotoSelecterAssetModel *>*)comparedArray;
-
-/**
- Find delected or inserted index by comparing with target array.
-
- @param oldArray Compared array.
- @return Changed index array.
- */
-- (NSInteger)findDelectedOrInsertedIndexByComparingWithOldArray:(NSArray<CBPhotoSelecterAssetModel *>*)oldArray;
++ (instancetype)modelWithAsset:(id)asset
+                          type:(CBPhotoSelecterAssetModelMediaType)type
+                    timeLength:(NSString *)timeLength {
+    CBPhotoSelecterAssetModel *model = [self modelWithAsset:asset
+                                                 type:type];
+    model.timeLength = timeLength;
+    return model;
+}
 
 @end

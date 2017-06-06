@@ -1,4 +1,4 @@
-// NSArray+CBPic2ker.h
+// CBPhotoSelecterAssetCollectionSectionView.h
 // Copyright (c) 2017 陈超邦.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,26 +19,34 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
-#import <Photos/Photos.h>
-#import <CBPic2ker/CBPhotoSelecterAssetModel.h>
+#import <CBPic2ker/CBCollectionViewSectionController.h>
+#import <CBPic2ker/CBCollectionView.h>
 
-@interface NSArray (CBPic2ker)
-
-/**
- Determine whether the specified array have the exactly same assets.
-
- @param comparedArray Target array.
- @return Compared result.
- */
-- (BOOL)determineWhetherArrayHaveTheSamePhotosAssetsWithComparedArray:(NSArray<CBPhotoSelecterAssetModel *>*)comparedArray;
+@interface CBPhotoSelecterAssetCollectionSectionView : CBCollectionViewSectionController
 
 /**
- Find delected or inserted index by comparing with target array.
-
- @param oldArray Compared array.
- @return Changed index array.
+ CollectionView.
  */
-- (NSInteger)findDelectedOrInsertedIndexByComparingWithOldArray:(NSArray<CBPhotoSelecterAssetModel *>*)oldArray;
+@property (nonatomic, strong, readwrite) CBCollectionView *collectionView;
+
+/**
+Asset action block
+ */
+@property (nonatomic, copy, readwrite) void(^assetButtonTouchActionBlockInternal)(id model, id cell, NSInteger index);
+
+/**
+ CollectionView did scroll block.
+ */
+@property (nonatomic, copy, readwrite) void(^collectionViewDidScroll)(id scrollView);
+
+/**
+ Init Method.
+
+ @param columnNumber The colum number of assetCollection.
+ @param preViewHeight The height of pre-scrollView.
+ @return CBPhotoSelecterAssetCollectionSectionView instance.
+ */
+- (instancetype)initWithColumnNumber:(NSInteger)columnNumber
+                       preViewHeight:(NSInteger)preViewHeight;
 
 @end

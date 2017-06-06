@@ -1,4 +1,4 @@
-// NSArray+CBPic2ker.h
+// CBPhotoSelecterAlbumModel.h
 // Copyright (c) 2017 陈超邦.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,24 +21,47 @@
 
 #import <Foundation/Foundation.h>
 #import <Photos/Photos.h>
-#import <CBPic2ker/CBPhotoSelecterAssetModel.h>
 
-@interface NSArray (CBPic2ker)
-
-/**
- Determine whether the specified array have the exactly same assets.
-
- @param comparedArray Target array.
- @return Compared result.
- */
-- (BOOL)determineWhetherArrayHaveTheSamePhotosAssetsWithComparedArray:(NSArray<CBPhotoSelecterAssetModel *>*)comparedArray;
+@interface CBPhotoSelecterAlbumModel : NSObject
 
 /**
- Find delected or inserted index by comparing with target array.
-
- @param oldArray Compared array.
- @return Changed index array.
+ The album name.
  */
-- (NSInteger)findDelectedOrInsertedIndexByComparingWithOldArray:(NSArray<CBPhotoSelecterAssetModel *>*)oldArray;
+@property (nonatomic, strong, readwrite) NSString *name;
+
+/**
+ The count of photos the album contain.
+ */
+@property (nonatomic, assign, readwrite) NSInteger count;
+
+/**
+ PHFetchResult<PHAsset>.
+ */
+@property (nonatomic, strong, readwrite) id result;
+
+/**
+ Asset data array.
+ */
+@property (nonatomic, strong, readwrite) NSArray *models;
+
+/**
+ Selected asset data array.
+ */
+@property (nonatomic, strong, readwrite) NSArray *selectedModels;
+
+/**
+ Selected asset count.
+ */
+@property (nonatomic, assign, readwrite) NSUInteger selectedCount;
+
+/**
+ Init Methods.
+
+ @param result PHFetchResult.
+ @param name Collection localizedTitle.
+ @return CBPhotoSelecterAlbumModel instance.
+ */
++ (instancetype)modelWithResult:(PHFetchResult *)result
+                           name:(NSString *)name;
 
 @end

@@ -37,7 +37,7 @@
 }
 
 - (IBAction)pushLikeYouAreHavingABabyAction:(id)sender {
-    CBPic2kerController *controller = [[CBPic2kerController alloc] initWithDelegate:self];
+    CBPhotoSelecterController *controller = [[CBPhotoSelecterController alloc] initWithDelegate:self];
     controller.columnNumber = 4;
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:controller];
     [self presentViewController:nav animated:YES completion:nil];

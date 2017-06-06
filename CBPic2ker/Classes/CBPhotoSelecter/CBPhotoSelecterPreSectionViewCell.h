@@ -1,4 +1,4 @@
-// NSArray+CBPic2ker.h
+// CBPhotoSelecterPreSectionViewCell.h
 // Copyright (c) 2017 陈超邦.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,26 +19,18 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
-#import <Photos/Photos.h>
+#import <UIKit/UIKit.h>
 #import <CBPic2ker/CBPhotoSelecterAssetModel.h>
 
-@interface NSArray (CBPic2ker)
+@interface CBPhotoSelecterPreSectionViewCell : UICollectionViewCell
 
 /**
- Determine whether the specified array have the exactly same assets.
-
- @param comparedArray Target array.
- @return Compared result.
+ Configure cell with specified model.
+ 
+ @param assetModel Specified model data.
+ @param selectedActionBlock Selected action block.
  */
-- (BOOL)determineWhetherArrayHaveTheSamePhotosAssetsWithComparedArray:(NSArray<CBPhotoSelecterAssetModel *>*)comparedArray;
-
-/**
- Find delected or inserted index by comparing with target array.
-
- @param oldArray Compared array.
- @return Changed index array.
- */
-- (NSInteger)findDelectedOrInsertedIndexByComparingWithOldArray:(NSArray<CBPhotoSelecterAssetModel *>*)oldArray;
+- (void)configureWithAssetModel:(CBPhotoSelecterAssetModel *)assetModel
+            selectedActionBlock:(void(^)(id model))selectedActionBlock;
 
 @end

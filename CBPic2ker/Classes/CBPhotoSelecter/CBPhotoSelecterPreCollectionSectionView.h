@@ -1,4 +1,4 @@
-// NSArray+CBPic2ker.h
+// CBPhotoSelecterPreCollectionSectionView.h
 // Copyright (c) 2017 陈超邦.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,26 +19,21 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
-#import <Photos/Photos.h>
-#import <CBPic2ker/CBPhotoSelecterAssetModel.h>
+#import <CBPic2ker/CBCollectionViewSectionController.h>
 
-@interface NSArray (CBPic2ker)
+@interface CBPhotoSelecterPreCollectionSectionView : CBCollectionViewSectionController
 
 /**
- Determine whether the specified array have the exactly same assets.
-
- @param comparedArray Target array.
- @return Compared result.
+ Init Method.
+ 
+ @param preViewHeight The height of pre-scrollView.
+ @return CBPhotoSelecterAssetCollectionSectionView instance.
  */
-- (BOOL)determineWhetherArrayHaveTheSamePhotosAssetsWithComparedArray:(NSArray<CBPhotoSelecterAssetModel *>*)comparedArray;
+- (instancetype)initWithPreViewHeight:(NSInteger)preViewHeight;
 
 /**
- Find delected or inserted index by comparing with target array.
-
- @param oldArray Compared array.
- @return Changed index array.
+ Change collectionView's location.
  */
-- (NSInteger)findDelectedOrInsertedIndexByComparingWithOldArray:(NSArray<CBPhotoSelecterAssetModel *>*)oldArray;
+- (void)changeCollectionViewLocation;
 
 @end
