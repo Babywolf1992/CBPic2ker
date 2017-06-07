@@ -22,6 +22,9 @@
 #import <UIKit/UIKit.h>
 #import <CBPic2ker/CBPhotoBrowserScrollViewDelegate.h>
 
+@class CBPhotoBrowserAssetModel;
+@class CBPhotoBrowserScrollViewCell;
+
 @interface CBPhotoBrowserScrollView : UIScrollView
 
 /**
@@ -35,12 +38,27 @@
 @property (nonatomic, strong, readwrite) NSMutableArray *currentAssetArray;
 
 /**
- Init method.
-
- @param assets Assets array.
- @return CBPhotoBrowserScrollView instance.
+ Current cell array.
  */
-- (instancetype)initWithAssets:(NSMutableArray *)assets;
+@property (nonatomic, strong, readwrite) NSMutableArray *cells;
+
+/**
+ Used to judge if the cell is presenting.
+ */
+@property (nonatomic, assign, readwrite) BOOL isPresented;
+
+/**
+ Page control.
+ */
+@property (nonatomic, strong, readwrite) UIPageControl *pageControl;
+
+/**
+ Get specified cell by using index.
+ 
+ @param page Specified index.
+ @return CBPhotoBrowserScrollViewCell instance.
+ */
+- (CBPhotoBrowserScrollViewCell *)cellForPage:(NSInteger)page;
 
 /**
  Present method.
@@ -54,5 +72,14 @@
                    container:(UIView *)container
                     animated:(BOOL)animated
                   completion:(void (^)(void))completion;
+
+/**
+ Dismiss method.
+ 
+ @param animated Animation option.
+ @param completion Recall block.
+ */
+- (void)dismissAnimated:(BOOL)animated
+             completion:(void (^)(void))completion;
 
 @end

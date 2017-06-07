@@ -71,7 +71,7 @@ static CGFloat const kCBPhotoSelecterPermissionViewImageViewHeightAndWidth = 120
     if (!_accessDetail) {
         _accessDetail = [[UILabel alloc] initWithFrame:CGRectMake(_accessName.frame.origin.x - 25, _accessName.frame.origin.y + _accessName.frame.size.height + 10, _accessName.frame.size.width + 50, 85)];
         _accessDetail.numberOfLines = 0;
-        _accessDetail.text = [NSString stringWithFormat:@"%@ needs to access your photo data before your selecting photos", [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleNameKey]];
+        _accessDetail.text = [NSString stringWithFormat:@"%@ needs to access your photo data before your selecting photos.", [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleNameKey]];
         _accessDetail.textColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
         _accessDetail.font = [UIFont fontWithName:@"AvenirNext-Regular" size:15.f];
         _accessDetail.textAlignment = NSTextAlignmentCenter;
@@ -82,7 +82,7 @@ static CGFloat const kCBPhotoSelecterPermissionViewImageViewHeightAndWidth = 120
 
 - (UIButton *)accessButton {
     if (!_accessButton) {
-        _accessButton = [[UIButton alloc] initWithFrame:CGRectMake(_accessDetail.frame.origin.x - 25, _accessDetail.frame.origin.y + _accessDetail.frame.size.height + 25, _accessDetail.frame.size.width + 50, 45)];
+        _accessButton = [[UIButton alloc] initWithFrame:CGRectMake(_accessDetail.frame.origin.x - 25, _accessDetail.frame.origin.y + _accessDetail.frame.size.height + 25, _accessDetail.frame.size.width + 50, 40)];
         _accessButton.layer.cornerRadius = 5;
         [_accessButton setTitle:@"Grant Permission" forState:UIControlStateNormal];
         [_accessButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

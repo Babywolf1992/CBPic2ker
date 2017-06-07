@@ -128,4 +128,13 @@
                            completion:(void (^)(UIImage *photo,NSDictionary *info,BOOL isDegraded))completion
                       progressHandler:(void (^)(double progress, NSError *error, BOOL *stop, NSDictionary *info))progressHandler;
 
+/**
+ Get full size photo.
+ 
+ @param asset Asset data.
+ @param completion Completion block.
+ @return Image request id.
+ */
+- (PHImageRequestID)getFullSizePhotoWithAsset:(id)asset
+                                   completion:(void (^)(UIImage *photo,NSDictionary *info,BOOL isDegraded))completion;
 @end

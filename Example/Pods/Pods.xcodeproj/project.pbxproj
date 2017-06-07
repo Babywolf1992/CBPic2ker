@@ -22,6 +22,14 @@
 		2C3E0A6C1EE59D7700D9B769 /* CBPhotoBrowserScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C3E0A6A1EE59D7700D9B769 /* CBPhotoBrowserScrollView.h */; };
 		2C3E0A6D1EE59D7700D9B769 /* CBPhotoBrowserScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3E0A6B1EE59D7700D9B769 /* CBPhotoBrowserScrollView.m */; };
 		2C3E0A731EE59F7800D9B769 /* CBPhotoBrowserScrollViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C3E0A721EE59F7800D9B769 /* CBPhotoBrowserScrollViewDelegate.h */; };
+		2CB6A78C1EE6FB5700F4FD53 /* CBPhotoBrowserScrollView+scrollViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CB6A78A1EE6FB5600F4FD53 /* CBPhotoBrowserScrollView+scrollViewDelegate.h */; };
+		2CB6A78D1EE6FB5700F4FD53 /* CBPhotoBrowserScrollView+scrollViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6A78B1EE6FB5700F4FD53 /* CBPhotoBrowserScrollView+scrollViewDelegate.m */; };
+		2CB6A7901EE6FDDE00F4FD53 /* CBPhotoBrowserScrollViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CB6A78E1EE6FDDE00F4FD53 /* CBPhotoBrowserScrollViewCell.h */; };
+		2CB6A7911EE6FDDE00F4FD53 /* CBPhotoBrowserScrollViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6A78F1EE6FDDE00F4FD53 /* CBPhotoBrowserScrollViewCell.m */; };
+		2CB6A7941EE702F800F4FD53 /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CB6A7921EE702F800F4FD53 /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.h */; };
+		2CB6A7951EE702F800F4FD53 /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6A7931EE702F800F4FD53 /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.m */; };
+		2CFE9AF71EE7DD7100085BF4 /* CBPhotoBrowserAssetModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CFE9AF51EE7DD7100085BF4 /* CBPhotoBrowserAssetModel.h */; };
+		2CFE9AF81EE7DD7100085BF4 /* CBPhotoBrowserAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE9AF61EE7DD7100085BF4 /* CBPhotoBrowserAssetModel.m */; };
 		39E88520C186A6112EAF27A29C0F0D68 /* UIView+CBPic2ker.m in Sources */ = {isa = PBXBuildFile; fileRef = DBD283511B7D0D1B13C0F1704EE1A577 /* UIView+CBPic2ker.m */; };
 		3F092CDB6804DD70FE50B2B33F20DBE2 /* CBPhotoSelecterControllerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B7A30CAE14EE929C2F392FD3A0B42BA /* CBPhotoSelecterControllerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F9DB338AA4085B5D5CE824C77C1E95E /* CBPhotoSelecterAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ACFC85F0F4A0541A5E4067EE54FF121 /* CBPhotoSelecterAssetModel.m */; };
@@ -109,6 +117,14 @@
 		2C3E0A6A1EE59D7700D9B769 /* CBPhotoBrowserScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBPhotoBrowserScrollView.h; sourceTree = "<group>"; };
 		2C3E0A6B1EE59D7700D9B769 /* CBPhotoBrowserScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBPhotoBrowserScrollView.m; sourceTree = "<group>"; };
 		2C3E0A721EE59F7800D9B769 /* CBPhotoBrowserScrollViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBPhotoBrowserScrollViewDelegate.h; sourceTree = "<group>"; };
+		2CB6A78A1EE6FB5600F4FD53 /* CBPhotoBrowserScrollView+scrollViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CBPhotoBrowserScrollView+scrollViewDelegate.h"; sourceTree = "<group>"; };
+		2CB6A78B1EE6FB5700F4FD53 /* CBPhotoBrowserScrollView+scrollViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CBPhotoBrowserScrollView+scrollViewDelegate.m"; sourceTree = "<group>"; };
+		2CB6A78E1EE6FDDE00F4FD53 /* CBPhotoBrowserScrollViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBPhotoBrowserScrollViewCell.h; sourceTree = "<group>"; };
+		2CB6A78F1EE6FDDE00F4FD53 /* CBPhotoBrowserScrollViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBPhotoBrowserScrollViewCell.m; sourceTree = "<group>"; };
+		2CB6A7921EE702F800F4FD53 /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CBPhotoBrowserScrollViewCell+scrollViewDelegate.h"; sourceTree = "<group>"; };
+		2CB6A7931EE702F800F4FD53 /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CBPhotoBrowserScrollViewCell+scrollViewDelegate.m"; sourceTree = "<group>"; };
+		2CFE9AF51EE7DD7100085BF4 /* CBPhotoBrowserAssetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBPhotoBrowserAssetModel.h; sourceTree = "<group>"; };
+		2CFE9AF61EE7DD7100085BF4 /* CBPhotoBrowserAssetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBPhotoBrowserAssetModel.m; sourceTree = "<group>"; };
 		30BACF54B224E5F35190754DA75DDB99 /* CBPic2ker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CBPic2ker-dummy.m"; sourceTree = "<group>"; };
 		3445BB296C2E6442241F8F508D4B77E5 /* Pods-CBPic2ker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CBPic2ker.release.xcconfig"; sourceTree = "<group>"; };
 		3728CCD8A26D7E2AD00184B1E1E36812 /* UINavigationController+CBPic2ker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+CBPic2ker.m"; sourceTree = "<group>"; };
@@ -247,7 +263,15 @@
 			children = (
 				2C3E0A6A1EE59D7700D9B769 /* CBPhotoBrowserScrollView.h */,
 				2C3E0A6B1EE59D7700D9B769 /* CBPhotoBrowserScrollView.m */,
+				2CB6A78A1EE6FB5600F4FD53 /* CBPhotoBrowserScrollView+scrollViewDelegate.h */,
+				2CB6A78B1EE6FB5700F4FD53 /* CBPhotoBrowserScrollView+scrollViewDelegate.m */,
 				2C3E0A721EE59F7800D9B769 /* CBPhotoBrowserScrollViewDelegate.h */,
+				2CB6A78E1EE6FDDE00F4FD53 /* CBPhotoBrowserScrollViewCell.h */,
+				2CB6A78F1EE6FDDE00F4FD53 /* CBPhotoBrowserScrollViewCell.m */,
+				2CB6A7921EE702F800F4FD53 /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.h */,
+				2CB6A7931EE702F800F4FD53 /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.m */,
+				2CFE9AF51EE7DD7100085BF4 /* CBPhotoBrowserAssetModel.h */,
+				2CFE9AF61EE7DD7100085BF4 /* CBPhotoBrowserAssetModel.m */,
 			);
 			path = CBPhotoBrowser;
 			sourceTree = "<group>";
@@ -464,16 +488,19 @@
 				44D72D0F8842BE6529A3808C6535AC70 /* CBPhotoSelecterAlbumSectionViewCell.h in Headers */,
 				0A2C28AD5D5ED236F1CE3C4CD58934C3 /* CBPhotoSelecterAlbumView.h in Headers */,
 				F030763DAD60D083566E0F62E3C1F750 /* CBPhotoSelecterAssetCollectionSectionView.h in Headers */,
+				2CB6A7941EE702F800F4FD53 /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.h in Headers */,
 				6D7408D74B88DC6706565CFB525AA564 /* CBPhotoSelecterAssetModel.h in Headers */,
 				0301BCE9C71EFF592E934FF09D99722E /* CBPhotoSelecterAssetSectionView.h in Headers */,
 				83D1B7ADC71485C30B3CA767C31300A2 /* CBPhotoSelecterAssetSectionViewCell.h in Headers */,
 				762DAEEB3A6B915D79BF25617DE5E748 /* CBPhotoSelecterController.h in Headers */,
 				3F092CDB6804DD70FE50B2B33F20DBE2 /* CBPhotoSelecterControllerDelegate.h in Headers */,
+				2CFE9AF71EE7DD7100085BF4 /* CBPhotoBrowserAssetModel.h in Headers */,
 				E380FCA52E2F00228F999783B1C34BF9 /* CBPhotoSelecterPermissionView.h in Headers */,
 				7F0ABB725A585766FF59CDC43A7D5009 /* CBPhotoSelecterPhotoLibrary.h in Headers */,
 				B054D65C2ABBDF6C58D4942C9AA27157 /* CBPhotoSelecterPreCollectionSectionView.h in Headers */,
 				830B6FE454F9FA19023FA9D0893AF59E /* CBPhotoSelecterPreSectionView.h in Headers */,
 				90488C1285BDC3E0917C2655B119A5DF /* CBPhotoSelecterPreSectionViewCell.h in Headers */,
+				2CB6A78C1EE6FB5700F4FD53 /* CBPhotoBrowserScrollView+scrollViewDelegate.h in Headers */,
 				406BA09B80358431448765004EDB1076 /* CBPhotoSelecterTitleView.h in Headers */,
 				F2C246BAB3C23501612025A7F3166BBD /* CBPic2ker.h in Headers */,
 				E180B361507493AC1F5A8129B149B231 /* NSArray+CBPic2ker.h in Headers */,
@@ -481,6 +508,7 @@
 				57D3DF7473963A00884D2BDB3AEE62FC /* UIImage+CBPic2ker.h in Headers */,
 				530C2F64412B81213F4A465751710C86 /* UINavigationController+CBPic2ker.h in Headers */,
 				260F5AB005BD7914F9D223F76F0D765E /* UIView+CBPic2ker.h in Headers */,
+				2CB6A7901EE6FDDE00F4FD53 /* CBPhotoBrowserScrollViewCell.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +594,7 @@
 				B36CA6A75158FD148808F4C7A4A44FC5 /* CBCollectionViewAdapter+context.m in Sources */,
 				02707F5FCB033BB77E04FB64006A7AEB /* CBCollectionViewAdapter+scrollViewDelegate.m in Sources */,
 				1957ADCD06F930AAAE4EEC7A00D80877 /* CBCollectionViewAdapter.m in Sources */,
+				2CFE9AF81EE7DD7100085BF4 /* CBPhotoBrowserAssetModel.m in Sources */,
 				A58771ECD05DCEB9901F23E4A7D09263 /* CBCollectionViewAdapterHelper.m in Sources */,
 				7A64A9606515A5C55D2417B6FFBD4476 /* CBCollectionViewDelegateProxy.m in Sources */,
 				14AC906A2CDF39AB02C7CC5ED8F5C6EC /* CBCollectionViewSectionController.m in Sources */,
@@ -573,13 +602,16 @@
 				669F7FA2E18686563FE443B454F3FDBB /* CBPhotoSelecterAlbumModel.m in Sources */,
 				C47FD5B95772AA817420F95DA2B1A744 /* CBPhotoSelecterAlbumSectionView.m in Sources */,
 				CC76AF432B435EC3F7C0260B5C60108A /* CBPhotoSelecterAlbumSectionViewCell.m in Sources */,
+				2CB6A78D1EE6FB5700F4FD53 /* CBPhotoBrowserScrollView+scrollViewDelegate.m in Sources */,
 				D0FD1297E4FA5C72EF71066EA1479EC7 /* CBPhotoSelecterAlbumView.m in Sources */,
 				EE39F282CC747238D0C610376FBEE9E0 /* CBPhotoSelecterAssetCollectionSectionView.m in Sources */,
+				2CB6A7951EE702F800F4FD53 /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.m in Sources */,
 				3F9DB338AA4085B5D5CE824C77C1E95E /* CBPhotoSelecterAssetModel.m in Sources */,
 				F5A6D98279711E9CB52427975439EE95 /* CBPhotoSelecterAssetSectionView.m in Sources */,
 				D3E251740ADE119C6C5BAA3928663E55 /* CBPhotoSelecterAssetSectionViewCell.m in Sources */,
 				A2BB9D34E17BE58B7EED1B8C3244FAD5 /* CBPhotoSelecterController.m in Sources */,
 				2C3E0A6D1EE59D7700D9B769 /* CBPhotoBrowserScrollView.m in Sources */,
+				2CB6A7911EE6FDDE00F4FD53 /* CBPhotoBrowserScrollViewCell.m in Sources */,
 				928A14EC912B513FCFA79FE5374BD3D0 /* CBPhotoSelecterPermissionView.m in Sources */,
 				A0F6B2D2CF098811A65954D2ACEB5B72 /* CBPhotoSelecterPhotoLibrary.m in Sources */,
 				E95ED8CBF501A7CC2F00802734C14AAE /* CBPhotoSelecterPreCollectionSectionView.m in Sources */,

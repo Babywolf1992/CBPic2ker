@@ -68,6 +68,11 @@ typedef NS_ENUM(NSInteger, CBPhotoSelecterAssetModelMediaType) {
 @property (nonatomic, strong, readwrite) UIImage *fullSizeImage;
 
 /**
+ PreView.
+ */
+@property (nonatomic, strong, readwrite) UIView *preView;
+
+/**
  Init a photo dataModel With a asset.
 
  @param asset PHAsset instance.

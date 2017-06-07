@@ -22,14 +22,25 @@
 #import <CBPic2ker/CBPhotoSelecterPreSectionView.h>
 #import <CBPic2ker/CBPhotoSelecterController.h>
 #import <CBPic2ker/CBPhotoSelecterPreSectionViewCell.h>
+#import <CBPic2ker/CBPhotoBrowserScrollView.h>
+#import <CBPic2ker/CBPhotoSelecterPhotoLibrary.h>
+#import <CBPic2ker/CBPhotoBrowserAssetModel.h>
 
 @interface CBPhotoSelecterPreSectionView()
 
 @property (nonatomic, strong, readwrite) NSMutableArray *currentSelectedPhotosArr;
+@property (nonatomic, strong, readwrite) CBPhotoBrowserScrollView *photoBrowser;
 
 @end
 
 @implementation CBPhotoSelecterPreSectionView
+
+- (CBPhotoBrowserScrollView *)photoBrowser {
+    if (!_photoBrowser) {
+        _photoBrowser = [[CBPhotoBrowserScrollView alloc] init];
+    }
+    return _photoBrowser;
+}
 
 - (UIEdgeInsets)inset {
     if (_currentSelectedPhotosArr.count == 1) {
@@ -60,8 +71,25 @@
                                                                       forSectionController:self
                                                                                    atIndex:index];
     if (index < _currentSelectedPhotosArr.count) {
-        [cell configureWithAssetModel:_currentSelectedPhotosArr[index] selectedActionBlock:^(id model) {
+        CBPhotoSelecterAssetModel *photoSelecterAssetModel = _currentSelectedPhotosArr[index];
+        photoSelecterAssetModel.preView = cell;
+        [cell configureWithAssetModel:photoSelecterAssetModel selectedActionBlock:^(id model) {
+            NSMutableArray *selectedArr = [[CBPhotoSelecterPhotoLibrary sharedPhotoLibrary] selectedAssetArr];
             
+            NSMutableArray *photoBrowserArr = [[NSMutableArray alloc] init];
+            [selectedArr enumerateObjectsUsingBlock:^(CBPhotoSelecterAssetModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                CBPhotoBrowserAssetModel *model = [[CBPhotoBrowserAssetModel alloc] init];
+                model.middleSizeImage = obj.middleSizeImage;
+                model.sourceView = obj.preView;
+                
+                [photoBrowserArr addObject:model];
+            }];
+            
+            self.photoBrowser.currentAssetArray = photoBrowserArr;
+            [self.photoBrowser presentFromImageView:cell
+                                          container:self.viewController.navigationController.view
+                                           animated:YES
+                                         completion:nil];
         }];
     }
     return cell;

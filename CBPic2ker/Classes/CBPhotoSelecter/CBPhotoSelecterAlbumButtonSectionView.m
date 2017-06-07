@@ -25,11 +25,11 @@
 @implementation CBPhotoSelecterAlbumButtonSectionView
 
 - (UIEdgeInsets)inset {
-    return UIEdgeInsetsMake(0, 0, 2, 0);
+    return UIEdgeInsetsMake(2, 0, 0, 0);
 }
 
 - (CGSize)sizeForItemAtIndex:(NSInteger)index {
-    return CGSizeMake([[UIScreen mainScreen] bounds].size.width, 45);
+    return CGSizeMake([[UIScreen mainScreen] bounds].size.width, 40);
 }
 
 - (NSInteger)numberOfItems {
@@ -55,7 +55,7 @@
 
 - (UIButton *)albumButton {
     if (!_albumButton) {
-        _albumButton = [[CBPhotoSelecterAlbumButton alloc] initWithFrame:CGRectMake(2, 0, self.viewController.view.frame.size.width - 4, 45)];
+        _albumButton = [[CBPhotoSelecterAlbumButton alloc] initWithFrame:CGRectMake(2, 0, self.viewController.view.frame.size.width - 4, 40)];
         [_albumButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
         _albumButton.layer.cornerRadius = 3;
         [_albumButton.titleLabel setFont:[UIFont fontWithName:@"AvenirNext-Medium" size:18]];

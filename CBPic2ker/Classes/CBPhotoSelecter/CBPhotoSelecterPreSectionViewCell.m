@@ -31,6 +31,8 @@
 @property (nonatomic, strong, readwrite) NSString *representedAssetIdentifier;
 @property (nonatomic, assign, readwrite) int imageRequestID;
 
+@property (nonatomic, copy, readwrite) void(^selectedActionBlockInternal)(id model);
+
 @end
 
 @implementation CBPhotoSelecterPreSectionViewCell
@@ -38,6 +40,8 @@
 - (void)configureWithAssetModel:(CBPhotoSelecterAssetModel *)assetModel
             selectedActionBlock:(void (^)(id))selectedActionBlock {
     if (!assetModel) { return; }
+    
+    _selectedActionBlockInternal = selectedActionBlock;
     
     self.assetModel = assetModel;
     self.representedAssetIdentifier = [(PHAsset *)assetModel.asset localIdentifier];
@@ -54,7 +58,7 @@
     PHImageRequestID imageRequestID = [[CBPhotoSelecterPhotoLibrary sharedPhotoLibrary] getPhotoWithAsset:assetModel.asset photoWidth:self.frame.size.width completion:^(UIImage *photo, NSDictionary *info, BOOL isDegraded) {
         if ([self.representedAssetIdentifier isEqualToString:[(PHAsset *)assetModel.asset localIdentifier]]) {
             self.imageView.image = photo;
-            assetModel.smallSizeImage = photo;
+            assetModel.middleSizeImage = photo;
         } else {
             [[PHImageManager defaultManager] cancelImageRequest:self.imageRequestID];
         }
@@ -68,8 +72,14 @@
         _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
         _imageView.contentMode = UIViewContentModeScaleAspectFill;
         _imageView.clipsToBounds = YES;
+        _imageView.userInteractionEnabled = YES;
+        [_imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)]];
     }
     return _imageView;
+}
+
+- (void)tapAction:(id)sender {
+    !_selectedActionBlockInternal ?: _selectedActionBlockInternal(_assetModel);
 }
 
 @end

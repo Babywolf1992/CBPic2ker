@@ -25,8 +25,6 @@
 #import <CBPic2ker/UIImage+CBPic2ker.h>
 #import <CBPic2ker/UIImage+CBPic2ker.h>
 
-static CGFloat const kCBPhotoSelecterPhotoLibraryPreviewMaxWidth = 600;
-
 @interface CBPhotoSelecterPhotoLibrary()
 
 @property (nonatomic, assign, readwrite) CGSize gridThumbnailSize;
@@ -263,6 +261,23 @@ static CGFloat const kCBPhotoSelecterPhotoLibraryPreviewMaxWidth = 600;
             }];
         }
     }];
+    return imageRequestID;
+}
+
+- (PHImageRequestID)getFullSizePhotoWithAsset:(id)asset
+                                   completion:(void (^)(UIImage *, NSDictionary *, BOOL))completion {
+    if (!asset || ![asset isKindOfClass:[PHAsset class]]) { return 0; }
+    
+    PHImageRequestOptions *option = [[PHImageRequestOptions alloc]init];
+    option.networkAccessAllowed = YES;
+    PHImageRequestID imageRequestID = [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeAspectFit options:option resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+        BOOL downloadFinined = (![[info objectForKey:PHImageCancelledKey] boolValue] && ![info objectForKey:PHImageErrorKey]);
+        if (downloadFinined && result) {
+            BOOL isDegraded = [[info objectForKey:PHImageResultIsDegradedKey] boolValue];
+            if (completion) completion(result, info, isDegraded);
+        }
+    }];
+    
     return imageRequestID;
 }
 
