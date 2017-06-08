@@ -36,7 +36,9 @@
 
 @end
 
-@implementation CBPhotoBrowserScrollView
+@implementation CBPhotoBrowserScrollView {
+    CGPoint _panGestureBeginPoint;
+}
 
 #pragma mark - Init methods.
 - (instancetype)init {
@@ -165,8 +167,59 @@
     [self.viewController presentViewController:activityViewController animated:YES completion:nil];
 }
 
-- (void)panGesture:(id)sender  {
+- (void)panGesture:(UIPanGestureRecognizer *)sender  {
+    if (!_isPresented) return;
     
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        _panGestureBeginPoint = [sender locationInView:self.blurBackgroundView];
+    } else if(sender.state == UIGestureRecognizerStateChanged) {
+        CGFloat changeDistanceY = [sender locationInView:self.blurBackgroundView].y - _panGestureBeginPoint.y;
+        self.originUp = changeDistanceY;
+        
+        CGFloat alpha = (3 / 2 - fabs(changeDistanceY) / 200);
+        alpha > 1 ? alpha = 1 : alpha < 0 ? alpha = 0 : alpha;
+        [UIView animateWithDuration:0.1
+                              delay:0
+                            options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionCurveLinear animations:^{
+                                self.blurBackgroundView.alpha = alpha;
+                            } completion:nil];
+    } else if(sender.state == UIGestureRecognizerStateEnded) {
+        CGPoint moveSpeed = [sender velocityInView:self.blurBackgroundView];
+        CGPoint changeToPoint = [sender locationInView:self.blurBackgroundView];
+        CGFloat changeDistanceY = changeToPoint.y - _panGestureBeginPoint.y;
+        
+        if (fabs(moveSpeed.y) > 1000 || fabs(changeDistanceY) > 200) {
+            _isPresented = NO;
+            
+            BOOL moveToTop = (moveSpeed.y < - 50 || (moveSpeed.y < 50 && changeDistanceY < 0));
+            CGFloat duration = (moveToTop ? self.originDown : self.sizeHeight - self.originUp) / (fabs(moveSpeed.y) > 1 ? fabs(moveSpeed.y) : 1);
+            duration > 0.1 ? duration = 0.1 : duration < 0.05 ? duration = 0.05 : duration;
+            [UIView animateWithDuration:duration
+                                  delay:0
+                                options:UIViewAnimationOptionCurveLinear | UIViewAnimationOptionBeginFromCurrentState animations:^{
+                                    self.blurBackgroundView.alpha = 0;
+                                    if (moveToTop) {
+                                        self.originDown = 0;
+                                    } else {
+                                        self.originUp = self.sizeHeight;
+                                    }
+                                    
+                                    // [[UIApplication sharedApplication] setStatusBarHidden:_fromNavigationBarHidden withAnimation: UIStatusBarAnimationNone];
+                                } completion:^(BOOL finished) {
+                                    [self removeFromSuperview];
+                                }];
+        } else {
+            [UIView animateWithDuration:0.4f
+                                  delay:0.f
+                 usingSpringWithDamping:0.9f
+                  initialSpringVelocity:moveSpeed.y / 1000.f
+                                options:UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionBeginFromCurrentState
+                             animations:^{
+                                 self.originUp = 0;
+                                 self.blurBackgroundView.alpha = 1;
+                             } completion:nil];
+        }
+    }
 }
 
 - (NSInteger)currentPage {
@@ -178,29 +231,22 @@
 
 #pragma mark - Public
 - (void)presentFromImageView:(UIView *)fromView
+                       index:(NSInteger)index
                    container:(UIView *)container
                     animated:(BOOL)animated
                   completion:(void (^)(void))completion {
     if (!fromView || !container) { return; }
     _fromView = fromView;
     _containerView = container;
-    
-    __weak typeof(self) weakSelf = self;
-    [self.currentAssetArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        __strong __typeof(self) strongSelf = weakSelf;
-        if (fromView == [(CBPhotoBrowserAssetModel *)obj sourceView]) {
-            strongSelf.fromItemIndex = idx;
-            *stop = YES;
-        }
-    }];
+    _fromItemIndex = index;
     
     self.frame = CGRectMake(-10, 0, container.size.width + 20, container.size.height);
     [container addSubview:self.blurBackgroundView];
     [self.blurBackgroundView addSubview:self];
     
     _fromNavigationBarHidden = [UIApplication sharedApplication].statusBarHidden;
-    [[UIApplication sharedApplication] setStatusBarHidden:YES
-                                            withAnimation:animated ? UIStatusBarAnimationFade : UIStatusBarAnimationNone];
+    // [[UIApplication sharedApplication] setStatusBarHidden:YES
+    //                                        withAnimation:animated ? UIStatusBarAnimationFade : UIStatusBarAnimationNone];
     
     self.contentSize = CGSizeMake(self.sizeWidth * self.currentAssetArray.count, self.sizeHeight);
     [self scrollRectToVisible:CGRectMake(self.sizeWidth * self.fromItemIndex, 0, self.sizeWidth, self.sizeHeight) animated:NO];
@@ -262,7 +308,7 @@
 - (void)dismissAnimated:(BOOL)animated
              completion:(void (^)(void))completion {
     [UIView setAnimationsEnabled:YES];
-    [[UIApplication sharedApplication] setStatusBarHidden:_fromNavigationBarHidden withAnimation:animated ? UIStatusBarAnimationFade : UIStatusBarAnimationNone];
+    // [[UIApplication sharedApplication] setStatusBarHidden:_fromNavigationBarHidden withAnimation:animated ? UIStatusBarAnimationFade : UIStatusBarAnimationNone];
     
     UIView *fromView = nil;
     CBPhotoBrowserScrollViewCell *imageCell = [self cellForPage:_fromItemIndex];

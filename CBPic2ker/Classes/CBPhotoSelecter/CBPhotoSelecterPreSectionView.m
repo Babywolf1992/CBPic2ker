@@ -87,7 +87,8 @@
             
             self.photoBrowser.currentAssetArray = photoBrowserArr;
             [self.photoBrowser presentFromImageView:cell
-                                          container:self.viewController.navigationController.view
+                                              index:index
+                                            container:self.viewController.navigationController.view
                                            animated:YES
                                          completion:nil];
         }];

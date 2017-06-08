@@ -64,11 +64,13 @@
  Present method.
 
  @param fromView Target view used to convert.
+ @param index Selected index.
  @param container Conatnier view.
  @param animated Animation option.
  @param completion Recall block.
  */
 - (void)presentFromImageView:(UIView *)fromView
+                       index:(NSInteger)index
                    container:(UIView *)container
                     animated:(BOOL)animated
                   completion:(void (^)(void))completion;
