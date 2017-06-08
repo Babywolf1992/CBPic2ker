@@ -20,12 +20,14 @@
 // THE SOFTWARE.
 
 #import <CBPic2ker/CBPhotoSelecterPreSectionViewCell.h>
-#import <Photos/Photos.h>
 #import <CBPic2ker/CBPhotoSelecterPhotoLibrary.h>
+#import <Photos/Photos.h>
+#import <PhotosUI/PhotosUI.h>
 
 @interface CBPhotoSelecterPreSectionViewCell()
 
 @property (nonatomic, strong, readwrite) UIImageView *imageView;
+@property (nonatomic, strong, readwrite) PHLivePhotoView *livePhotoView;
 
 @property (nonatomic, strong, readwrite) CBPhotoSelecterAssetModel *assetModel;
 @property (nonatomic, strong, readwrite) NSString *representedAssetIdentifier;
@@ -51,6 +53,7 @@
             [self.contentView addSubview:self.imageView];
             self.imageView.image = _assetModel.fullSizeImage ? _assetModel.fullSizeImage : (_assetModel.middleSizeImage ? _assetModel.middleSizeImage: _assetModel.smallSizeImage);
             break;
+            [self.contentView addSubview:self.livePhotoView];
         default:
             break;
     }
@@ -76,6 +79,15 @@
         [_imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)]];
     }
     return _imageView;
+}
+
+- (PHLivePhotoView *)livePhotoView {
+    if (!_livePhotoView) {
+        _livePhotoView = [[PHLivePhotoView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+        _livePhotoView.clipsToBounds = YES;
+        _livePhotoView.contentMode = UIViewContentModeScaleAspectFill;
+    }
+    return _livePhotoView;
 }
 
 - (void)tapAction:(id)sender {
