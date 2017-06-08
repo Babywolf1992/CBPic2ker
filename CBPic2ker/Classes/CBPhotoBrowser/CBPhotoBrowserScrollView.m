@@ -27,7 +27,7 @@
 
 @interface CBPhotoBrowserScrollView() <UIScrollViewDelegate, UIGestureRecognizerDelegate>
 
-@property (nonatomic, strong, readwrite) UIVisualEffectView *blurBackgroundView;
+@property (nonatomic, strong, readwrite) UIView *backgroundView;
 @property (nonatomic, strong, readwrite) UIView *fromView;
 @property (nonatomic, strong, readwrite) UIView *containerView;
 
@@ -58,37 +58,28 @@
     return self;
 }
 
-#pragma mark - Life Cycle
-- (void)willMoveToSuperview:(UIView *)newSuperview {
-    [self addGesture];
-    [self addSubview:self.pageControl];
-}
-
 #pragma mark - Setter && Getter
 - (UIView *)blurBackgroundView {
-    if (!_blurBackgroundView) {
-        UIVisualEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-        _blurBackgroundView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-        _blurBackgroundView.frame = self.bounds;
-        _blurBackgroundView.alpha = 0;
+    if (!_backgroundView) {
+        _backgroundView = [[UIView alloc] init];
+        _backgroundView.frame = self.bounds;
+        _backgroundView.backgroundColor = [UIColor blackColor];
+        _backgroundView.alpha = 0;
     }
-    return _blurBackgroundView;
+    return _backgroundView;
 }
 
 - (void)setCurrentAssetArray:(NSMutableArray *)currentAssetArray {
     _currentAssetArray = currentAssetArray;
     
-    self.pageControl.numberOfPages = currentAssetArray.count;
     self.contentSize = CGSizeMake(_containerView.sizeWidth * currentAssetArray.count, _containerView.sizeHeight);
 }
 
 - (UIPageControl *)pageControl {
     if (!_pageControl) {
-        _pageControl = [[UIPageControl alloc] init];
+        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(10, self.sizeHeight - 36, self.sizeWidth - 30, 10)];
         _pageControl.hidesForSinglePage = YES;
         _pageControl.userInteractionEnabled = NO;
-        _pageControl.sizeHeight = 10;
-        _pageControl.center = CGPointMake(self.sizeWidth / 2, self.sizeHeight - 18);
         _pageControl.alpha = 0;
     }
     return _pageControl;
@@ -176,12 +167,13 @@
         CGFloat changeDistanceY = [sender locationInView:self.blurBackgroundView].y - _panGestureBeginPoint.y;
         self.originUp = changeDistanceY;
         
-        CGFloat alpha = (3 / 2 - fabs(changeDistanceY) / 200);
+        CGFloat alpha = (2 - fabs(changeDistanceY) / 200);
         alpha > 1 ? alpha = 1 : alpha < 0 ? alpha = 0 : alpha;
         [UIView animateWithDuration:0.1
                               delay:0
-                            options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionCurveLinear animations:^{
-                                self.blurBackgroundView.alpha = alpha;
+                            options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionCurveLinear
+                         animations:^{
+                             self.blurBackgroundView.alpha = alpha;
                             } completion:nil];
     } else if(sender.state == UIGestureRecognizerStateEnded) {
         CGPoint moveSpeed = [sender velocityInView:self.blurBackgroundView];
@@ -204,7 +196,7 @@
                                         self.originUp = self.sizeHeight;
                                     }
                                     
-                                    // [[UIApplication sharedApplication] setStatusBarHidden:_fromNavigationBarHidden withAnimation: UIStatusBarAnimationNone];
+                                     [[UIApplication sharedApplication] setStatusBarHidden:_fromNavigationBarHidden withAnimation: UIStatusBarAnimationNone];
                                 } completion:^(BOOL finished) {
                                     [self removeFromSuperview];
                                 }];
@@ -242,11 +234,16 @@
     
     self.frame = CGRectMake(-10, 0, container.size.width + 20, container.size.height);
     [container addSubview:self.blurBackgroundView];
-    [self.blurBackgroundView addSubview:self];
+    [self.backgroundView addSubview:self];
+    [self.backgroundView addSubview:self.pageControl];
+
+    self.pageControl.numberOfPages = self.currentAssetArray.count;
+
+    [self addGesture];
     
     _fromNavigationBarHidden = [UIApplication sharedApplication].statusBarHidden;
-    // [[UIApplication sharedApplication] setStatusBarHidden:YES
-    //                                        withAnimation:animated ? UIStatusBarAnimationFade : UIStatusBarAnimationNone];
+     [[UIApplication sharedApplication] setStatusBarHidden:YES
+                                            withAnimation:animated ? UIStatusBarAnimationFade : UIStatusBarAnimationNone];
     
     self.contentSize = CGSizeMake(self.sizeWidth * self.currentAssetArray.count, self.sizeHeight);
     [self scrollRectToVisible:CGRectMake(self.sizeWidth * self.fromItemIndex, 0, self.sizeWidth, self.sizeHeight) animated:NO];
@@ -297,7 +294,6 @@
         }completion:^(BOOL finished) {
             self.isPresented = YES;
             [self scrollViewDidScroll:self];
-            cell.imageContainerView.clipsToBounds = YES;
             self.userInteractionEnabled = YES;
             [self hidePageControl];
             if (completion) completion();
@@ -307,8 +303,7 @@
 
 - (void)dismissAnimated:(BOOL)animated
              completion:(void (^)(void))completion {
-    [UIView setAnimationsEnabled:YES];
-    // [[UIApplication sharedApplication] setStatusBarHidden:_fromNavigationBarHidden withAnimation:animated ? UIStatusBarAnimationFade : UIStatusBarAnimationNone];
+    [[UIApplication sharedApplication] setStatusBarHidden:_fromNavigationBarHidden withAnimation: UIStatusBarAnimationNone];
     
     UIView *fromView = nil;
     CBPhotoBrowserScrollViewCell *imageCell = [self cellForPage:_fromItemIndex];
@@ -321,7 +316,8 @@
     }
     
     self.isPresented = NO;
-
+    self.cells = @[].mutableCopy;
+        
     [UIView animateWithDuration:animated ? 0.2 : 0
                           delay:0
                         options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseOut animations:^{

@@ -41,6 +41,11 @@
 @property (nonatomic, assign, readwrite) NSInteger page;
 
 /**
+ Asset mode.
+ */
+@property (nonatomic, strong, readwrite) CBPhotoBrowserAssetModel *assetModel;
+
+/**
  Configure cell with model data.
  
  @param model Sprcified model.

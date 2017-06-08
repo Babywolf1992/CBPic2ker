@@ -28,7 +28,6 @@
 @interface CBPhotoBrowserScrollViewCell() <UIScrollViewDelegate>
 
 @property (nonatomic, strong, readwrite) CBPhotoSelecterPhotoLibrary *photoLibrary;
-@property (nonatomic, strong, readwrite) CBPhotoBrowserAssetModel *assetModel;
 
 @end
 
@@ -86,14 +85,22 @@
     if (!model) { return; }
     
     self.assetModel = model;
-    self.maximumZoomScale = 3;
-    self.imageView.image = model.middleSizeImage;
-    [self setZoomScale:1.0 animated:NO];
     
-    [_photoLibrary getFullSizePhotoWithAsset:model.asset
-                                  completion:^(UIImage *photo, NSDictionary *info, BOOL isDegraded) {
-                                      self.imageView.image = photo;
-                                  }];
+    [self setZoomScale:1.0 animated:NO];
+    self.maximumZoomScale = 3;
+
+    self.imageView.image = model.fullSizeImage ? model.fullSizeImage : model.middleSizeImage;
+    
+    if (!model.fullSizeImage) {
+        [self.photoLibrary getFullSizePhotoWithAsset:model.asset
+                                          completion:^(UIImage *photo, NSDictionary *info, BOOL isDegraded) {
+                                              self.imageView.image = photo;
+                                              model.fullSizeImage = photo;
+                                              
+                                              [self reLayoutSubviews];
+                                          }];
+    }
+    
     [self reLayoutSubviews];
 }
 
@@ -104,7 +111,7 @@
     UIImage *image = self.imageView.image;
     if (image.size.height / image.size.width > self.sizeHeight / self.sizeWidth) {
         self.imageContainerView.sizeHeight = floor(image.size.height / (image.size.width / self.sizeWidth));
-    }else{
+    } else{
         CGFloat height = floor(image.size.height / image.size.width * self.sizeWidth);
         self.imageContainerView.sizeHeight = height;
         self.imageContainerView.centerY = self.sizeHeight / 2;
@@ -115,14 +122,11 @@
 
     if (_imageContainerView.sizeHeight < self.sizeHeight) {
         self.alwaysBounceVertical = NO;
-    }else {
+    } else {
         self.alwaysBounceVertical = YES;
     }
-    
-    [CATransaction begin];
-    [CATransaction setDisableActions:YES];
+
     _imageView.frame = _imageContainerView.bounds;
-    [CATransaction commit];
 }
 
 @end

@@ -29,7 +29,6 @@
 @interface CBPhotoSelecterPreSectionView() <CBPhotoBrowserScrollViewDelegate>
 
 @property (nonatomic, strong, readwrite) NSMutableArray *currentSelectedPhotosArr;
-@property (nonatomic, strong, readwrite) CBPhotoBrowserScrollView *photoBrowser;
 
 @property (nonatomic, copy, readwrite) void(^scrollBlockInternal)(NSInteger index);
 
@@ -43,14 +42,6 @@
         self.scrollBlockInternal = scrollBlock;
     }
     return self;
-}
-
-- (CBPhotoBrowserScrollView *)photoBrowser {
-    if (!_photoBrowser) {
-        _photoBrowser = [[CBPhotoBrowserScrollView alloc] init];
-        _photoBrowser.imageBrowserDelegate = self;
-    }
-    return _photoBrowser;
 }
 
 - (UIEdgeInsets)inset {
@@ -88,20 +79,25 @@
             NSMutableArray *selectedArr = [[CBPhotoSelecterPhotoLibrary sharedPhotoLibrary] selectedAssetArr];
             
             NSMutableArray *photoBrowserArr = [[NSMutableArray alloc] init];
+            
+            CBPhotoBrowserScrollView *photoBrowser = [[CBPhotoBrowserScrollView alloc] init];
+            photoBrowser.imageBrowserDelegate = self;
+            
             [selectedArr enumerateObjectsUsingBlock:^(CBPhotoSelecterAssetModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 CBPhotoBrowserAssetModel *model = [[CBPhotoBrowserAssetModel alloc] init];
                 model.middleSizeImage = obj.middleSizeImage;
                 model.sourceView = obj.preView;
+                model.asset = obj.asset;
                 
                 [photoBrowserArr addObject:model];
             }];
             
-            self.photoBrowser.currentAssetArray = photoBrowserArr;
-            [self.photoBrowser presentFromImageView:cell
-                                              index:index
-                                            container:self.viewController.navigationController.view
-                                           animated:YES
-                                         completion:nil];
+            photoBrowser.currentAssetArray = photoBrowserArr;
+            [photoBrowser presentFromImageView:cell
+                                         index:index
+                                     container:self.viewController.navigationController.view
+                                      animated:YES
+                                    completion:nil];
         }];
     }
     return cell;

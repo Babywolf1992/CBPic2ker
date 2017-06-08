@@ -34,6 +34,7 @@
                 cell.originRight < self.contentOffset.x - self.sizeWidth) {
                 [cell removeFromSuperview];
                 cell.page = -1;
+                cell.assetModel = nil;
             }
         }
     }
@@ -49,9 +50,10 @@
     
     cell = [CBPhotoBrowserScrollViewCell new];
     cell.size = self.viewController.view.size;
-    cell.imageContainerView.size = self.viewController.view.bounds.size;
+    cell.imageContainerView.size = self.viewController.view.size;
     cell.imageView.size = cell.bounds.size;
     cell.page = -1;
+    cell.assetModel = nil;
     [self.cells addObject:cell];
     return cell;
 }
@@ -62,6 +64,10 @@
     if (!decelerate) {
         [self hidePageControl];
     }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    [self hidePageControl];
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView
@@ -83,15 +89,17 @@
             CBPhotoBrowserScrollViewCell *cell = [self cellForPage:i];
             if (!cell) {
                 CBPhotoBrowserScrollViewCell *cell = [self dequeueReusableCell];
+                
                 cell.page = i;
                 cell.originLeft = (self.sizeWidth) * i + 10;
                 
                 if (self.isPresented) {
                     [cell configureCellWithModel:self.currentAssetArray[i]];
                 }
+                
                 [self addSubview:cell];
             } else {
-                if (self.isPresented) {
+                if (self.isPresented && !cell.assetModel) {
                     [cell configureCellWithModel:self.currentAssetArray[i]];
                 }
             }
