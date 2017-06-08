@@ -28,6 +28,7 @@
 @interface CBPhotoBrowserScrollViewCell() <UIScrollViewDelegate>
 
 @property (nonatomic, strong, readwrite) CBPhotoSelecterPhotoLibrary *photoLibrary;
+@property (nonatomic, strong, readwrite) CAShapeLayer *progressLayer;
 
 @end
 
@@ -47,12 +48,21 @@
         
         [self addSubview:self.imageContainerView];
         [self.imageContainerView addSubview:self.imageView];
+        [self.layer addSublayer:self.progressLayer];
     }
     return self;
 }
 
 #pragma maek - Layout
-
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    CGRect frame = self.progressLayer.frame;
+    CGPoint center = CGPointMake(self.sizeWidth / 2, self.sizeHeight / 2);
+    frame.origin.x = center.x - frame.size.width * 0.5;
+    frame.origin.y = center.y - frame.size.height * 0.5;
+    self.progressLayer.frame = frame;
+}
 
 #pragma mark - Setter && Getter
 - (UIImageView *)imageView {
@@ -63,6 +73,21 @@
         _imageView.image = _assetModel.middleSizeImage;
     }
     return _imageView;
+}
+
+- (CAShapeLayer *)progressLayer {
+    if (!_progressLayer) {
+        UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectInset(_progressLayer.bounds, 7, 7) cornerRadius:(40 / 2 - 7)];
+        _progressLayer.path = path.CGPath;
+        _progressLayer.fillColor = [UIColor clearColor].CGColor;
+        _progressLayer.strokeColor = [UIColor whiteColor].CGColor;
+        _progressLayer.lineWidth = 4;
+        _progressLayer.lineCap = kCALineCapRound;
+        _progressLayer.strokeStart = 0;
+        _progressLayer.strokeEnd = 0;
+        _progressLayer.hidden = YES;
+    }
+    return _progressLayer;
 }
 
 - (UIView *)imageContainerView {
@@ -88,6 +113,13 @@
     
     [self setZoomScale:1.0 animated:NO];
     self.maximumZoomScale = 3;
+    
+    self.progressLayer.hidden = NO;
+    [CATransaction begin];
+    [CATransaction setDisableActions:YES];
+    self.progressLayer.strokeEnd = 0;
+    self.progressLayer.hidden = YES;
+    [CATransaction commit];
 
     self.imageView.image = model.fullSizeImage ? model.fullSizeImage : model.middleSizeImage;
     
@@ -96,8 +128,12 @@
                                           completion:^(UIImage *photo, NSDictionary *info, BOOL isDegraded) {
                                               self.imageView.image = photo;
                                               model.fullSizeImage = photo;
-                                              
+                                              self.progressLayer.hidden = YES;
                                               [self reLayoutSubviews];
+                                          } progressHandler:^(double progress, NSError *error, BOOL *stop, NSDictionary *info) {
+                                              if (isnan(progress)) progress = 0;
+                                              self.progressLayer.hidden = NO;
+                                              self.progressLayer.strokeEnd = progress;
                                           }];
     }
     

@@ -167,7 +167,7 @@
         CGFloat changeDistanceY = [sender locationInView:self.blurBackgroundView].y - _panGestureBeginPoint.y;
         self.originUp = changeDistanceY;
         
-        CGFloat alpha = (2 - fabs(changeDistanceY) / 200);
+        CGFloat alpha = (1.5 - fabs(changeDistanceY) / 200);
         alpha > 1 ? alpha = 1 : alpha < 0 ? alpha = 0 : alpha;
         [UIView animateWithDuration:0.1
                               delay:0
@@ -195,9 +195,9 @@
                                     } else {
                                         self.originUp = self.sizeHeight;
                                     }
-                                    
-                                     [[UIApplication sharedApplication] setStatusBarHidden:_fromNavigationBarHidden withAnimation: UIStatusBarAnimationNone];
                                 } completion:^(BOOL finished) {
+                                    [[UIApplication sharedApplication] setStatusBarHidden:_fromNavigationBarHidden withAnimation: UIStatusBarAnimationNone];
+                                    
                                     [self removeFromSuperview];
                                 }];
         } else {
@@ -303,8 +303,6 @@
 
 - (void)dismissAnimated:(BOOL)animated
              completion:(void (^)(void))completion {
-    [[UIApplication sharedApplication] setStatusBarHidden:_fromNavigationBarHidden withAnimation: UIStatusBarAnimationNone];
-    
     UIView *fromView = nil;
     CBPhotoBrowserScrollViewCell *imageCell = [self cellForPage:_fromItemIndex];
     CBPhotoBrowserAssetModel *item = self.currentAssetArray[self.currentPage];
@@ -317,7 +315,7 @@
     
     self.isPresented = NO;
     self.cells = @[].mutableCopy;
-        
+    
     [UIView animateWithDuration:animated ? 0.2 : 0
                           delay:0
                         options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseOut animations:^{
@@ -334,6 +332,8 @@
                             [UIView animateWithDuration:animated ? 0.15 : 0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
                                 self.alpha = 0;
                             } completion:^(BOOL finished) {
+                                [[UIApplication sharedApplication] setStatusBarHidden:_fromNavigationBarHidden withAnimation: UIStatusBarAnimationNone];
+                                
                                 imageCell.imageContainerView.layer.anchorPoint = CGPointMake(0.5, 0.5);
                                 [self removeFromSuperview];
                                 if (completion) completion();

@@ -133,8 +133,10 @@
  
  @param asset Asset data.
  @param completion Completion block.
+ @param progressHandler Progress block.
  @return Image request id.
  */
 - (PHImageRequestID)getFullSizePhotoWithAsset:(id)asset
-                                   completion:(void (^)(UIImage *photo,NSDictionary *info,BOOL isDegraded))completion;
+                                   completion:(void (^)(UIImage *photo,NSDictionary *info,BOOL isDegraded))completion
+                              progressHandler:(void (^)(double progress, NSError *error, BOOL *stop, NSDictionary *info))progressHandler;
 @end
