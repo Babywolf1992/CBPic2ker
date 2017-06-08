@@ -23,4 +23,12 @@
 
 @interface CBPhotoSelecterPreSectionView : CBCollectionViewSectionController
 
+/**
+ Init method.
+ 
+ @param scrollBlock Called when collection index should be changed.
+ @return CBPhotoSelecterPreSectionView instance.
+ */
+- (instancetype)initWithScrollBlock:(void(^)(NSInteger index))scrollBlock;
+
 @end

@@ -26,18 +26,29 @@
 #import <CBPic2ker/CBPhotoSelecterPhotoLibrary.h>
 #import <CBPic2ker/CBPhotoBrowserAssetModel.h>
 
-@interface CBPhotoSelecterPreSectionView()
+@interface CBPhotoSelecterPreSectionView() <CBPhotoBrowserScrollViewDelegate>
 
 @property (nonatomic, strong, readwrite) NSMutableArray *currentSelectedPhotosArr;
 @property (nonatomic, strong, readwrite) CBPhotoBrowserScrollView *photoBrowser;
+
+@property (nonatomic, copy, readwrite) void(^scrollBlockInternal)(NSInteger index);
 
 @end
 
 @implementation CBPhotoSelecterPreSectionView
 
+- (instancetype)initWithScrollBlock:(void (^)(NSInteger))scrollBlock {
+    self = [super init];
+    if (self) {
+        self.scrollBlockInternal = scrollBlock;
+    }
+    return self;
+}
+
 - (CBPhotoBrowserScrollView *)photoBrowser {
     if (!_photoBrowser) {
         _photoBrowser = [[CBPhotoBrowserScrollView alloc] init];
+        _photoBrowser.imageBrowserDelegate = self;
     }
     return _photoBrowser;
 }
@@ -97,6 +108,11 @@
 }
 
 - (void)didSelectItemAtIndex:(NSInteger)index {
+}
+
+- (void)imageBrowserScrollView:(CBPhotoBrowserScrollView *)imageBrowserScrollView
+                  currentIndex:(NSInteger)currentIndex {
+    !_scrollBlockInternal ?: _scrollBlockInternal(currentIndex);
 }
 
 @end

@@ -61,6 +61,11 @@
 - (CBPhotoBrowserScrollViewCell *)cellForPage:(NSInteger)page;
 
 /**
+ Hide pageControl.
+ */
+- (void)hidePageControl;
+
+/**
  Present method.
 
  @param fromView Target view used to convert.

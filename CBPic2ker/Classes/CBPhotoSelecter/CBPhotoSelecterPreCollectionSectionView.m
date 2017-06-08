@@ -100,7 +100,9 @@
 
 - (CBPhotoSelecterPreSectionView *)preSectionView {
     if (!_preSectionView) {
-        _preSectionView = [[CBPhotoSelecterPreSectionView alloc] init];
+        _preSectionView = [[CBPhotoSelecterPreSectionView alloc] initWithScrollBlock:^(NSInteger index) {
+            [self.collectionView scrollRectToVisible:CGRectMake(_preSectionView.inset.left + index * (_preSectionView.minimumLineSpacing + [_preSectionView sizeForItemAtIndex:index].width), self.collectionView.originUp, self.collectionView.sizeWidth, self.collectionView.sizeHeight) animated:YES];
+        }];
     }
     return _preSectionView;
 }

@@ -22,6 +22,7 @@
 #import <CBPic2ker/CBPhotoBrowserScrollView+scrollViewDelegate.h>
 #import <CBPic2ker/CBPhotoBrowserScrollViewCell.h>
 #import <CBPic2ker/UIView+CBPic2ker.h>
+#import <CBPic2ker/CBPhotoBrowserScrollViewDelegate.h>
 
 @implementation CBPhotoBrowserScrollView (scrollViewDelegate)
 
@@ -58,13 +59,17 @@
 #pragma mark - ScrollView delegate.
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView
                   willDecelerate:(BOOL)decelerate {
-    
+    if (!decelerate) {
+        [self hidePageControl];
+    }
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView
                      withVelocity:(CGPoint)velocity
               targetContentOffset:(inout CGPoint *)targetContentOffset {
-    
+    if ([self.imageBrowserDelegate respondsToSelector:@selector(imageBrowserScrollView:currentIndex:)]) {
+        [self.imageBrowserDelegate imageBrowserScrollView:self currentIndex:targetContentOffset->x / self.sizeWidth];
+    }
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
