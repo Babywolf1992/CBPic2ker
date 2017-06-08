@@ -24,6 +24,11 @@
 @interface CBPhotoSelecterPreSectionView : CBCollectionViewSectionController
 
 /**
+ CollectionView, itself.
+ */
+@property (nonatomic, strong, readwrite) UICollectionView *collectionView;
+
+/**
  Init method.
  
  @param scrollBlock Called when collection index should be changed.

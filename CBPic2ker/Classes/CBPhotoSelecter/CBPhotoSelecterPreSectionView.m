@@ -94,7 +94,7 @@
             
             photoBrowser.currentAssetArray = photoBrowserArr;
             [photoBrowser presentFromImageView:cell
-                                         index:index
+                                         index:[_collectionView indexPathForCell:cell].item
                                      container:self.viewController.navigationController.view
                                       animated:YES
                                     completion:nil];

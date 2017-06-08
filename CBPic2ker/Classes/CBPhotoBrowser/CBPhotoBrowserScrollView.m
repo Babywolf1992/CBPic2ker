@@ -53,18 +53,19 @@
         self.canCancelContentTouches = YES;
         self.userInteractionEnabled = NO;
         self.cells = @[].mutableCopy;
+        self.alpha = 1;
     }
     
     return self;
 }
 
 #pragma mark - Setter && Getter
-- (UIView *)blurBackgroundView {
+- (UIView *)backgroundView {
     if (!_backgroundView) {
         _backgroundView = [[UIView alloc] init];
         _backgroundView.frame = self.bounds;
         _backgroundView.backgroundColor = [UIColor blackColor];
-        _backgroundView.alpha = 0;
+        _backgroundView.alpha = 1;
     }
     return _backgroundView;
 }
@@ -109,22 +110,22 @@
     doubleTap.delegate = self;
     doubleTap.numberOfTapsRequired = 2;
     [doubleTap requireGestureRecognizerToFail:doubleTap];
-    [self.blurBackgroundView addGestureRecognizer:doubleTap];
+    [self.backgroundView addGestureRecognizer:doubleTap];
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                 action:@selector(dismiss:)];
     singleTap.delegate = self;
     [singleTap requireGestureRecognizerToFail:doubleTap];
-    [self.blurBackgroundView addGestureRecognizer:singleTap];
+    [self.backgroundView addGestureRecognizer:singleTap];
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self
                                                                                             action:@selector(longPress:)];
     longPress.delegate = self;
-    [self.blurBackgroundView addGestureRecognizer:longPress];
+    [self.backgroundView addGestureRecognizer:longPress];
     
     UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self
                                                                                  action:@selector(panGesture:)];
-    [self.blurBackgroundView addGestureRecognizer:panGesture];
+    [self.backgroundView addGestureRecognizer:panGesture];
 }
 
 - (void)doubleTap:(id)sender {
@@ -162,9 +163,9 @@
     if (!_isPresented) return;
     
     if (sender.state == UIGestureRecognizerStateBegan) {
-        _panGestureBeginPoint = [sender locationInView:self.blurBackgroundView];
+        _panGestureBeginPoint = [sender locationInView:self.backgroundView];
     } else if(sender.state == UIGestureRecognizerStateChanged) {
-        CGFloat changeDistanceY = [sender locationInView:self.blurBackgroundView].y - _panGestureBeginPoint.y;
+        CGFloat changeDistanceY = [sender locationInView:self.backgroundView].y - _panGestureBeginPoint.y;
         self.originUp = changeDistanceY;
         
         CGFloat alpha = (1.5 - fabs(changeDistanceY) / 200);
@@ -173,11 +174,11 @@
                               delay:0
                             options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionCurveLinear
                          animations:^{
-                             self.blurBackgroundView.alpha = alpha;
+                             self.backgroundView.alpha = alpha;
                             } completion:nil];
     } else if(sender.state == UIGestureRecognizerStateEnded) {
-        CGPoint moveSpeed = [sender velocityInView:self.blurBackgroundView];
-        CGPoint changeToPoint = [sender locationInView:self.blurBackgroundView];
+        CGPoint moveSpeed = [sender velocityInView:self.backgroundView];
+        CGPoint changeToPoint = [sender locationInView:self.backgroundView];
         CGFloat changeDistanceY = changeToPoint.y - _panGestureBeginPoint.y;
         
         if (fabs(moveSpeed.y) > 1000 || fabs(changeDistanceY) > 200) {
@@ -189,16 +190,16 @@
             [UIView animateWithDuration:duration
                                   delay:0
                                 options:UIViewAnimationOptionCurveLinear | UIViewAnimationOptionBeginFromCurrentState animations:^{
-                                    self.blurBackgroundView.alpha = 0;
+                                    self.backgroundView.alpha = 0;
                                     if (moveToTop) {
                                         self.originDown = 0;
                                     } else {
                                         self.originUp = self.sizeHeight;
                                     }
                                     
-                                     [[UIApplication sharedApplication] setStatusBarHidden:_fromNavigationBarHidden withAnimation: UIStatusBarAnimationNone];
+                                     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation: UIStatusBarAnimationNone];
                                 } completion:^(BOOL finished) {
-                                    [self removeFromSuperview];
+                                    [self.backgroundView removeFromSuperview];
                                 }];
         } else {
             [UIView animateWithDuration:0.4f
@@ -208,7 +209,7 @@
                                 options:UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionBeginFromCurrentState
                              animations:^{
                                  self.originUp = 0;
-                                 self.blurBackgroundView.alpha = 1;
+                                 self.backgroundView.alpha = 1;
                              } completion:nil];
         }
     }
@@ -232,14 +233,8 @@
     _containerView = container;
     _fromItemIndex = index;
     
-    [container.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj isKindOfClass:[CBPhotoBrowserScrollView class]]) {
-            [obj removeFromSuperview];
-        }
-    }];
-    
     self.frame = CGRectMake(-10, 0, container.size.width + 20, container.size.height);
-    [container addSubview:self.blurBackgroundView];
+    [container addSubview:self.backgroundView];
     [self.backgroundView addSubview:self];
     [self.backgroundView addSubview:self.pageControl];
 
@@ -247,9 +242,8 @@
 
     [self addGesture];
     
-    _fromNavigationBarHidden = [UIApplication sharedApplication].statusBarHidden;
-     [[UIApplication sharedApplication] setStatusBarHidden:YES
-                                            withAnimation:animated ? UIStatusBarAnimationFade : UIStatusBarAnimationNone];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES
+                                            withAnimation:UIStatusBarAnimationFade];
     
     self.contentSize = CGSizeMake(self.sizeWidth * self.currentAssetArray.count, self.sizeHeight);
     [self scrollRectToVisible:CGRectMake(self.sizeWidth * self.fromItemIndex, 0, self.sizeWidth, self.sizeHeight) animated:NO];
@@ -271,8 +265,6 @@
               completion:(void (^)(void))completion {
     if (!cell) { return; }
     
-    self.alpha = 1;
-
     CGRect fromFrame = [_fromView convertRect:_fromView.bounds
                                        toView:cell.imageContainerView];
     cell.imageContainerView.clipsToBounds = NO;
@@ -280,13 +272,6 @@
     cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
 
     float oneTime = animated ? 0.18 : 0;
-    [UIView animateWithDuration:oneTime * 2
-                          delay:0
-                        options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut
-                     animations:^{
-                         self.blurBackgroundView.alpha = 1;
-                     } completion:nil];
-    
     [UIView animateWithDuration:oneTime
                           delay:0
                         options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut
@@ -305,11 +290,13 @@
             if (completion) completion();
         }];
     }];
+    
 }
 
 - (void)dismissAnimated:(BOOL)animated
              completion:(void (^)(void))completion {
-    [[UIApplication sharedApplication] setStatusBarHidden:_fromNavigationBarHidden withAnimation: UIStatusBarAnimationNone];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO
+                                            withAnimation: UIStatusBarAnimationNone];
     
     UIView *fromView = nil;
     CBPhotoBrowserScrollViewCell *imageCell = [self cellForPage:_fromItemIndex];
@@ -328,7 +315,7 @@
                           delay:0
                         options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseOut animations:^{
                             self.pageControl.alpha = 0.0;
-                            self.blurBackgroundView.alpha = 0.0;
+                            self.backgroundView.alpha = 0.0;
                             
                             CGRect fromFrame = [fromView convertRect:fromView.bounds
                                                               toView:imageCell.imageContainerView];
@@ -341,7 +328,7 @@
                                 self.alpha = 0;
                             } completion:^(BOOL finished) {
                                 imageCell.imageContainerView.layer.anchorPoint = CGPointMake(0.5, 0.5);
-                                [self removeFromSuperview];
+                                [self.backgroundView removeFromSuperview];
                                 if (completion) completion();
                             }];
                         }];

@@ -103,6 +103,7 @@
         _preSectionView = [[CBPhotoSelecterPreSectionView alloc] initWithScrollBlock:^(NSInteger index) {
             [self.collectionView scrollRectToVisible:CGRectMake(_preSectionView.inset.left + index * (_preSectionView.minimumLineSpacing + [_preSectionView sizeForItemAtIndex:index].width), self.collectionView.originUp, self.collectionView.sizeWidth, self.collectionView.sizeHeight) animated:YES];
         }];
+        _preSectionView.collectionView = self.collectionView;
     }
     return _preSectionView;
 }
