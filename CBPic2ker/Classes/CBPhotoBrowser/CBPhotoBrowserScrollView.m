@@ -32,6 +32,7 @@
 @property (nonatomic, strong, readwrite) UIView *containerView;
 
 @property (nonatomic, assign, readwrite) NSInteger fromItemIndex;
+@property (nonatomic, assign, readwrite) BOOL fromNavigationBarHidden;
 
 @end
 
@@ -194,10 +195,9 @@
                                     } else {
                                         self.originUp = self.sizeHeight;
                                     }
-                                } completion:^(BOOL finished) {
-                                    [[UIApplication sharedApplication] setStatusBarHidden:NO
-                                                                            withAnimation: UIStatusBarAnimationNone];
                                     
+                                     [[UIApplication sharedApplication] setStatusBarHidden:_fromNavigationBarHidden withAnimation: UIStatusBarAnimationNone];
+                                } completion:^(BOOL finished) {
                                     [self removeFromSuperview];
                                 }];
         } else {
@@ -232,6 +232,12 @@
     _containerView = container;
     _fromItemIndex = index;
     
+    [container.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj isKindOfClass:[CBPhotoBrowserScrollView class]]) {
+            [obj removeFromSuperview];
+        }
+    }];
+    
     self.frame = CGRectMake(-10, 0, container.size.width + 20, container.size.height);
     [container addSubview:self.blurBackgroundView];
     [self.backgroundView addSubview:self];
@@ -241,7 +247,8 @@
 
     [self addGesture];
     
-    [[UIApplication sharedApplication] setStatusBarHidden:YES
+    _fromNavigationBarHidden = [UIApplication sharedApplication].statusBarHidden;
+     [[UIApplication sharedApplication] setStatusBarHidden:YES
                                             withAnimation:animated ? UIStatusBarAnimationFade : UIStatusBarAnimationNone];
     
     self.contentSize = CGSizeMake(self.sizeWidth * self.currentAssetArray.count, self.sizeHeight);
@@ -302,6 +309,8 @@
 
 - (void)dismissAnimated:(BOOL)animated
              completion:(void (^)(void))completion {
+    [[UIApplication sharedApplication] setStatusBarHidden:_fromNavigationBarHidden withAnimation: UIStatusBarAnimationNone];
+    
     UIView *fromView = nil;
     CBPhotoBrowserScrollViewCell *imageCell = [self cellForPage:_fromItemIndex];
     CBPhotoBrowserAssetModel *item = self.currentAssetArray[self.currentPage];
@@ -331,9 +340,6 @@
                             [UIView animateWithDuration:animated ? 0.15 : 0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
                                 self.alpha = 0;
                             } completion:^(BOOL finished) {
-                                [[UIApplication sharedApplication] setStatusBarHidden:NO
-                                                                        withAnimation: UIStatusBarAnimationNone];
-                                
                                 imageCell.imageContainerView.layer.anchorPoint = CGPointMake(0.5, 0.5);
                                 [self removeFromSuperview];
                                 if (completion) completion();

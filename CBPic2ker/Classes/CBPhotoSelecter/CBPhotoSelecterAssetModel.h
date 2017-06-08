@@ -20,6 +20,7 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+#import <Photos/Photos.h>
 
 /**
  Asset type.
@@ -66,6 +67,11 @@ typedef NS_ENUM(NSInteger, CBPhotoSelecterAssetModelMediaType) {
 @property (nonatomic, strong, readwrite) UIImage *smallSizeImage;
 @property (nonatomic, strong, readwrite) UIImage *middleSizeImage;
 @property (nonatomic, strong, readwrite) UIImage *fullSizeImage;
+
+/**
+ Live photo, set when mediatype is live photo.
+ */
+@property (nonatomic, strong, readwrite) PHLivePhoto *livePhoto;
 
 /**
  PreView.

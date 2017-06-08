@@ -53,7 +53,9 @@
             [self.contentView addSubview:self.imageView];
             self.imageView.image = _assetModel.fullSizeImage ? _assetModel.fullSizeImage : (_assetModel.middleSizeImage ? _assetModel.middleSizeImage: _assetModel.smallSizeImage);
             break;
+        case CBPhotoSelecterAssetModelMediaTypeLivePhoto:
             [self.contentView addSubview:self.livePhotoView];
+            break;
         default:
             break;
     }
