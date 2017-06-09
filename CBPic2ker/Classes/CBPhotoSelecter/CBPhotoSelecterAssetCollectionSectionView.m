@@ -79,7 +79,7 @@
     NSInteger dureation = _isAlreadyPresent ? 0.25 : 0;
     [UIView animateWithDuration:dureation
                      animations:^{
-                         self.collectionView.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height - self.viewController.navigationController.navigationBar.sizeHeight - [[UIApplication sharedApplication] statusBarFrame].size.height - 42 - heightOffset);
+                         self.collectionView.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height - self.viewController.navigationController.navigationBar.sizeHeight - [[UIApplication sharedApplication] statusBarFrame].size.height - 44 - heightOffset);
                      }];
     
     return self.collectionView.frame.size;

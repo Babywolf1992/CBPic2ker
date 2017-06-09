@@ -25,7 +25,6 @@
 @interface CBPhotoSelecterAlbumSectionView()
 
 @property (nonatomic, strong, readwrite) NSArray *dataModelArr;
-
 @property (nonatomic, copy, readwrite) void(^albumBlock)(CBPhotoSelecterAlbumModel *model);
 
 @end
