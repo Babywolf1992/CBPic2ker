@@ -25,10 +25,27 @@
 @interface CBPhotoBrowserAssetModel : NSObject
 
 /**
+ Asset type.
+ 
+ - CBPhotoSelecterAssetModelMediaTypePhoto: Photo type.
+ - CBPhotoSelecterAssetModelMediaTypeLivePhoto: Live photo.
+ - CBPhotoSelecterAssetModelMediaTypeGif: Gif photo.
+ - CBPhotoSelecterAssetModelMediaTypeVideo: Video.
+ - CBPhotoSelecterAssetModelMediaTypeAudio: Audio.
+ */
+@property (nonatomic, assign, readwrite) NSInteger mediatype;
+
+/**
  Image, set when mediatype is image.
  */
+@property (nonatomic, strong, readwrite) UIImage *smallSizeImage;
 @property (nonatomic, strong, readwrite) UIImage *middleSizeImage;
 @property (nonatomic, strong, readwrite) UIImage *fullSizeImage;
+
+/**
+ Live photo, set when mediatype is live photo.
+ */
+@property (nonatomic, strong, readwrite) PHLivePhoto *livePhoto;
 
 /**
  Source imageView.

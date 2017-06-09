@@ -20,6 +20,8 @@
 // THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
+#import <Photos/Photos.h>
+#import <PhotosUI/PhotosUI.h>
 
 @class CBPhotoBrowserAssetModel;
 
@@ -31,9 +33,9 @@
 @property (nonatomic, strong, readwrite) UIView *imageContainerView;
 
 /**
- Image view.
+ Could be livePhoto, imageView or videoView.
  */
-@property (nonatomic, strong, readwrite) UIImageView *imageView;
+@property (nonatomic, strong, readwrite) UIView *validView;
 
 /**
  Cueent page number.
@@ -44,6 +46,11 @@
  Asset mode.
  */
 @property (nonatomic, strong, readwrite) CBPhotoBrowserAssetModel *assetModel;
+
+/**
+ Image request ID.
+ */
+@property (nonatomic, assign, readwrite) PHImageRequestID imageRequestID;
 
 /**
  Configure cell with model data.

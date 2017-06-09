@@ -129,6 +129,18 @@
                       progressHandler:(void (^)(double progress, NSError *error, BOOL *stop, NSDictionary *info))progressHandler;
 
 /**
+ Get GIF photo with asset.
+ 
+ @param asset Asset data.
+ @param completion Completion block.
+ @param progressHandler Progress block.
+ @return Image request id.
+ */
+- (PHImageRequestID)getGIFPhotoWithAsset:(id)asset
+                              completion:(void (^)(NSData *data, NSDictionary *info, BOOL isDegraded))completion
+                         progressHandler:(void (^)(double progress, NSError *error, BOOL *stop, NSDictionary *info))progressHandler;
+
+/**
  Get full size photo.
  
  @param asset Asset data.
@@ -139,4 +151,31 @@
 - (PHImageRequestID)getFullSizePhotoWithAsset:(id)asset
                                    completion:(void (^)(UIImage *photo,NSDictionary *info,BOOL isDegraded))completion
                               progressHandler:(void (^)(double progress, NSError *error, BOOL *stop, NSDictionary *info))progressHandler;
+
+/**
+ Get full size live photo.
+ 
+ @param asset Asset data.
+ @param completion Completion block.
+ @param progressHandler Progress block.
+ @return Image request id.
+ */
+- (PHImageRequestID)getFullSizeLivePhotoForAsset:(PHAsset *)asset
+                                      completion:(void (^)(PHLivePhoto *, NSDictionary *))completion
+                                 progressHandler:(void (^)(double, NSError *, BOOL *, NSDictionary *))progressHandler;
+
+/**
+ Get live photo.
+ 
+ @param asset Asset data.
+ @param photoWidth Photo width.
+ @param completion Completion block.
+ @param progressHandler Progress block.
+ @return Image request id.
+ */
+- (PHImageRequestID)getLivePhotoForAsset:(PHAsset *)asset
+                              photoWidth:(CGFloat)photoWidth
+                              completion:(void (^)(PHLivePhoto *livePhoto, NSDictionary *info))completion
+                         progressHandler:(void (^)(double progress, NSError *error, BOOL *stop, NSDictionary *info))progressHandler;
+
 @end

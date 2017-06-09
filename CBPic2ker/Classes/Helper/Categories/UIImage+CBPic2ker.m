@@ -20,6 +20,7 @@
 // THE SOFTWARE.
 
 #import <CBPic2ker/UIImage+CBPic2ker.h>
+#include <ImageIO/ImageIO.h>
 
 @implementation UIImage (fixOrientation)
 
@@ -99,19 +100,6 @@
     CGContextRelease(ctx);
     CGImageRelease(cgimg);
     return img;
-}
-
-+ (UIImage *)scaleImage:(UIImage *)image
-                 toSize:(CGSize)size {
-    if (image.size.width > size.width) {
-        UIGraphicsBeginImageContext(size);
-        [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
-        UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        return newImage;
-    } else {
-        return image;
-    }
 }
 
 @end

@@ -27,8 +27,9 @@
 @interface CBPhotoSelecterAssetSectionViewCell()
 
 @property (nonatomic, strong, readwrite) UIImageView *assetImageView;
-@property (nonatomic, strong, readwrite) UIImageView *videoImgView;
+//@property (nonatomic, strong, readwrite) UIImageView *videoImgView;
 @property (nonatomic, strong, readwrite) UIView *bottomView;
+@property (nonatomic, strong, readwrite) UILabel *typeLable;
 @property (nonatomic, strong, readwrite) UILabel *timeLength;
 @property (nonatomic, strong, readwrite) UIButton *selectButton;
 
@@ -49,7 +50,7 @@
     if (self) {
         [self.contentView addSubview:self.assetImageView];
         [self.contentView addSubview:self.bottomView];
-        [self.bottomView addSubview:self.videoImgView];
+        [self.bottomView addSubview:self.typeLable];
         [self.bottomView addSubview:self.timeLength];
         [self.contentView addSubview:self.selectButton];
     }
@@ -65,23 +66,27 @@
     
     self.representedAssetIdentifier = [(PHAsset *)assetModel.asset localIdentifier];
     self.type = (NSInteger)assetModel.mediaType;
-
-    PHImageRequestID imageRequestID = [[CBPhotoSelecterPhotoLibrary sharedPhotoLibrary] getPhotoWithAsset:assetModel.asset photoWidth:self.frame.size.width completion:^(UIImage *photo, NSDictionary *info, BOOL isDegraded) {
-        if ([self.representedAssetIdentifier isEqualToString:[(PHAsset *)assetModel.asset localIdentifier]]) {
-            self.assetImageView.image = photo;
-            assetModel.smallSizeImage = photo;
-        } else {
-            [[PHImageManager defaultManager] cancelImageRequest:self.imageRequestID];
-        }
-    } progressHandler:nil];
     
-    self.imageRequestID = imageRequestID;
+    self.assetImageView.image = assetModel.middleSizeImage ? assetModel.middleSizeImage : assetModel.smallSizeImage;
+    
+    if (!assetModel.smallSizeImage) {
+        self.imageRequestID = [[CBPhotoSelecterPhotoLibrary sharedPhotoLibrary] getPhotoWithAsset:assetModel.asset photoWidth:self.frame.size.width completion:^(UIImage *photo, NSDictionary *info, BOOL isDegraded) {
+            if ([self.representedAssetIdentifier isEqualToString:[(PHAsset *)assetModel.asset localIdentifier]]) {
+                self.assetImageView.image = photo;
+                assetModel.smallSizeImage = photo;
+            } else {
+                [[PHImageManager defaultManager] cancelImageRequest:self.imageRequestID];
+            }
+        } progressHandler:nil];
+    }
+    
     self.selectedStatus = assetModel.isSelected;
 }
 
 - (void)selectAction:(id)sender {
     self.selectedStatus = !self.selectedStatus;
     !self.selectedActionBlockInternal ?: self.selectedActionBlockInternal(_assetModel);
+    self.assetImageView.image = _assetModel.middleSizeImage ? _assetModel.middleSizeImage : _assetModel.smallSizeImage;
 }
 
 - (UIImageView *)assetImageView {
@@ -101,46 +106,60 @@
     return _bottomView;
 }
 
+- (UILabel *)typeLable {
+    if (!_typeLable) {
+        _typeLable = [[UILabel alloc] initWithFrame:CGRectMake(8, 0, 50, 17)];
+        _typeLable.textColor = [UIColor whiteColor];
+        _typeLable.font = [UIFont boldSystemFontOfSize:11];
+        _typeLable.textAlignment = NSTextAlignmentLeft;
+    }
+    return _typeLable;
+}
+
 - (void)setType:(CBPhotoSelecterAssetModelMediaType)type {
     _type = type;
     
     switch (_type) {
         case CBPhotoSelecterAssetModelMediaTypeVideo:
             _bottomView.hidden = false;
-            _videoImgView.hidden = false;
+            _typeLable.hidden = false;
+            _typeLable.text = @"VIDEO";
             _timeLength.text = _assetModel.timeLength;
             break;
         case CBPhotoSelecterAssetModelMediaTypeGif:
             _bottomView.hidden = false;
+            _typeLable.hidden = YES;
             _timeLength.text = @"GIF";
-            _videoImgView.hidden = true;
             break;
+            /*
         case CBPhotoSelecterAssetModelMediaTypeLivePhoto:
             _bottomView.hidden = false;
-            _timeLength.text = @"Live";
-            _videoImgView.hidden = true;
+            _typeLable.hidden = false;
+            _typeLable.text = @"LIVE";
+            _timeLength.text = @"0:03";
             break;
+             */
         default:
-            _bottomView.hidden = true;
+            _bottomView.hidden = YES;
             break;
     }
 }
 
-- (UIImageView *)videoImgView {
-    if (!_videoImgView) {
-        _videoImgView = [[UIImageView alloc] initWithFrame:CGRectMake(8, 0, 17, 17)];
-        [_videoImgView setImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] pathForResource:@"CBPic2kerPicker" ofType:@"bundle"] stringByAppendingString:@"/Vid"]]];
-        [self.bottomView addSubview:_videoImgView];
-    }
-    return _videoImgView;
-}
+//- (UIImageView *)videoImgView {
+//    if (!_videoImgView) {
+//        _videoImgView = [[UIImageView alloc] initWithFrame:CGRectMake(8, 0, 17, 17)];
+//        [_videoImgView setImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] pathForResource:@"CBPic2kerPicker" ofType:@"bundle"] stringByAppendingString:@"/Vid"]]];
+//        [self.bottomView addSubview:_videoImgView];
+//    }
+//    return _videoImgView;
+//}
 
 - (UILabel *)timeLength {
     if (!_timeLength) {
         _timeLength = [[UILabel alloc] init];
-        _timeLength.font = [UIFont boldSystemFontOfSize:11];
-        _timeLength.frame = CGRectMake(self.videoImgView.frame.origin.x + self.videoImgView.frame.size.width, 0, self.frame.size.width - self.videoImgView.frame.origin.x - self.videoImgView.frame.size.width - 5, 17);
+        _timeLength.frame = CGRectMake(self.typeLable.frame.origin.x + self.typeLable.frame.size.width, 0, self.frame.size.width - self.typeLable.frame.origin.x - self.typeLable.frame.size.width - 5, 17);
         _timeLength.textColor = [UIColor whiteColor];
+        _timeLength.font = [UIFont boldSystemFontOfSize:11];
         _timeLength.textAlignment = NSTextAlignmentRight;
     }
     return _timeLength;

@@ -23,11 +23,14 @@
 #import <CBPic2ker/CBPhotoSelecterPhotoLibrary.h>
 #import <Photos/Photos.h>
 #import <PhotosUI/PhotosUI.h>
+#import <CBPic2ker/UIImage+CBPic2ker.h>
 
 @interface CBPhotoSelecterPreSectionViewCell()
 
 @property (nonatomic, strong, readwrite) UIImageView *imageView;
 @property (nonatomic, strong, readwrite) PHLivePhotoView *livePhotoView;
+@property (nonatomic, strong, readwrite) UIButton *playButton;
+@property (nonatomic, strong, readwrite) UIWebView *GIFImageWebView;
 
 @property (nonatomic, strong, readwrite) CBPhotoSelecterAssetModel *assetModel;
 @property (nonatomic, strong, readwrite) NSString *representedAssetIdentifier;
@@ -48,26 +51,47 @@
     self.assetModel = assetModel;
     self.representedAssetIdentifier = [(PHAsset *)assetModel.asset localIdentifier];
     
+    PHImageRequestID imageRequestID = 0;
     switch (assetModel.mediaType) {
-        case CBPhotoSelecterAssetModelMediaTypePhoto:
-            [self.contentView addSubview:self.imageView];
-            self.imageView.image = _assetModel.fullSizeImage ? _assetModel.fullSizeImage : (_assetModel.middleSizeImage ? _assetModel.middleSizeImage: _assetModel.smallSizeImage);
-            break;
-        case CBPhotoSelecterAssetModelMediaTypeLivePhoto:
+            /*
+        case CBPhotoSelecterAssetModelMediaTypeLivePhoto: {
             [self.contentView addSubview:self.livePhotoView];
+            self.imageView.image = _assetModel.fullSizeImage ? _assetModel.fullSizeImage : (_assetModel.middleSizeImage ? _assetModel.middleSizeImage: _assetModel.smallSizeImage);
+            
+            if (!_assetModel.middleSizeImage) {
+                imageRequestID = [[CBPhotoSelecterPhotoLibrary sharedPhotoLibrary] getLivePhotoForAsset:assetModel.asset photoWidth:self.frame.size.width completion:^(PHLivePhoto *livePhoto, NSDictionary *info) {
+                    self.livePhotoView.livePhoto = livePhoto;
+                    [self.livePhotoView startPlaybackWithStyle:PHLivePhotoViewPlaybackStyleHint];
+                } progressHandler:^(double progress, NSError *error, BOOL *stop, NSDictionary *info) {
+                    
+                }];
+            }
+        }
             break;
-        default:
+            */
+        default: {
+            [self.contentView addSubview:self.imageView];
+            if (assetModel.mediaType == CBPhotoSelecterAssetModelMediaTypeVideo) {
+                [self.contentView addSubview:self.playButton];
+            }
+            
+            self.imageView.image = _assetModel.fullSizeImage ? _assetModel.fullSizeImage : (_assetModel.middleSizeImage ? _assetModel.middleSizeImage: _assetModel.smallSizeImage);
+            
+            if (!_assetModel.middleSizeImage) {
+                imageRequestID = [[CBPhotoSelecterPhotoLibrary sharedPhotoLibrary] getPhotoWithAsset:assetModel.asset photoWidth:self.frame.size.width completion:^(UIImage *photo, NSDictionary *info, BOOL isDegraded) {
+                    if (!isDegraded) {
+                        if ([self.representedAssetIdentifier isEqualToString:[(PHAsset *)assetModel.asset localIdentifier]]) {
+                            self.imageView.image = photo;
+                            assetModel.middleSizeImage = photo;
+                        } else {
+                            [[PHImageManager defaultManager] cancelImageRequest:self.imageRequestID];
+                        }
+                    }
+                } progressHandler:nil];
+            }
+        }
             break;
     }
-    
-    PHImageRequestID imageRequestID = [[CBPhotoSelecterPhotoLibrary sharedPhotoLibrary] getPhotoWithAsset:assetModel.asset photoWidth:self.frame.size.width completion:^(UIImage *photo, NSDictionary *info, BOOL isDegraded) {
-        if ([self.representedAssetIdentifier isEqualToString:[(PHAsset *)assetModel.asset localIdentifier]]) {
-            self.imageView.image = photo;
-            assetModel.middleSizeImage = photo;
-        } else {
-            [[PHImageManager defaultManager] cancelImageRequest:self.imageRequestID];
-        }
-    } progressHandler:nil];
     
     self.imageRequestID = imageRequestID;
 }
@@ -78,15 +102,35 @@
         _imageView.contentMode = UIViewContentModeScaleAspectFill;
         _imageView.clipsToBounds = YES;
         _imageView.userInteractionEnabled = YES;
-        [_imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)]];
+        [_imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                 action:@selector(tapAction:)]];
     }
     return _imageView;
+}
+
+- (UIWebView *)GIFImageWebView {
+    if (!_GIFImageWebView) {
+        _GIFImageWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    }
+    return _GIFImageWebView;
+}
+
+- (UIButton *)playButton {
+    if (!_playButton) {
+        _playButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+        _playButton.center = _imageView.center;
+        [_playButton setBackgroundImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] pathForResource:@"CBPic2kerPicker" ofType:@"bundle"] stringByAppendingString:@"/PLAY"]] forState:UIControlStateNormal];
+    }
+    return _playButton;
 }
 
 - (PHLivePhotoView *)livePhotoView {
     if (!_livePhotoView) {
         _livePhotoView = [[PHLivePhotoView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
         _livePhotoView.clipsToBounds = YES;
+        _livePhotoView.backgroundColor = [UIColor grayColor];
+        [_livePhotoView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                     action:@selector(tapAction:)]];
         _livePhotoView.contentMode = UIViewContentModeScaleAspectFill;
     }
     return _livePhotoView;

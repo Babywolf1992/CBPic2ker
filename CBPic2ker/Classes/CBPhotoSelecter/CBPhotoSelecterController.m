@@ -234,6 +234,13 @@
                 [strongSelf.photoLibrary removeSelectedAssetWithIdentifier:[(PHAsset *)model.asset localIdentifier]];
             } else {
                 [strongSelf.photoLibrary addSelectedAssetWithModel:model];
+                
+                if(strongSelf -> _alreadyShowPreView) {
+                    [UIView animateWithDuration:0.15
+                                     animations:^{
+                                         [strongSelf.collectionSectionView.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:NO];
+                                     } completion:nil];
+                }
             }
             
             strongSelf.titleLableView.text = strongSelf.photoLibrary.selectedAssetArr.count ? [NSString stringWithFormat:@"%lu Photos Selected", (unsigned long)strongSelf.photoLibrary.selectedAssetArr.count] : @"Select Photos";
@@ -248,7 +255,9 @@
                                     options:UIViewAnimationOptionCurveEaseOut
                                  animations:^{
                                      [strongSelf.collectionView deleteSections:[NSIndexSet indexSetWithIndex:0]];
-                                 } completion:^(BOOL finished) {                                     
+                                 } completion:^(BOOL finished) {
+                                     _alreadyShowPreView = NO;
+                                     
                                      [strongSelf.preCollectionSectionView changeCollectionViewLocation];
                                  }];
             } else if (strongSelf.photoLibrary.selectedAssetArr.count == 1 && strongSelf.collectionView.numberOfSections == 2) {
@@ -260,6 +269,10 @@
                                  animations:^{
                                      [strongSelf.collectionView insertSections:[NSIndexSet indexSetWithIndex:0]];
                                  } completion:^(BOOL finished) {
+                                     _alreadyShowPreView = YES;
+                                     
+                                     [strongSelf.collectionSectionView.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:NO];
+                                     
                                      [strongSelf.preCollectionSectionView changeCollectionViewLocation];
                                  }];
             } else {

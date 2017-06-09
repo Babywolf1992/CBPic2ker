@@ -41,5 +41,4 @@
 + (UIImage *)scaleImage:(UIImage *)image
                  toSize:(CGSize)size;
 
-
 @end

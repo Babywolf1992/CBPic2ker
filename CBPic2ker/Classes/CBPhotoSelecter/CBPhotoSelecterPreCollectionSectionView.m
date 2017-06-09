@@ -58,7 +58,7 @@
     if (!self.photoLibrary.isInsetAsset || _selectedPhotosArrInternal.count != 1)  {
         [_collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:_selectedPhotosArrInternal.count - 1 inSection:0] atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
     } else {
-        _collectionView.frame = CGRectMake(self.viewController.view.frame.size.width, 0, _collectionView.frame.size.width * 0.8, _collectionView.frame.size.height * 0.8);
+        _collectionView.frame = CGRectMake(self.viewController.view.frame.size.width, 0, _collectionView.frame.size.width, _collectionView.frame.size.height);
         _collectionView.center = CGPointMake(_collectionView.center.x, _preViewHeightInternal / 2);
 
         [_collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:_selectedPhotosArrInternal.count - 1 inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
@@ -69,7 +69,7 @@
               initialSpringVelocity:20
                             options:UIViewAnimationOptionCurveLinear
                          animations:^{
-                             _collectionView.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, _preViewHeightInternal);
+                             _collectionView.frame = CGRectMake(0, 0, _collectionView.frame.size.width, _collectionView.frame.size.height);
                          } completion:nil];
     }
 }
@@ -81,7 +81,7 @@
 
 - (CBCollectionView *)collectionView {
     if (!_collectionView) {
-        _collectionView = [[CBCollectionView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, _preViewHeightInternal) direction:CBPic2kerCollectionDirectionHorizontal];
+        _collectionView = [[CBCollectionView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, _preViewHeightInternal + 4) direction:CBPic2kerCollectionDirectionHorizontal];
         _collectionView.backgroundColor = [UIColor clearColor];
         _collectionView.alwaysBounceHorizontal = YES;
         _collectionView.showsHorizontalScrollIndicator = NO;

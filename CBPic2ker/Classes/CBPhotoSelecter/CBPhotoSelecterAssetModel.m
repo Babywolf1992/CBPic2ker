@@ -36,7 +36,7 @@
                           type:(CBPhotoSelecterAssetModelMediaType)type
                     timeLength:(NSString *)timeLength {
     CBPhotoSelecterAssetModel *model = [self modelWithAsset:asset
-                                                 type:type];
+                                                       type:type];
     model.timeLength = timeLength;
     return model;
 }

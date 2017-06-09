@@ -25,7 +25,7 @@
 @implementation CBPhotoSelecterAlbumButtonSectionView
 
 - (UIEdgeInsets)inset {
-    return UIEdgeInsetsMake(2, 0, 0, 0);
+    return UIEdgeInsetsMake(2, 0, 2, 0);
 }
 
 - (CGSize)sizeForItemAtIndex:(NSInteger)index {

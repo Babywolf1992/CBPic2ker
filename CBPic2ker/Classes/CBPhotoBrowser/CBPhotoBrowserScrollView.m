@@ -118,11 +118,13 @@
     [singleTap requireGestureRecognizerToFail:doubleTap];
     [self.backgroundView addGestureRecognizer:singleTap];
     
+    /*
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self
                                                                                             action:@selector(longPress:)];
     longPress.delegate = self;
     [self.backgroundView addGestureRecognizer:longPress];
-    
+    */
+     
     UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self
                                                                                  action:@selector(panGesture:)];
     [self.backgroundView addGestureRecognizer:panGesture];
@@ -134,7 +136,7 @@
         if (tile.zoomScale > 1) {
             [tile setZoomScale:1 animated:YES];
         } else {
-            CGPoint touchPoint = [sender locationInView:tile.imageView];
+            CGPoint touchPoint = [sender locationInView:tile.validView];
             CGFloat newZoomScale = tile.maximumZoomScale;
             CGFloat xsize = self.sizeWidth / newZoomScale;
             CGFloat ysize = self.sizeHeight / newZoomScale;
@@ -148,6 +150,7 @@
                completion:nil];
 }
 
+/*
 - (void)longPress:(id)sender  {
     CBPhotoBrowserScrollViewCell *tile = [self cellForPage:self.currentPage];
     if (!tile.imageView.image) return;
@@ -158,6 +161,7 @@
     }
     [self.viewController presentViewController:activityViewController animated:YES completion:nil];
 }
+ */
 
 - (void)panGesture:(UIPanGestureRecognizer *)sender  {
     if (!_isPresented) return;
@@ -253,8 +257,6 @@
     CBPhotoBrowserScrollViewCell *imageCell = [self cellForPage:_fromItemIndex];
     [imageCell configureCellWithModel:item];
     
-    [imageCell reLayoutSubviews];
-
     [self showWithAnimated:YES
                       cell:imageCell
                 completion:nil];
@@ -268,19 +270,19 @@
     CGRect fromFrame = [_fromView convertRect:_fromView.bounds
                                        toView:cell.imageContainerView];
     cell.imageContainerView.clipsToBounds = NO;
-    cell.imageView.frame = fromFrame;
-    cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    cell.validView.frame = fromFrame;
+    cell.validView.contentMode = UIViewContentModeScaleAspectFill;
 
     float oneTime = animated ? 0.18 : 0;
     [UIView animateWithDuration:oneTime
                           delay:0
                         options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-        cell.imageView.frame = cell.imageContainerView.bounds;
-        [cell.imageView.layer setValue:@(1.01) forKey:@"transform.scale"];
+        cell.validView.frame = cell.imageContainerView.bounds;
+        [cell.validView.layer setValue:@(1.01) forKey:@"transform.scale"];
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:oneTime delay:0 options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseInOut animations:^{
-            [cell.imageView.layer setValue:@(1.0) forKey:@"transform.scale"];
+            [cell.validView.layer setValue:@(1.0) forKey:@"transform.scale"];
             self.pageControl.alpha = 1;
         }completion:^(BOOL finished) {
             self.isPresented = YES;
@@ -320,9 +322,9 @@
                             CGRect fromFrame = [fromView convertRect:fromView.bounds
                                                               toView:imageCell.imageContainerView];
                             imageCell.imageContainerView.clipsToBounds = NO;
-                            imageCell.imageView.contentMode = fromView.contentMode;
-                            imageCell.imageView.frame = fromFrame;
-                            imageCell.imageView.image = item.middleSizeImage;
+                            imageCell.validView.contentMode = fromView.contentMode;
+                            imageCell.validView.frame = fromFrame;
+                            // imageCell.imageView.image = item.middleSizeImage;
                         }completion:^(BOOL finished) {
                             [UIView animateWithDuration:animated ? 0.15 : 0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
                                 self.alpha = 0;

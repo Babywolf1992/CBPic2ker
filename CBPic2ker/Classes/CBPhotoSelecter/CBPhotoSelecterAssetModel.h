@@ -74,6 +74,11 @@ typedef NS_ENUM(NSInteger, CBPhotoSelecterAssetModelMediaType) {
 @property (nonatomic, strong, readwrite) PHLivePhoto *livePhoto;
 
 /**
+ GIF data, set when mediatype is gif photo.
+ */
+@property (nonatomic, strong, readwrite) NSData *GIFData;
+
+/**
  PreView.
  */
 @property (nonatomic, strong, readwrite) UIView *preView;

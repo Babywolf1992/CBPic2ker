@@ -21,14 +21,17 @@
 
 #import <CBPic2ker/CBPhotoBrowserScrollViewCell.h>
 #import <CBPic2ker/CBPhotoBrowserAssetModel.h>
-#import <Photos/Photos.h>
 #import <CBPic2ker/CBPhotoSelecterPhotoLibrary.h>
 #import <CBPic2ker/UIView+CBPic2ker.h>
+#import <PhotosUI/PhotosUI.h>
+#import <Photos/Photos.h>
 
 @interface CBPhotoBrowserScrollViewCell() <UIScrollViewDelegate>
 
 @property (nonatomic, strong, readwrite) CBPhotoSelecterPhotoLibrary *photoLibrary;
 @property (nonatomic, strong, readwrite) CAShapeLayer *progressLayer;
+@property (nonatomic, strong, readwrite) UIImageView *imageView;
+@property (nonatomic, strong, readwrite) PHLivePhotoView *livePhotoView;
 
 @end
 
@@ -47,7 +50,6 @@
         self.showsHorizontalScrollIndicator = NO;
         
         [self addSubview:self.imageContainerView];
-        [self.imageContainerView addSubview:self.imageView];
         [self.layer addSublayer:self.progressLayer];
     }
     return self;
@@ -69,14 +71,32 @@
     if (!_imageView) {
         _imageView = [[UIImageView alloc] init];
         _imageView.clipsToBounds = YES;
-        _imageView.backgroundColor = [UIColor colorWithWhite:1.000 alpha:0.500];
-        _imageView.image = _assetModel.middleSizeImage;
     }
     return _imageView;
 }
 
+- (UIView *)validView {
+    switch (_assetModel.mediatype) {
+            /*
+        case 0:
+            return self.imageView;
+            break;
+        case 1:
+            return self.livePhotoView;
+            break;
+             */
+        default:
+            return self.imageView;
+            break;
+    }
+}
+
 - (CAShapeLayer *)progressLayer {
     if (!_progressLayer) {
+        _progressLayer = [CAShapeLayer layer];
+        _progressLayer.frame = CGRectMake(0, 0, 40, 40);
+        _progressLayer.cornerRadius = 20;
+        _progressLayer.backgroundColor = [UIColor colorWithWhite:0.000 alpha:0.500].CGColor;
         UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectInset(_progressLayer.bounds, 7, 7) cornerRadius:(40 / 2 - 7)];
         _progressLayer.path = path.CGPath;
         _progressLayer.fillColor = [UIColor clearColor].CGColor;
@@ -105,6 +125,14 @@
     return _photoLibrary;
 }
 
+- (PHLivePhotoView *)livePhotoView {
+    if (!_livePhotoView) {
+        _livePhotoView = [[PHLivePhotoView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+        _livePhotoView.clipsToBounds = YES;
+    }
+    return _livePhotoView;
+}
+
 #pragma mark - Public
 - (void)configureCellWithModel:(CBPhotoBrowserAssetModel *)model {
     if (!model) { return; }
@@ -120,21 +148,57 @@
     self.progressLayer.strokeEnd = 0;
     self.progressLayer.hidden = YES;
     [CATransaction commit];
-
-    self.imageView.image = model.fullSizeImage ? model.fullSizeImage : model.middleSizeImage;
     
-    if (!model.fullSizeImage) {
-        [self.photoLibrary getFullSizePhotoWithAsset:model.asset
-                                          completion:^(UIImage *photo, NSDictionary *info, BOOL isDegraded) {
-                                              self.imageView.image = photo;
-                                              model.fullSizeImage = photo;
-                                              self.progressLayer.hidden = YES;
-                                              [self reLayoutSubviews];
-                                          } progressHandler:^(double progress, NSError *error, BOOL *stop, NSDictionary *info) {
-                                              if (isnan(progress)) progress = 0;
-                                              self.progressLayer.hidden = NO;
-                                              self.progressLayer.strokeEnd = progress;
-                                          }];
+    switch (model.mediatype) {
+            /*
+        case 1: { // CBPhotoSelecterAssetModelMediaTypeLivePhoto
+            [self.imageContainerView addSubview:self.livePhotoView];
+
+            self.livePhotoView.livePhoto = model.livePhoto ? model.livePhoto : nil;
+            
+            if (!model.livePhoto || model.livePhoto.size.width != self.frame.size.width) {
+                _imageRequestID = [self.photoLibrary getFullSizeLivePhotoForAsset:model.asset completion:^(PHLivePhoto *livePhoto, NSDictionary *info) {
+                    if ([livePhoto isKindOfClass:[livePhoto class]]) {
+                        self.livePhotoView.livePhoto = livePhoto;
+                        self.progressLayer.hidden = YES;
+                        self.maximumZoomScale = 3;
+                        [self reLayoutSubviews];
+                    }
+                } progressHandler:^(double progress, NSError *error, BOOL *stop, NSDictionary *info) {
+                    if (isnan(progress)) progress = 0;
+                    self.progressLayer.hidden = NO;
+                    self.progressLayer.strokeEnd = progress;
+                }];
+            } else if (model.livePhoto) {
+                [self.livePhotoView startPlaybackWithStyle:PHLivePhotoViewPlaybackStyleHint];
+            }
+        }
+            break;
+        */
+        default: {
+            [self.imageContainerView addSubview:self.imageView];
+            
+            self.imageView.image = model.fullSizeImage ? model.fullSizeImage : model.middleSizeImage ? model.middleSizeImage : model.smallSizeImage;
+            
+            if (!model.fullSizeImage) {
+                _imageRequestID = [self.photoLibrary getFullSizePhotoWithAsset:model.asset completion:^(UIImage *photo, NSDictionary *info, BOOL isDegraded) {
+                    if ([photo isKindOfClass:[UIImage class]]) {
+                        self.imageView.image = photo;
+                        model.fullSizeImage = photo;
+                        self.progressLayer.hidden = YES;
+                        [self reLayoutSubviews];
+                        self.maximumZoomScale = 3;
+                    }
+                } progressHandler:^(double progress, NSError *error, BOOL *stop, NSDictionary *info) {
+                    if (isnan(progress)) progress = 0;
+                    self.progressLayer.hidden = NO;
+                    self.progressLayer.strokeEnd = progress;
+                }];
+            } else {
+                self.maximumZoomScale = 3;
+            }
+        }
+            break;
     }
     
     [self reLayoutSubviews];
@@ -144,11 +208,11 @@
     self.imageContainerView.origin = CGPointZero;
     self.imageContainerView.sizeWidth = self.sizeWidth;
     
-    UIImage *image = self.imageView.image;
-    if (image.size.height / image.size.width > self.sizeHeight / self.sizeWidth) {
-        self.imageContainerView.sizeHeight = floor(image.size.height / (image.size.width / self.sizeWidth));
+    CGSize size = self.imageView.image ? self.imageView.image.size : self.livePhotoView.livePhoto.size;
+    if (size.height / size.width > self.sizeHeight / self.sizeWidth) {
+        self.imageContainerView.sizeHeight = floor(size.height / (size.width / self.sizeWidth));
     } else{
-        CGFloat height = floor(image.size.height / image.size.width * self.sizeWidth);
+        CGFloat height = floor(size.height / size.width * self.sizeWidth);
         self.imageContainerView.sizeHeight = height;
         self.imageContainerView.centerY = self.sizeHeight / 2;
     }
@@ -162,7 +226,8 @@
         self.alwaysBounceVertical = YES;
     }
 
-    _imageView.frame = _imageContainerView.bounds;
+    self.imageView.frame = _imageContainerView.bounds;
+    self.livePhotoView.frame = _imageContainerView.bounds;
 }
 
 @end

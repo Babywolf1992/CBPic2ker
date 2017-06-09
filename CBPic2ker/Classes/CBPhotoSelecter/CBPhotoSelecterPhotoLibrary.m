@@ -25,9 +25,14 @@
 #import <CBPic2ker/UIImage+CBPic2ker.h>
 #import <CBPic2ker/UIImage+CBPic2ker.h>
 
+static NSString * const kCBPhotoSelecterPhotoLibraryImageRequestID = @"kCBPhotoSelecterPhotoLibraryImageRequestID";
+static NSString * const kCBPhotoSelecterPhotoLibraryImage = @"kCBPhotoSelecterPhotoLibraryImage";
+static NSString * const kCBPhotoSelecterPhotoLibraryAssetIdentifier = @"kCBPhotoSelecterPhotoLibraryAssetIdentifier";
+
 @interface CBPhotoSelecterPhotoLibrary()
 
 @property (nonatomic, assign, readwrite) CGSize gridThumbnailSize;
+@property (nonatomic, strong, readwrite) NSMutableDictionary *imageRequestingDictionaray;
 
 @end
 
@@ -42,6 +47,13 @@
         photoLibrary.columnNumber = 3;
     });
     return photoLibrary;
+}
+
+- (NSMutableDictionary *)fullSizeImageRequestingDictionaray{
+    if (!_imageRequestingDictionaray) {
+        _imageRequestingDictionaray = [[NSMutableDictionary alloc] init];
+    }
+    return _imageRequestingDictionaray;
 }
 
 + (void)wipeSharedData {
@@ -177,12 +189,21 @@
         type = CBPhotoSelecterAssetModelMediaTypeLivePhoto;
     }
     
-    NSString *timeLength = type == CBPhotoSelecterAssetModelMediaTypeVideo ? [NSString stringWithFormat:@"%0.0f",phAsset.duration] : @"";
+    NSString *timeLength;
+    switch (type) {
+        case CBPhotoSelecterAssetModelMediaTypeVideo:
+        case CBPhotoSelecterAssetModelMediaTypeGif:
+        case CBPhotoSelecterAssetModelMediaTypeLivePhoto:
+            timeLength = [NSString stringWithFormat:@"%0.0f",phAsset.duration];
+            break;
+        default:
+            timeLength = @"";
+            break;
+    }
     timeLength = [self getNewTimeFromDurationSecond:timeLength.integerValue];
     model = [CBPhotoSelecterAssetModel modelWithAsset:asset
                                            type:type
                                      timeLength:timeLength];
-    
     return model;
 }
 
@@ -216,6 +237,55 @@
                                                        } progressHandler:nil];
 }
 
+- (PHImageRequestID)getFullSizeLivePhotoForAsset:(PHAsset *)asset
+                                      completion:(void (^)(PHLivePhoto *, NSDictionary *))completion
+                                 progressHandler:(void (^)(double, NSError *, BOOL *, NSDictionary *))progressHandler {
+    return [self getLivePhotoForAsset:asset
+                           photoWidth:CGFLOAT_MAX
+                           completion:completion
+                      progressHandler:progressHandler];
+}
+
+- (PHImageRequestID)getLivePhotoForAsset:(PHAsset *)asset
+                              photoWidth:(CGFloat)photoWidth
+                              completion:(void (^)(PHLivePhoto *, NSDictionary *))completion
+                         progressHandler:(void (^)(double, NSError *, BOOL *, NSDictionary *))progressHandler {
+    if (!asset || ![asset isKindOfClass:[PHAsset class]]) { return 0; }
+    
+    CGSize imageSize;
+
+    PHAsset *phAsset = (PHAsset *)asset;
+    CGFloat aspectRatio = phAsset.pixelWidth / (CGFloat)phAsset.pixelHeight;
+    CGFloat pixelWidth = photoWidth * 2;
+    CGFloat pixelHeight = pixelWidth / aspectRatio;
+    imageSize = CGSizeMake(pixelWidth, pixelHeight);
+    
+    if (photoWidth == CGFLOAT_MAX) {
+        imageSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width * 2, [[UIScreen mainScreen] bounds].size.height * 2);
+    }
+    
+    PHLivePhotoRequestOptions *option = [[PHLivePhotoRequestOptions alloc] init];
+    option.version = PHImageRequestOptionsVersionCurrent;
+    option.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
+    option.networkAccessAllowed = YES;
+    option.progressHandler = ^(double progress, NSError *error, BOOL *stop, NSDictionary *info) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (progressHandler) {
+                progressHandler(progress, error, stop, info);
+            }
+        });
+    };
+    
+    return [[PHCachingImageManager defaultManager] requestLivePhotoForAsset:asset targetSize:imageSize contentMode:PHImageContentModeAspectFill options:option resultHandler:^(PHLivePhoto * _Nullable livePhoto, NSDictionary * _Nullable info) {
+        BOOL downloadFinined = (![[info objectForKey:PHLivePhotoInfoCancelledKey] boolValue] && ![info objectForKey:PHLivePhotoInfoErrorKey]);
+        if (downloadFinined && completion && livePhoto) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(livePhoto,info);
+            });
+        }
+    }];
+}
+
 - (PHImageRequestID)getPhotoWithAsset:(id)asset
                            photoWidth:(CGFloat)photoWidth
                            completion:(void (^)(UIImage *, NSDictionary *, BOOL))completion
@@ -230,78 +300,94 @@
     CGFloat pixelHeight = pixelWidth / aspectRatio;
     imageSize = CGSizeMake(pixelWidth, pixelHeight);
     
+    if (photoWidth == CGFLOAT_MAX) {
+        imageSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
+    }
+    
     PHImageRequestOptions *option = [[PHImageRequestOptions alloc] init];
     option.resizeMode = PHImageRequestOptionsResizeModeFast;
+    option.networkAccessAllowed = YES;
+    option.progressHandler = ^(double progress, NSError *error, BOOL *stop, NSDictionary *info) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (progressHandler) {
+                progressHandler(progress, error, stop, info);
+            }
+        });
+    };
+    
+    NSMutableDictionary *requestDic;
+    
     PHImageRequestID imageRequestID = [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:imageSize contentMode:PHImageContentModeAspectFill options:option resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         BOOL downloadFinined = (![[info objectForKey:PHImageCancelledKey] boolValue] && ![info objectForKey:PHImageErrorKey]);
         if (downloadFinined && result) {
             result = [UIImage fixOrientation:result];
             if (completion) completion(result,info,[[info objectForKey:PHImageResultIsDegradedKey] boolValue]);
         }
-
-        if ([info objectForKey:PHImageResultIsInCloudKey] && !result) {
-            PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
-            options.progressHandler = ^(double progress, NSError *error, BOOL *stop, NSDictionary *info) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    if (progressHandler) {
-                        progressHandler(progress, error, stop, info);
-                    }
-                });
-            };
-            
-            options.networkAccessAllowed = YES;
-            options.resizeMode = PHImageRequestOptionsResizeModeFast;
-            [[PHImageManager defaultManager] requestImageDataForAsset:asset options:options resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
-                UIImage *resultImage = [UIImage imageWithData:imageData scale:0.1];
-                resultImage = [UIImage scaleImage:resultImage
-                                           toSize:imageSize];
-                if (resultImage) {
-                    resultImage = [UIImage fixOrientation:resultImage];
-                    if (completion) completion(resultImage,info,[[info objectForKey:PHImageResultIsDegradedKey] boolValue]);
-                }
-            }];
+        
+        if (requestDic) {
+            [requestDic setObject:result
+                           forKey:kCBPhotoSelecterPhotoLibraryImage];
+            [self.fullSizeImageRequestingDictionaray setObject:requestDic
+                                                        forKey:[(PHAsset *)asset localIdentifier]];
         }
     }];
+    
+    requestDic = [self.fullSizeImageRequestingDictionaray objectForKey:[(PHAsset *)asset localIdentifier]];
+    if (requestDic) {
+        if ([requestDic objectForKey:kCBPhotoSelecterPhotoLibraryImage]) {
+            completion([requestDic objectForKey:kCBPhotoSelecterPhotoLibraryImage], nil, NO);
+            [[PHImageManager defaultManager] cancelImageRequest:imageRequestID];
+        }
+        
+        if (![requestDic objectForKey:kCBPhotoSelecterPhotoLibraryImageRequestID]) {
+            [requestDic setObject:@(imageRequestID)
+                           forKey:kCBPhotoSelecterPhotoLibraryImageRequestID];
+        }
+    } else {
+        requestDic = [[NSMutableDictionary alloc] init];
+        [requestDic setObject:@(imageRequestID)
+                       forKey:kCBPhotoSelecterPhotoLibraryImageRequestID];
+    }
+    
+    [self.fullSizeImageRequestingDictionaray setObject:requestDic
+                                                forKey:[(PHAsset *)asset localIdentifier]];
+    
+    return imageRequestID;
+}
+
+- (PHImageRequestID)getGIFPhotoWithAsset:(id)asset
+                              completion:(void (^)(NSData *, NSDictionary *, BOOL))completion
+                         progressHandler:(void (^)(double, NSError *, BOOL *, NSDictionary *))progressHandler {
+    if (!asset || ![asset isKindOfClass:[PHAsset class]]) { return 0; }
+    
+    PHImageRequestOptions *option = [[PHImageRequestOptions alloc]init];
+    option.networkAccessAllowed = YES;
+    option.progressHandler = ^(double progress, NSError *error, BOOL *stop, NSDictionary *info) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (progressHandler) {
+                progressHandler(progress, error, stop, info);
+            }
+        });
+    };
+    
+    PHImageRequestID imageRequestID = [[PHImageManager defaultManager] requestImageDataForAsset:asset options:option resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+        BOOL downloadFinined = (![[info objectForKey:PHImageCancelledKey] boolValue] && ![info objectForKey:PHImageErrorKey]);
+        if (downloadFinined && imageData) {
+            BOOL isDegraded = [[info objectForKey:PHImageResultIsDegradedKey] boolValue];
+            if (completion) completion(imageData, info, isDegraded);
+        }
+    }];
+    
     return imageRequestID;
 }
 
 - (PHImageRequestID)getFullSizePhotoWithAsset:(id)asset
                                    completion:(void (^)(UIImage *, NSDictionary *, BOOL))completion
                               progressHandler:(void (^)(double, NSError *, BOOL *, NSDictionary *))progressHandler {
-    if (!asset || ![asset isKindOfClass:[PHAsset class]]) { return 0; }
-    
-    PHImageRequestOptions *option = [[PHImageRequestOptions alloc]init];
-    option.networkAccessAllowed = YES;
-    PHImageRequestID imageRequestID = [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeAspectFit options:option resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-        BOOL downloadFinined = (![[info objectForKey:PHImageCancelledKey] boolValue] && ![info objectForKey:PHImageErrorKey]);
-        if (downloadFinined && result) {
-            BOOL isDegraded = [[info objectForKey:PHImageResultIsDegradedKey] boolValue];
-            if (completion) completion(result, info, isDegraded);
-        }
-        
-        if ([info objectForKey:PHImageResultIsInCloudKey] && !result) {
-            PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
-            options.progressHandler = ^(double progress, NSError *error, BOOL *stop, NSDictionary *info) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    if (progressHandler) {
-                        progressHandler(progress, error, stop, info);
-                    }
-                });
-            };
-            
-            options.networkAccessAllowed = YES;
-            options.resizeMode = PHImageRequestOptionsResizeModeFast;
-            [[PHImageManager defaultManager] requestImageDataForAsset:asset options:options resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
-                UIImage *resultImage = [UIImage imageWithData:imageData scale:0.1];
-                if (resultImage) {
-                    resultImage = [UIImage fixOrientation:resultImage];
-                    if (completion) completion(resultImage,info,[[info objectForKey:PHImageResultIsDegradedKey] boolValue]);
-                }
-            }];
-        }
-    }];
-    
-    return imageRequestID;
+    return [self getPhotoWithAsset:asset
+                        photoWidth:CGFLOAT_MAX
+                        completion:completion
+                   progressHandler:progressHandler];
 }
 
 #pragma mark - Internal.

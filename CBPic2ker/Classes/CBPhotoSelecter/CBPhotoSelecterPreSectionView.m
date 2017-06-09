@@ -88,6 +88,9 @@
                 model.middleSizeImage = obj.middleSizeImage;
                 model.sourceView = obj.preView;
                 model.asset = obj.asset;
+                model.smallSizeImage = obj.smallSizeImage;
+                model.mediatype = obj.mediaType;
+                model.livePhoto = obj.livePhoto;
                 
                 [photoBrowserArr addObject:model];
             }];

@@ -51,7 +51,7 @@
     cell = [CBPhotoBrowserScrollViewCell new];
     cell.size = self.viewController.view.size;
     cell.imageContainerView.size = self.viewController.view.size;
-    cell.imageView.size = cell.bounds.size;
+    cell.validView.size = cell.bounds.size;
     cell.page = -1;
     cell.assetModel = nil;
     [self.cells addObject:cell];
@@ -84,7 +84,7 @@
     CGFloat floatPage = self.contentOffset.x / self.sizeWidth;
     NSInteger page = self.contentOffset.x / self.sizeWidth + 0.5;
     
-    for (NSInteger i = page - 1; i <= page + 1; i++) {
+    for (NSInteger i = page - 3; i <= page + 3; i++) {
         if (i >= 0 && i < self.currentAssetArray.count) {
             CBPhotoBrowserScrollViewCell *cell = [self cellForPage:i];
             if (!cell) {
@@ -104,6 +104,16 @@
                 }
             }
         }
+    }
+    
+    for (NSInteger i = 0; i < page - 3; i++) {
+        CBPhotoBrowserScrollViewCell *cell = [self cellForPage:i];
+        [[PHImageManager defaultManager] cancelImageRequest:cell.imageRequestID];
+    }
+    
+    for (NSInteger i = page + 3; i < self.currentAssetArray.count - 1; i++) {
+        CBPhotoBrowserScrollViewCell *cell = [self cellForPage:i];
+        [[PHImageManager defaultManager] cancelImageRequest:cell.imageRequestID];
     }
     
     NSInteger intPage = floatPage + 0.5;
