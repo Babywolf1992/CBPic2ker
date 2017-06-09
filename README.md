@@ -8,6 +8,6 @@
 
 # Effect
 
-<p align="center">
+<p align="left">
   <img src="PhotoPickerInteraction.gif" width="500" height="375"/>
 </p>
