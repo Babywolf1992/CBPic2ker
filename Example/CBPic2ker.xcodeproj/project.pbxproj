@@ -364,7 +364,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = E3FWW9E846;
-				INFOPLIST_FILE = "/Users/cbangchen/Desktop/Working Projects/CBPic2ker/Example/CBPic2ker/Base.lproj/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/CBPic2ker/Base.lproj/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chenchaobang.CBPic2ker;
@@ -380,7 +380,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = E3FWW9E846;
-				INFOPLIST_FILE = "/Users/cbangchen/Desktop/Working Projects/CBPic2ker/Example/CBPic2ker/Base.lproj/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/CBPic2ker/Base.lproj/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chenchaobang.CBPic2ker;
