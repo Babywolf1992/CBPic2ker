@@ -32,9 +32,24 @@
 @property (nonatomic, assign, readwrite) NSInteger columnNumber;
 
 /**
+ Default self.view.frame.size.height / 2, the height of pre scollView.
+ */
+@property (nonatomic, assign, readwrite) NSInteger preScrollViewHeight;
+
+/**
+ The radio of size of preView's image.
+ */
+@property (nonatomic, assign, readwrite) CGFloat preViewImageSizeRadio;
+
+/**
  Space betwwen two items.
  */
 @property (nonatomic, assign, readwrite) NSInteger itemSpace;
+
+/**
+ Default no limit, set a specified number.
+ */
+@property (nonatomic, assign, readwrite) NSInteger maxSlectedImagesCount;
 
 /**
  Selected assets arr;

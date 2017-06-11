@@ -301,7 +301,7 @@ static NSString * const kCBPhotoSelecterPhotoLibraryAssetIdentifier = @"kCBPhoto
     imageSize = CGSizeMake(pixelWidth, pixelHeight);
     
     if (photoWidth == CGFLOAT_MAX) {
-        imageSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
+        imageSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width * 2, [[UIScreen mainScreen] bounds].size.height * 2);
     }
     
     PHImageRequestOptions *option = [[PHImageRequestOptions alloc] init];
@@ -393,6 +393,11 @@ static NSString * const kCBPhotoSelecterPhotoLibraryAssetIdentifier = @"kCBPhoto
 #pragma mark - Internal.
 - (BOOL)isCameraRollAlbum:(NSString *)albumName {
     return [albumName isEqualToString:@"Camera Roll"] || [albumName isEqualToString:@"相机胶卷"] || [albumName isEqualToString:@"所有照片"] || [albumName isEqualToString:@"All Photos"];
+}
+
+- (void)setPreScrollViewHeight:(NSInteger)preScrollViewHeight {
+    _preScrollViewHeight = preScrollViewHeight;
+    self.preViewImageSizeRadio = [[UIScreen mainScreen] bounds].size.width * 0.75 / _preScrollViewHeight;
 }
 
 - (void)setColumnNumber:(NSInteger)columnNumber {

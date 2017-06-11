@@ -31,38 +31,16 @@
  Did finish picking photos.
  
  @param pickerController Picker controller.
- @param photos Selected photos.
  @param sourceAsset Source assets.
  */
-- (void)imagePickerController:(CBPhotoSelecterController *)pickerController
-       didFinishPickingPhotos:(NSArray<UIImage *> *)photos
-                  sourceAsset:(NSArray *)sourceAsset;
+- (void)photoSelecterController:(CBPhotoSelecterController *)pickerController
+                    sourceAsset:(NSArray *)sourceAsset;
 
 /**
  Did cancel picking any photos.
 
  @param pickerController Picker controller.
  */
-- (void)imagePickerDidCancelWithController:(CBPhotoSelecterController *)pickerController;
-
-/**
- Did finish picking a video.
-
- @param pickerController Picker controller.
- @param coverImage The coverimage of selected video.
- @param sourceAsset Source asset.
- */
-- (void)imagePickerController:(CBPhotoSelecterController *)pickerController didFinishPickingVideoWithCoverImage:(UIImage *)coverImage sourceAsset:(NSArray *)sourceAsset;
-
-/**
- Did finish picking a gif.
-
- @param pickerController Picker controller.
- @param animatedImage GIF.
- @param sourceAsset Source asset.
- */
-- (void)imagePickerController:(CBPhotoSelecterController *)pickerController
-     didFinishPickingGifImage:(UIImage *)animatedImage
-                 sourceAssets:(id)sourceAsset;
+- (void)photoSelecterDidCancelWithController:(CBPhotoSelecterController *)pickerController;
 
 @end

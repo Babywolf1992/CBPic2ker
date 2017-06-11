@@ -39,8 +39,16 @@
 - (IBAction)pushLikeYouAreHavingABabyAction:(id)sender {
     CBPhotoSelecterController *controller = [[CBPhotoSelecterController alloc] initWithDelegate:self];
     controller.columnNumber = 4;
+    controller.maxSlectedImagesCount = 5;
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:controller];
     [self presentViewController:nav animated:YES completion:nil];
+}
+
+- (void)photoSelecterController:(CBPhotoSelecterController *)pickerController sourceAsset:(NSArray *)sourceAsset {
+    
+}
+- (void)photoSelecterDidCancelWithController:(CBPhotoSelecterController *)pickerController {
+    
 }
 
 - (void)didReceiveMemoryWarning {

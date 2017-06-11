@@ -7,87 +7,87 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02707F5FCB033BB77E04FB64006A7AEB /* CBCollectionViewAdapter+scrollViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B892A7747EE90CF66A28216D2059F /* CBCollectionViewAdapter+scrollViewDelegate.m */; };
-		0301BCE9C71EFF592E934FF09D99722E /* CBPhotoSelecterAssetSectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 64BE32572E0DE1B69FB2A03587BDDE5A /* CBPhotoSelecterAssetSectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0A2C28AD5D5ED236F1CE3C4CD58934C3 /* CBPhotoSelecterAlbumView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0625AAD37397B2A6F4CE96B3631288 /* CBPhotoSelecterAlbumView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		100FFBF4C3C44C50F829DD2EEFEEF6BE /* CBPhotoSelecterAlbumButtonSectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 23D27EBF13B094C3D957418EBB0238AA /* CBPhotoSelecterAlbumButtonSectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		116DABBE2988ECF719A50D22892368C1 /* NSArray+CBPic2ker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A34F52FB51ADA3EB87AED0FA4010EBC /* NSArray+CBPic2ker.m */; };
-		14AC906A2CDF39AB02C7CC5ED8F5C6EC /* CBCollectionViewSectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D83CE1D186A988440DF5BBF666E8C0 /* CBCollectionViewSectionController.m */; };
-		16A0ADCC14947BBB22E9D3C87190799C /* CBCollectionViewAdapter+scrollViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A5A783AA8A09A28DD8A1C038E321F31A /* CBCollectionViewAdapter+scrollViewDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1957ADCD06F930AAAE4EEC7A00D80877 /* CBCollectionViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DB3CAA7B83AACF31AD11C99A204FD1D /* CBCollectionViewAdapter.m */; };
-		1B033BDC559215A8573F77870A588F9C /* CBCollectionViewAdapter+context.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D880A72442E5767BFE8493B7B2B185D /* CBCollectionViewAdapter+context.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		260F5AB005BD7914F9D223F76F0D765E /* UIView+CBPic2ker.h in Headers */ = {isa = PBXBuildFile; fileRef = 18A6BE817C81388A7C608FFC3B2BA29E /* UIView+CBPic2ker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2775D546BE5752F7F7BB10FB6B61836C /* CBCollectionViewAdapterHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 26B73F4B9D7CA8E673077FDD8AC4FC9A /* CBCollectionViewAdapterHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2A10654086E1232346C16A7296DA67B5 /* CBPic2kerAlbumButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCAC51AC3A4E7ACACC421E71184C8D1 /* CBPic2kerAlbumButton.m */; };
-		2C3E0A6C1EE59D7700D9B769 /* CBPhotoBrowserScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C3E0A6A1EE59D7700D9B769 /* CBPhotoBrowserScrollView.h */; };
-		2C3E0A6D1EE59D7700D9B769 /* CBPhotoBrowserScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3E0A6B1EE59D7700D9B769 /* CBPhotoBrowserScrollView.m */; };
-		2C3E0A731EE59F7800D9B769 /* CBPhotoBrowserScrollViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C3E0A721EE59F7800D9B769 /* CBPhotoBrowserScrollViewDelegate.h */; };
-		2CB6A78C1EE6FB5700F4FD53 /* CBPhotoBrowserScrollView+scrollViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CB6A78A1EE6FB5600F4FD53 /* CBPhotoBrowserScrollView+scrollViewDelegate.h */; };
-		2CB6A78D1EE6FB5700F4FD53 /* CBPhotoBrowserScrollView+scrollViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6A78B1EE6FB5700F4FD53 /* CBPhotoBrowserScrollView+scrollViewDelegate.m */; };
-		2CB6A7901EE6FDDE00F4FD53 /* CBPhotoBrowserScrollViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CB6A78E1EE6FDDE00F4FD53 /* CBPhotoBrowserScrollViewCell.h */; };
-		2CB6A7911EE6FDDE00F4FD53 /* CBPhotoBrowserScrollViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6A78F1EE6FDDE00F4FD53 /* CBPhotoBrowserScrollViewCell.m */; };
-		2CB6A7941EE702F800F4FD53 /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CB6A7921EE702F800F4FD53 /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.h */; };
-		2CB6A7951EE702F800F4FD53 /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6A7931EE702F800F4FD53 /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.m */; };
-		2CFE9AF71EE7DD7100085BF4 /* CBPhotoBrowserAssetModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CFE9AF51EE7DD7100085BF4 /* CBPhotoBrowserAssetModel.h */; };
-		2CFE9AF81EE7DD7100085BF4 /* CBPhotoBrowserAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE9AF61EE7DD7100085BF4 /* CBPhotoBrowserAssetModel.m */; };
-		39E88520C186A6112EAF27A29C0F0D68 /* UIView+CBPic2ker.m in Sources */ = {isa = PBXBuildFile; fileRef = DBD283511B7D0D1B13C0F1704EE1A577 /* UIView+CBPic2ker.m */; };
-		3F092CDB6804DD70FE50B2B33F20DBE2 /* CBPhotoSelecterControllerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B7A30CAE14EE929C2F392FD3A0B42BA /* CBPhotoSelecterControllerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F9DB338AA4085B5D5CE824C77C1E95E /* CBPhotoSelecterAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ACFC85F0F4A0541A5E4067EE54FF121 /* CBPhotoSelecterAssetModel.m */; };
-		40365F25CB45654A0CE113A2D6B2CE6D /* CBPhotoSelecterAlbumModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 02C5B6866CA4041AE1ADA6930DC41989 /* CBPhotoSelecterAlbumModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		406BA09B80358431448765004EDB1076 /* CBPhotoSelecterTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C9CD1AA1213688E865D4B5086A7AF5A /* CBPhotoSelecterTitleView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		41929C7769E7C5DABDC857374E40924A /* CBPhotoSelecterAlbumButtonSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A9B6CB9AA625AB2E4A418B0B124A61 /* CBPhotoSelecterAlbumButtonSectionView.m */; };
-		43C2D2CFB15E5B608A16ED0C300E80D2 /* CBCollectionViewSectionController.h in Headers */ = {isa = PBXBuildFile; fileRef = C45FDB948B21865E46FDF86ED95F775D /* CBCollectionViewSectionController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		44D72D0F8842BE6529A3808C6535AC70 /* CBPhotoSelecterAlbumSectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 793B5A6336EFCE527071940FF265874B /* CBPhotoSelecterAlbumSectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		47E3C7B06B0955C459C8BF3CD922C502 /* CBCollectionViewAdapterDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = D4DCC6DEB18C8BCCD6D484ADD015B913 /* CBCollectionViewAdapterDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4821312B6E0FF5835B3E55F33D6BA83F /* CBCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CBBF5F72EC31123C103B873F76FF7D /* CBCollectionView.m */; };
-		530C2F64412B81213F4A465751710C86 /* UINavigationController+CBPic2ker.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EB791FD703A4BF358C3488373C138F2 /* UINavigationController+CBPic2ker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		57D3DF7473963A00884D2BDB3AEE62FC /* UIImage+CBPic2ker.h in Headers */ = {isa = PBXBuildFile; fileRef = 86C4E40358ACCBE3CE56A43DF2DB8F31 /* UIImage+CBPic2ker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		669F7FA2E18686563FE443B454F3FDBB /* CBPhotoSelecterAlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CA2DA7DA1D5F2DCEB3E093C31E014B4B /* CBPhotoSelecterAlbumModel.m */; };
-		693F46732B1415BE9B5A1A88A3913BA1 /* UIColor+CBPic2ker.h in Headers */ = {isa = PBXBuildFile; fileRef = 24C099F847816D24B9BFF37E37805EFE /* UIColor+CBPic2ker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6D7408D74B88DC6706565CFB525AA564 /* CBPhotoSelecterAssetModel.h in Headers */ = {isa = PBXBuildFile; fileRef = E7799246D49EBFA82FE75B2E30898C10 /* CBPhotoSelecterAssetModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6EC4C7219B1A6CE7B485DA27A19AF65E /* UIColor+CBPic2ker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B218FC96404E5510C306B5D0E0AA35B /* UIColor+CBPic2ker.m */; };
-		762DAEEB3A6B915D79BF25617DE5E748 /* CBPhotoSelecterController.h in Headers */ = {isa = PBXBuildFile; fileRef = FD159918B6C71DD9ADF40D73DADCC2CE /* CBPhotoSelecterController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		780FAA1C8A5A91BF3C17466C6403A83B /* CBCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = A6F918A50B81632CCB6A040B503946A2 /* CBCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7A64A9606515A5C55D2417B6FFBD4476 /* CBCollectionViewDelegateProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 458E93E7AF26B965AEBEB761E62A4C23 /* CBCollectionViewDelegateProxy.m */; };
-		7A667DCFDCB7A06BF277CF0D7AF04968 /* CBPhotoSelecterTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB7D8F0A02D1D93E92D9C01A9879BF9 /* CBPhotoSelecterTitleView.m */; };
-		7F0ABB725A585766FF59CDC43A7D5009 /* CBPhotoSelecterPhotoLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A949E9B44203578876D99D369F66606 /* CBPhotoSelecterPhotoLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7F0C7A66DB05ADBDF80F882905A8143E /* CBCollectionViewAdapter+collectionViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A721CB98EB4445791B691756E4CC62 /* CBCollectionViewAdapter+collectionViewDelegate.m */; };
-		830B6FE454F9FA19023FA9D0893AF59E /* CBPhotoSelecterPreSectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 377DB5B1B1B5470CF7E8BC4CB96D41CB /* CBPhotoSelecterPreSectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		83D1B7ADC71485C30B3CA767C31300A2 /* CBPhotoSelecterAssetSectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = BF4F88919DD8197D619FDEA9B23DFB08 /* CBPhotoSelecterAssetSectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		84487D49BFE4CD8ECF7D393D07D23E01 /* CBPic2ker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BACF54B224E5F35190754DA75DDB99 /* CBPic2ker-dummy.m */; };
-		90488C1285BDC3E0917C2655B119A5DF /* CBPhotoSelecterPreSectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E55870A3BFFE2A05AD50A7CF2A0F23E5 /* CBPhotoSelecterPreSectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		928A14EC912B513FCFA79FE5374BD3D0 /* CBPhotoSelecterPermissionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2790E6FFA717250CDDDD5480D1C729EF /* CBPhotoSelecterPermissionView.m */; };
-		9579D4A41D43D971F00C9031C4FE02D6 /* UINavigationController+CBPic2ker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3728CCD8A26D7E2AD00184B1E1E36812 /* UINavigationController+CBPic2ker.m */; };
+		05065CA6B2F86614C86CDF6921B27C91 /* CBPhotoSelecterControllerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DB8160BA0A504911FCFC5E41D9A7F5F /* CBPhotoSelecterControllerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0756AD97FCEEB629923AFB9E4D71A250 /* CBCollectionViewDelegateProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A169FCBF665C34DC035FB5132CA649A /* CBCollectionViewDelegateProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0A8E33F1F17E1C0ACF07B6AF19CCF6D1 /* CBPhotoSelecterPhotoLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B8A5DC1BBD8D5D7BCFB2B20A175090 /* CBPhotoSelecterPhotoLibrary.m */; };
+		0BB75DBCF19A3166ABBC032290E75855 /* CBPhotoSelecterAlbumSectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EE95BBFE305F6ADC0BD5768E02E0B0 /* CBPhotoSelecterAlbumSectionViewCell.m */; };
+		141462067006B2AB00386848474DB849 /* CBCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = CEC3C7BDBB9C1E305ED4B9D27A15681A /* CBCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		16475BCFF9210B3D5D7F3F48E51509BB /* CBPhotoSelecterAlbumModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C404776A74276FB893E216F45042A87 /* CBPhotoSelecterAlbumModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1909F4C6068CC853CE1247AB0D558881 /* CBPhotoSelecterPermissionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D87A785CE5E038F84FA12C64CD602F /* CBPhotoSelecterPermissionView.m */; };
+		1C2D4C44B0FBB5E2016B81AB10B8BD7B /* CBPic2ker.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C5E3538A706C4F0DF72D3D65D4FCB0C /* CBPic2ker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EFF5CF6188F76432595A42179D05B3F /* CBPhotoSelecterAlbumView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C4DBFC484B303034F000B15A57FB237 /* CBPhotoSelecterAlbumView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		20E6FAEC555DEC1D22FD0F33D56A86F7 /* CBCollectionViewAdapter+context.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BB762006414FD8B767593203B5B6B56 /* CBCollectionViewAdapter+context.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21ECFCA519CD1707AB32D5D896F3EF5B /* CBCollectionViewAdapter+collectionViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE3B1A8E62DDF67B272BD62A976314A /* CBCollectionViewAdapter+collectionViewDelegate.m */; };
+		23A39790AE178CA83C9DF13E3104E3FB /* CBPhotoSelecterAssetSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 981DFC3FCE4B5409F43CA402C6A6BFB7 /* CBPhotoSelecterAssetSectionView.m */; };
+		246561E55126312D74EF7EE34991A886 /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 712CA41C664C5FF3D47C4346DF62D7FB /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.m */; };
+		2636205984D19E66BDE6E3658E510F87 /* UIView+CBPic2ker.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C53D7FE5D740B1CA56B2E5CD73A6E60 /* UIView+CBPic2ker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2A54FA472A56CE46D165CB921F7D9741 /* CBPhotoSelecterAlbumButton.h in Headers */ = {isa = PBXBuildFile; fileRef = A6956DA82F32C0AD5A8B3ED6EBE16974 /* CBPhotoSelecterAlbumButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2D51C2F28323B9A11881C57211879EE3 /* UIImage+CBPic2ker.m in Sources */ = {isa = PBXBuildFile; fileRef = 467A9D842452078EB39A6E72DD323EBF /* UIImage+CBPic2ker.m */; };
+		3656E8E0A9163402323853493F02C8DF /* CBPhotoSelecterAssetSectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79500E046AA5ADC9BE8747B16EF4211E /* CBPhotoSelecterAssetSectionViewCell.m */; };
+		3BAC9BE6C7A0FA7705BC4E3A5A7E9616 /* CBPhotoSelecterPreSectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 03A6F80766D9E4962C3FFE82D80FAC65 /* CBPhotoSelecterPreSectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3DAE09F7B3EC750871A8E887EB9A74D0 /* CBCollectionViewScrollDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A1DBB52E8B5592955EA1C496AF6D764 /* CBCollectionViewScrollDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F22930672561138F15FDA733A53C2F7 /* CBCollectionViewSectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 933A0CDB55386784A1294CD7A7E18B17 /* CBCollectionViewSectionController.m */; };
+		472EDC81A090FB31EAE1064EC105B0FC /* UINavigationController+CBPic2ker.h in Headers */ = {isa = PBXBuildFile; fileRef = F8A76FAB5526C709F87921E9D02FC07A /* UINavigationController+CBPic2ker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		482366FB666CB067D4EB5A70CC9A0D49 /* CBCollectionViewAdapter+collectionViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = C658EBC065EF88ABEDF84A7470D982F2 /* CBCollectionViewAdapter+collectionViewDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4BD5145D74829122A5B696272786EC23 /* CBPhotoSelecterPreSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A16CF8CDE7208FCAE3C5794F3B0BCDFE /* CBPhotoSelecterPreSectionView.m */; };
+		507C785F64D3BE97167FAD3A7950DA3F /* CBPhotoSelecterAssetCollectionSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1265F92DDA31752378C77F2F5378137 /* CBPhotoSelecterAssetCollectionSectionView.m */; };
+		512A9BF5EA08B705578D8892F71AEAB3 /* CBPhotoBrowserScrollViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = E1070E4434E2FBDC1CA3A98385B4D0E4 /* CBPhotoBrowserScrollViewDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5224054A7D577B32A2C0D429D5A25078 /* UIImage+CBPic2ker.h in Headers */ = {isa = PBXBuildFile; fileRef = 30C16B937B415B92DD9DF5582085E99E /* UIImage+CBPic2ker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		55F577AD08969E360FBA8E448078DB75 /* CBPhotoBrowserScrollView+scrollViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FABD421911E5205C851CD5EDF218E7B8 /* CBPhotoBrowserScrollView+scrollViewDelegate.m */; };
+		55FB580E5A3BEDA79E93DB0FDA86AA65 /* CBPhotoSelecterPreSectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E5CBD1268361D2E6B9479431D9F7A4B4 /* CBPhotoSelecterPreSectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		63021683FCB8C20D1AB6C18E1F042026 /* CBCollectionViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 28260E2B448C3AB60507BE832D9215BD /* CBCollectionViewAdapter.m */; };
+		674F1C7AB84087DCF9BB34F2A7A7528B /* CBCollectionViewAdapter+scrollViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 12C04256CD18CA43E7AFF5E9568E3AFA /* CBCollectionViewAdapter+scrollViewDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7B6981F89915EA4E3B6D509AFC9AB854 /* CBCollectionViewAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DA48C8A60C1F5C7D635C3EAD4B26E0C /* CBCollectionViewAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C0C6262725482608F59E272C8C0F23F /* CBPhotoSelecterAlbumView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD527F5A982FA956244A81F1E264E55D /* CBPhotoSelecterAlbumView.m */; };
+		7D0FBEC77BD155E48E7BB612795B0384 /* CBPhotoSelecterPreCollectionSectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 14F64C4C4D54F2233E0E56EA4405C045 /* CBPhotoSelecterPreCollectionSectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80B348EF51C0052F51781A5229E098B1 /* CBCollectionViewAdapter+context.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AE0438E154D72C063FA6D749AFB95D /* CBCollectionViewAdapter+context.m */; };
+		8133B5598849A29A21CF8F3A73A78C6A /* CBPhotoSelecterTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 74F6A05AB85FB02F5834EEB6F6B26E6F /* CBPhotoSelecterTitleView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		817B07FB231647114B39DA4D9FB44830 /* NSArray+CBPic2ker.m in Sources */ = {isa = PBXBuildFile; fileRef = 70760DBE84BE3244F7F84B2984E47DAD /* NSArray+CBPic2ker.m */; };
+		82BA94819FCAD94858D3D19433BD2F28 /* CBCollectionViewAdapterDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0C613CB5686F190A56CE843436F1DC /* CBCollectionViewAdapterDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84922F34B96C009C3265F629231E1903 /* CBPhotoSelecterAssetCollectionSectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 10B75F6C1930C7D695DF74E308897433 /* CBPhotoSelecterAssetCollectionSectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		89D01CA3DCFDBC20258A141BA908D3E9 /* CBPhotoSelecterPreSectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8505C04A1236D913B196950C46D10E7 /* CBPhotoSelecterPreSectionViewCell.m */; };
+		8E8B78FE4DFCA179877BCE8E513FB11B /* UINavigationController+CBPic2ker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ACDE30AC361CAE4BD9F8A417C4CE1B5 /* UINavigationController+CBPic2ker.m */; };
+		90EDCD5E721FF67D9ABFA2B595166E89 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */; };
+		94AEA653FFCACFFCD24FFD835DA1208E /* NSArray+CBPic2ker.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DA97B86953C2B1C4D6464FAD6B7E1DE /* NSArray+CBPic2ker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		961161FDCCB8E558AA5A07530FE662DB /* CBPhotoBrowserScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = F6F6FAEC4A4BFDA810095D4C4366EA74 /* CBPhotoBrowserScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		967D2631A91EED421CE931718C6D7BA3 /* CBCollectionViewContextProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 399CDEE18D1D876702135AA306C89411 /* CBCollectionViewContextProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		96DAB8CE7D95291BDD249FA58885D620 /* CBPhotoSelecterPhotoLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 134D841357F596840CD9E03B21D082F2 /* CBPhotoSelecterPhotoLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		98F5F2369837AE0EC122F4D7689793BE /* Pods-CBPic2ker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E09B536B3BE7778A7002919EB48451 /* Pods-CBPic2ker-dummy.m */; };
-		998E3B4CF246AB703FFAF277BD176B26 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */; };
-		A0F6B2D2CF098811A65954D2ACEB5B72 /* CBPhotoSelecterPhotoLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = A00BAD7E8565A5CE25FFF0D472378247 /* CBPhotoSelecterPhotoLibrary.m */; };
-		A275F57A086EE1336396C8F48A7C4542 /* UIImage+CBPic2ker.m in Sources */ = {isa = PBXBuildFile; fileRef = 801146A09F5B612365230DB9374237C9 /* UIImage+CBPic2ker.m */; };
-		A2BB9D34E17BE58B7EED1B8C3244FAD5 /* CBPhotoSelecterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F92C972CA3EA5DC9391BB5E8AF0E31 /* CBPhotoSelecterController.m */; };
-		A45AEA3184EA36203A78C0E3889D255E /* CBPhotoSelecterPreSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2A212B42B52787D96D914A5541A174 /* CBPhotoSelecterPreSectionView.m */; };
-		A58771ECD05DCEB9901F23E4A7D09263 /* CBCollectionViewAdapterHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B279A74399E6EC0359C5E63447DA4F /* CBCollectionViewAdapterHelper.m */; };
-		B054D65C2ABBDF6C58D4942C9AA27157 /* CBPhotoSelecterPreCollectionSectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 401BCD0E57A61FEAB8F1CABCF0BD98B1 /* CBPhotoSelecterPreCollectionSectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B36CA6A75158FD148808F4C7A4A44FC5 /* CBCollectionViewAdapter+context.m in Sources */ = {isa = PBXBuildFile; fileRef = 89FFAC50B82819905C1055B3B78B6DD6 /* CBCollectionViewAdapter+context.m */; };
-		B782A9E6CF8AD2CF2839E96BD4FBE33F /* CBCollectionViewScrollDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = E1E4D5271854E172A55ACA9908BBE31E /* CBCollectionViewScrollDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B91D07CA3E29CC1D6832AC455F92F0D4 /* CBCollectionViewAdapter+collectionViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = B360A8DCCF8E7B2203412C8A71A887A4 /* CBCollectionViewAdapter+collectionViewDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BD8399BB416B74A8FA3FC7DFDFF0CA96 /* CBPhotoSelecterAlbumButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 74CABC32A9CE55330DEB4482AF1411A9 /* CBPhotoSelecterAlbumButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C47FD5B95772AA817420F95DA2B1A744 /* CBPhotoSelecterAlbumSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 570763794D718DF42B84629F2202574A /* CBPhotoSelecterAlbumSectionView.m */; };
-		C708F298E9BBAC714F66620A87EEA5A6 /* CBCollectionViewContextProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = CA7B759D6E05AF002AFFE959BCA106B7 /* CBCollectionViewContextProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CC76AF432B435EC3F7C0260B5C60108A /* CBPhotoSelecterAlbumSectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D66DCF6FC8FD78E7899FD5119D98207C /* CBPhotoSelecterAlbumSectionViewCell.m */; };
-		CECC831C90BE2911F3E46CE1E47180B3 /* CBPhotoSelecterPreSectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACAB6FD721B9F260AB69586DA0F6422 /* CBPhotoSelecterPreSectionViewCell.m */; };
-		D0FD1297E4FA5C72EF71066EA1479EC7 /* CBPhotoSelecterAlbumView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FB487DA29EC6CDF62032C5743281CC /* CBPhotoSelecterAlbumView.m */; };
-		D3E251740ADE119C6C5BAA3928663E55 /* CBPhotoSelecterAssetSectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FBF702334EC631A674B2FE36C4FD9D /* CBPhotoSelecterAssetSectionViewCell.m */; };
-		DDB34B2155CCA67EE5B96FCB14815AB2 /* CBCollectionViewDelegateProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = FB6AC786F9C1879DDDCDF5152BAF96EB /* CBCollectionViewDelegateProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DF2164289C0CF2E4E4569AD4F334AD80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
-		E180B361507493AC1F5A8129B149B231 /* NSArray+CBPic2ker.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F2CE0F260973D0C71833B448573DF56 /* NSArray+CBPic2ker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E380FCA52E2F00228F999783B1C34BF9 /* CBPhotoSelecterPermissionView.h in Headers */ = {isa = PBXBuildFile; fileRef = DC94145B45246E893CDDA157B4E59BC6 /* CBPhotoSelecterPermissionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E4B2D9228FD7C2C4F1F0E6F845CC5025 /* CBPhotoSelecterAlbumSectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B0EEF142B801097367E132F47BC3102 /* CBPhotoSelecterAlbumSectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E95ED8CBF501A7CC2F00802734C14AAE /* CBPhotoSelecterPreCollectionSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B22B75ADB8D14E36716E6644E9D57251 /* CBPhotoSelecterPreCollectionSectionView.m */; };
-		EE39F282CC747238D0C610376FBEE9E0 /* CBPhotoSelecterAssetCollectionSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB8B1ACE041258811D00CA8FED07B8E /* CBPhotoSelecterAssetCollectionSectionView.m */; };
-		F030763DAD60D083566E0F62E3C1F750 /* CBPhotoSelecterAssetCollectionSectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 38926F015ED410DE2A1CE2AAC656DCB3 /* CBPhotoSelecterAssetCollectionSectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F21F2D2FCCCF1072FB3DAAE413F328B6 /* CBCollectionViewAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 77E5618AAE4EC638377A31BC7806EB04 /* CBCollectionViewAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F2C246BAB3C23501612025A7F3166BBD /* CBPic2ker.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A3721BA60881284865F5E5953B2F85 /* CBPic2ker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F5A6D98279711E9CB52427975439EE95 /* CBPhotoSelecterAssetSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5743C5A7EC5B7879BCEA405BB31FCD50 /* CBPhotoSelecterAssetSectionView.m */; };
+		9907E8A6F392B4F11F5F0656F474DEDB /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 0772B0BF9049C5FDAC7412E7C3B01A1E /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9C5494CE86E6DEFEC77DC3286B67414D /* CBPhotoBrowserAssetModel.h in Headers */ = {isa = PBXBuildFile; fileRef = A13D1FCA8DE37265365262C600626E66 /* CBPhotoBrowserAssetModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D5BC989350C21B219AA272710B9D3A0 /* CBPhotoSelecterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48EF92940C2E8AC41ECCC447669E6121 /* CBPhotoSelecterController.m */; };
+		9D792F26CD5622EE52DF5E80E686DD09 /* CBPhotoSelecterAssetModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 874BE551DDD0252F23B574A214D2916C /* CBPhotoSelecterAssetModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9EF0DABD94EF72CC94DC7DCD92BB7BA5 /* CBPhotoSelecterAlbumSectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = B0F0676840E4652B5C31F3D45A532511 /* CBPhotoSelecterAlbumSectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A3020B4D8F6340114163051EF46F4943 /* CBPhotoSelecterAlbumSectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 9887E539CAF4374E58B688363D022E84 /* CBPhotoSelecterAlbumSectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A4B43AAC6BF1A8CB4D2D7373729534F4 /* CBPic2kerAlbumButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0F9BE7605CE401BD6446CCB1A75E56 /* CBPic2kerAlbumButton.m */; };
+		AAE52A3DA877B679ED3D097213BB694B /* CBPhotoBrowserAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC6EC6D51C83B42F86B9031CD1AA4A6 /* CBPhotoBrowserAssetModel.m */; };
+		AFA6358D8E3C8EB59217EACC74BE0F5C /* CBCollectionViewAdapterHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C3E92E2FA16D3C79917B4AB0445DD5A /* CBCollectionViewAdapterHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B224850D7BB5DF3D0B52A3CB9C4E5396 /* CBPhotoSelecterAlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1618875F71FFD8F29B99EA42ECA94024 /* CBPhotoSelecterAlbumModel.m */; };
+		B5EF84D21FBE2CBC13AE929310BB8E1F /* CBCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7802545F86EBED9BFF5374F99096FEED /* CBCollectionView.m */; };
+		B60629AA8C93716CE8142BA960C531AD /* CBPhotoSelecterAlbumButtonSectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FEED8B7EDC166304EF0664DFB69C81B /* CBPhotoSelecterAlbumButtonSectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B659CC8962AE069A2B4FCA4145412242 /* CBPhotoSelecterAlbumButtonSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 690F1E7F4FC24F99E9A675FA0C68924F /* CBPhotoSelecterAlbumButtonSectionView.m */; };
+		B7CD180184F9258CC81FA6E01CB2F720 /* UIView+CBPic2ker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2A9C591C3BC21195AC89FCD90DE4FB /* UIView+CBPic2ker.m */; };
+		B890903539A6202E9FDC45BBDAC37FDB /* CBPhotoSelecterTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A88A42634CAB6C257754899616F752E5 /* CBPhotoSelecterTitleView.m */; };
+		B979CF62CA5FFF3C651166953D33584F /* CBPhotoSelecterPermissionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 71CDC8B96ABF4124E62925F42ED84218 /* CBPhotoSelecterPermissionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE81081B24C04CE541BAC3534811CFC1 /* CBPhotoBrowserScrollViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 29740A627E485468E8A925D47935F7B6 /* CBPhotoBrowserScrollViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE90B2B32AE9C17B50CB7F1AA4BBF65B /* CBCollectionViewAdapterHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F1311899E40C87118EB33308FB21FC37 /* CBCollectionViewAdapterHelper.m */; };
+		BFD0748EED18A901B59CCD524C647DFE /* CBPhotoBrowserScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047A9A9B7CB126FE94E6A9B22B539753 /* CBPhotoBrowserScrollView.m */; };
+		C0A93781346AF45CE51A952DED36279E /* UIColor+CBPic2ker.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E31C021892F6B813E07E416A552170C /* UIColor+CBPic2ker.m */; };
+		C0AC206AC5EF443F1020A74A374E778B /* UIColor+CBPic2ker.h in Headers */ = {isa = PBXBuildFile; fileRef = 7027A613DFB5B4FBF2A46FBFE25C7096 /* UIColor+CBPic2ker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CC0F0B37541D6D3B1A0FCC039E65D8D7 /* CBPhotoSelecterAlbumSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B6C651461CA367159C17005031E8118 /* CBPhotoSelecterAlbumSectionView.m */; };
+		CE1081521BC36BBB0ED2639DB15BBEB7 /* CBPhotoBrowserScrollViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8077B04507A2B70B84FA935B1D3A1FFA /* CBPhotoBrowserScrollViewCell.m */; };
+		D29370C62644F1294BD678E496AA9980 /* CBPhotoBrowserScrollView+scrollViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 96BDE0F35BF1752B083A44435996EC5B /* CBPhotoBrowserScrollView+scrollViewDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D422F827DA07AA16D2B2E6B8C568367E /* CBPhotoSelecterController.h in Headers */ = {isa = PBXBuildFile; fileRef = 47C59EED5C421CD7725632FFF53B6443 /* CBPhotoSelecterController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D58D32E871C60F99B152AC8BA9B3F633 /* CBCollectionViewSectionController.h in Headers */ = {isa = PBXBuildFile; fileRef = 92608C2B7CC4D9C161E4D4913B119B73 /* CBCollectionViewSectionController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DF0B4A0D23BE4999C3930C7B7301074E /* CBPhotoSelecterPreCollectionSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5B86023181AD353D1D5E1E3C587F75 /* CBPhotoSelecterPreCollectionSectionView.m */; };
+		E3E31E0BAECC899917B850B4A82A94C1 /* CBCollectionViewDelegateProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5381D13D3EA57B3DB1EF41ABE7B587CE /* CBCollectionViewDelegateProxy.m */; };
+		E533CDE9FFCB4257D83894238D159360 /* CBPhotoSelecterAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B89381865C4ED929D1EFFCE51F570694 /* CBPhotoSelecterAssetModel.m */; };
+		E5EEE60E7D1E1951248557FE1AE2F8C2 /* CBCollectionViewAdapter+scrollViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B95ADBB2F8834FA5D0AA4C871C848CD /* CBCollectionViewAdapter+scrollViewDelegate.m */; };
+		EA3E8AE270B65921D737BD0D9998D571 /* CBPhotoSelecterAssetSectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = FD4A35B651B09AE2CDDC141324C6C4BE /* CBPhotoSelecterAssetSectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F0040B02506D6C3691481867FC4B0457 /* CBPic2ker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BACF54B224E5F35190754DA75DDB99 /* CBPic2ker-dummy.m */; };
 		F702F1FFE9DFCBEF453A58B1D35E318C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
+		F88CFAB81502C232A647E8176BF6F44E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
+		FEFA6DAAE693F128E60B86A906634227 /* CBPhotoSelecterAssetSectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 8EBA3DAD2947890C8BABCEF05B673455 /* CBPhotoSelecterAssetSectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,107 +95,116 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 6DC56EA62B1961A937BEA0223619FB20;
+			remoteGlobalIDString = D31CB7C08D3A54117A17C079CE01C3CC;
 			remoteInfo = CBPic2ker;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		02C5B6866CA4041AE1ADA6930DC41989 /* CBPhotoSelecterAlbumModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterAlbumModel.h; sourceTree = "<group>"; };
-		06A9B6CB9AA625AB2E4A418B0B124A61 /* CBPhotoSelecterAlbumButtonSectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterAlbumButtonSectionView.m; sourceTree = "<group>"; };
+		02D87A785CE5E038F84FA12C64CD602F /* CBPhotoSelecterPermissionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterPermissionView.m; sourceTree = "<group>"; };
+		03A6F80766D9E4962C3FFE82D80FAC65 /* CBPhotoSelecterPreSectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterPreSectionView.h; sourceTree = "<group>"; };
+		047A9A9B7CB126FE94E6A9B22B539753 /* CBPhotoBrowserScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoBrowserScrollView.m; sourceTree = "<group>"; };
+		0772B0BF9049C5FDAC7412E7C3B01A1E /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CBPhotoBrowserScrollViewCell+scrollViewDelegate.h"; sourceTree = "<group>"; };
 		07A2FC0FF8F78E6B6A44719CED3E1D34 /* CBPic2kerPicker.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; path = CBPic2kerPicker.bundle; sourceTree = "<group>"; };
-		10F92C972CA3EA5DC9391BB5E8AF0E31 /* CBPhotoSelecterController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterController.m; sourceTree = "<group>"; };
-		12CBBF5F72EC31123C103B873F76FF7D /* CBCollectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCollectionView.m; sourceTree = "<group>"; };
-		18A6BE817C81388A7C608FFC3B2BA29E /* UIView+CBPic2ker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+CBPic2ker.h"; sourceTree = "<group>"; };
-		23D27EBF13B094C3D957418EBB0238AA /* CBPhotoSelecterAlbumButtonSectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterAlbumButtonSectionView.h; sourceTree = "<group>"; };
-		24C099F847816D24B9BFF37E37805EFE /* UIColor+CBPic2ker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIColor+CBPic2ker.h"; sourceTree = "<group>"; };
-		26B73F4B9D7CA8E673077FDD8AC4FC9A /* CBCollectionViewAdapterHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCollectionViewAdapterHelper.h; sourceTree = "<group>"; };
-		2790E6FFA717250CDDDD5480D1C729EF /* CBPhotoSelecterPermissionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterPermissionView.m; sourceTree = "<group>"; };
-		2A34F52FB51ADA3EB87AED0FA4010EBC /* NSArray+CBPic2ker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSArray+CBPic2ker.m"; sourceTree = "<group>"; };
-		2A949E9B44203578876D99D369F66606 /* CBPhotoSelecterPhotoLibrary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterPhotoLibrary.h; sourceTree = "<group>"; };
-		2ACAB6FD721B9F260AB69586DA0F6422 /* CBPhotoSelecterPreSectionViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterPreSectionViewCell.m; sourceTree = "<group>"; };
-		2C3E0A6A1EE59D7700D9B769 /* CBPhotoBrowserScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBPhotoBrowserScrollView.h; sourceTree = "<group>"; };
-		2C3E0A6B1EE59D7700D9B769 /* CBPhotoBrowserScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBPhotoBrowserScrollView.m; sourceTree = "<group>"; };
-		2C3E0A721EE59F7800D9B769 /* CBPhotoBrowserScrollViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBPhotoBrowserScrollViewDelegate.h; sourceTree = "<group>"; };
-		2CB6A78A1EE6FB5600F4FD53 /* CBPhotoBrowserScrollView+scrollViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CBPhotoBrowserScrollView+scrollViewDelegate.h"; sourceTree = "<group>"; };
-		2CB6A78B1EE6FB5700F4FD53 /* CBPhotoBrowserScrollView+scrollViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CBPhotoBrowserScrollView+scrollViewDelegate.m"; sourceTree = "<group>"; };
-		2CB6A78E1EE6FDDE00F4FD53 /* CBPhotoBrowserScrollViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBPhotoBrowserScrollViewCell.h; sourceTree = "<group>"; };
-		2CB6A78F1EE6FDDE00F4FD53 /* CBPhotoBrowserScrollViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBPhotoBrowserScrollViewCell.m; sourceTree = "<group>"; };
-		2CB6A7921EE702F800F4FD53 /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CBPhotoBrowserScrollViewCell+scrollViewDelegate.h"; sourceTree = "<group>"; };
-		2CB6A7931EE702F800F4FD53 /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CBPhotoBrowserScrollViewCell+scrollViewDelegate.m"; sourceTree = "<group>"; };
-		2CFE9AF51EE7DD7100085BF4 /* CBPhotoBrowserAssetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBPhotoBrowserAssetModel.h; sourceTree = "<group>"; };
-		2CFE9AF61EE7DD7100085BF4 /* CBPhotoBrowserAssetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBPhotoBrowserAssetModel.m; sourceTree = "<group>"; };
+		0A169FCBF665C34DC035FB5132CA649A /* CBCollectionViewDelegateProxy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCollectionViewDelegateProxy.h; sourceTree = "<group>"; };
+		0C3E92E2FA16D3C79917B4AB0445DD5A /* CBCollectionViewAdapterHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCollectionViewAdapterHelper.h; sourceTree = "<group>"; };
+		0F2A9C591C3BC21195AC89FCD90DE4FB /* UIView+CBPic2ker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+CBPic2ker.m"; sourceTree = "<group>"; };
+		10B75F6C1930C7D695DF74E308897433 /* CBPhotoSelecterAssetCollectionSectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterAssetCollectionSectionView.h; sourceTree = "<group>"; };
+		12C04256CD18CA43E7AFF5E9568E3AFA /* CBCollectionViewAdapter+scrollViewDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CBCollectionViewAdapter+scrollViewDelegate.h"; sourceTree = "<group>"; };
+		134D841357F596840CD9E03B21D082F2 /* CBPhotoSelecterPhotoLibrary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterPhotoLibrary.h; sourceTree = "<group>"; };
+		14F64C4C4D54F2233E0E56EA4405C045 /* CBPhotoSelecterPreCollectionSectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterPreCollectionSectionView.h; sourceTree = "<group>"; };
+		1618875F71FFD8F29B99EA42ECA94024 /* CBPhotoSelecterAlbumModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterAlbumModel.m; sourceTree = "<group>"; };
+		1B95ADBB2F8834FA5D0AA4C871C848CD /* CBCollectionViewAdapter+scrollViewDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CBCollectionViewAdapter+scrollViewDelegate.m"; sourceTree = "<group>"; };
+		1C4DBFC484B303034F000B15A57FB237 /* CBPhotoSelecterAlbumView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterAlbumView.h; sourceTree = "<group>"; };
+		1DA48C8A60C1F5C7D635C3EAD4B26E0C /* CBCollectionViewAdapter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCollectionViewAdapter.h; sourceTree = "<group>"; };
+		1DE3B1A8E62DDF67B272BD62A976314A /* CBCollectionViewAdapter+collectionViewDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CBCollectionViewAdapter+collectionViewDelegate.m"; sourceTree = "<group>"; };
+		28260E2B448C3AB60507BE832D9215BD /* CBCollectionViewAdapter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCollectionViewAdapter.m; sourceTree = "<group>"; };
+		29740A627E485468E8A925D47935F7B6 /* CBPhotoBrowserScrollViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoBrowserScrollViewCell.h; sourceTree = "<group>"; };
+		2C5E3538A706C4F0DF72D3D65D4FCB0C /* CBPic2ker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPic2ker.h; sourceTree = "<group>"; };
+		2FEED8B7EDC166304EF0664DFB69C81B /* CBPhotoSelecterAlbumButtonSectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterAlbumButtonSectionView.h; sourceTree = "<group>"; };
 		30BACF54B224E5F35190754DA75DDB99 /* CBPic2ker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CBPic2ker-dummy.m"; sourceTree = "<group>"; };
+		30C16B937B415B92DD9DF5582085E99E /* UIImage+CBPic2ker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIImage+CBPic2ker.h"; sourceTree = "<group>"; };
 		3445BB296C2E6442241F8F508D4B77E5 /* Pods-CBPic2ker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CBPic2ker.release.xcconfig"; sourceTree = "<group>"; };
-		3728CCD8A26D7E2AD00184B1E1E36812 /* UINavigationController+CBPic2ker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+CBPic2ker.m"; sourceTree = "<group>"; };
-		377DB5B1B1B5470CF7E8BC4CB96D41CB /* CBPhotoSelecterPreSectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterPreSectionView.h; sourceTree = "<group>"; };
-		38926F015ED410DE2A1CE2AAC656DCB3 /* CBPhotoSelecterAssetCollectionSectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterAssetCollectionSectionView.h; sourceTree = "<group>"; };
-		3B218FC96404E5510C306B5D0E0AA35B /* UIColor+CBPic2ker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CBPic2ker.m"; sourceTree = "<group>"; };
+		399CDEE18D1D876702135AA306C89411 /* CBCollectionViewContextProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCollectionViewContextProtocol.h; sourceTree = "<group>"; };
+		3C53D7FE5D740B1CA56B2E5CD73A6E60 /* UIView+CBPic2ker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+CBPic2ker.h"; sourceTree = "<group>"; };
+		3E5B86023181AD353D1D5E1E3C587F75 /* CBPhotoSelecterPreCollectionSectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterPreCollectionSectionView.m; sourceTree = "<group>"; };
 		3F7E38DDD9702249A90ED98589656B23 /* Pods-CBPic2ker-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CBPic2ker-acknowledgements.markdown"; sourceTree = "<group>"; };
-		401BCD0E57A61FEAB8F1CABCF0BD98B1 /* CBPhotoSelecterPreCollectionSectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterPreCollectionSectionView.h; sourceTree = "<group>"; };
-		458E93E7AF26B965AEBEB761E62A4C23 /* CBCollectionViewDelegateProxy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCollectionViewDelegateProxy.m; sourceTree = "<group>"; };
-		45D83CE1D186A988440DF5BBF666E8C0 /* CBCollectionViewSectionController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCollectionViewSectionController.m; sourceTree = "<group>"; };
-		48B279A74399E6EC0359C5E63447DA4F /* CBCollectionViewAdapterHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCollectionViewAdapterHelper.m; sourceTree = "<group>"; };
-		4C9CD1AA1213688E865D4B5086A7AF5A /* CBPhotoSelecterTitleView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterTitleView.h; sourceTree = "<group>"; };
-		570763794D718DF42B84629F2202574A /* CBPhotoSelecterAlbumSectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterAlbumSectionView.m; sourceTree = "<group>"; };
-		5743C5A7EC5B7879BCEA405BB31FCD50 /* CBPhotoSelecterAssetSectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterAssetSectionView.m; sourceTree = "<group>"; };
-		5B7A30CAE14EE929C2F392FD3A0B42BA /* CBPhotoSelecterControllerDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterControllerDelegate.h; sourceTree = "<group>"; };
-		64BE32572E0DE1B69FB2A03587BDDE5A /* CBPhotoSelecterAssetSectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterAssetSectionView.h; sourceTree = "<group>"; };
-		68A3721BA60881284865F5E5953B2F85 /* CBPic2ker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPic2ker.h; sourceTree = "<group>"; };
-		6D8B892A7747EE90CF66A28216D2059F /* CBCollectionViewAdapter+scrollViewDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CBCollectionViewAdapter+scrollViewDelegate.m"; sourceTree = "<group>"; };
-		6EB791FD703A4BF358C3488373C138F2 /* UINavigationController+CBPic2ker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+CBPic2ker.h"; sourceTree = "<group>"; };
-		74CABC32A9CE55330DEB4482AF1411A9 /* CBPhotoSelecterAlbumButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterAlbumButton.h; sourceTree = "<group>"; };
-		77E5618AAE4EC638377A31BC7806EB04 /* CBCollectionViewAdapter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCollectionViewAdapter.h; sourceTree = "<group>"; };
-		793B5A6336EFCE527071940FF265874B /* CBPhotoSelecterAlbumSectionViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterAlbumSectionViewCell.h; sourceTree = "<group>"; };
-		7ACFC85F0F4A0541A5E4067EE54FF121 /* CBPhotoSelecterAssetModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterAssetModel.m; sourceTree = "<group>"; };
-		7B0EEF142B801097367E132F47BC3102 /* CBPhotoSelecterAlbumSectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterAlbumSectionView.h; sourceTree = "<group>"; };
-		801146A09F5B612365230DB9374237C9 /* UIImage+CBPic2ker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CBPic2ker.m"; sourceTree = "<group>"; };
-		86C4E40358ACCBE3CE56A43DF2DB8F31 /* UIImage+CBPic2ker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIImage+CBPic2ker.h"; sourceTree = "<group>"; };
-		89A721CB98EB4445791B691756E4CC62 /* CBCollectionViewAdapter+collectionViewDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CBCollectionViewAdapter+collectionViewDelegate.m"; sourceTree = "<group>"; };
-		89FFAC50B82819905C1055B3B78B6DD6 /* CBCollectionViewAdapter+context.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CBCollectionViewAdapter+context.m"; sourceTree = "<group>"; };
-		8D880A72442E5767BFE8493B7B2B185D /* CBCollectionViewAdapter+context.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CBCollectionViewAdapter+context.h"; sourceTree = "<group>"; };
+		467A9D842452078EB39A6E72DD323EBF /* UIImage+CBPic2ker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CBPic2ker.m"; sourceTree = "<group>"; };
+		47C59EED5C421CD7725632FFF53B6443 /* CBPhotoSelecterController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterController.h; sourceTree = "<group>"; };
+		48EF92940C2E8AC41ECCC447669E6121 /* CBPhotoSelecterController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterController.m; sourceTree = "<group>"; };
+		5381D13D3EA57B3DB1EF41ABE7B587CE /* CBCollectionViewDelegateProxy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCollectionViewDelegateProxy.m; sourceTree = "<group>"; };
+		5A1DBB52E8B5592955EA1C496AF6D764 /* CBCollectionViewScrollDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCollectionViewScrollDelegate.h; sourceTree = "<group>"; };
+		5ACDE30AC361CAE4BD9F8A417C4CE1B5 /* UINavigationController+CBPic2ker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+CBPic2ker.m"; sourceTree = "<group>"; };
+		5BB762006414FD8B767593203B5B6B56 /* CBCollectionViewAdapter+context.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CBCollectionViewAdapter+context.h"; sourceTree = "<group>"; };
+		66AE0438E154D72C063FA6D749AFB95D /* CBCollectionViewAdapter+context.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CBCollectionViewAdapter+context.m"; sourceTree = "<group>"; };
+		690F1E7F4FC24F99E9A675FA0C68924F /* CBPhotoSelecterAlbumButtonSectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterAlbumButtonSectionView.m; sourceTree = "<group>"; };
+		6B6C651461CA367159C17005031E8118 /* CBPhotoSelecterAlbumSectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterAlbumSectionView.m; sourceTree = "<group>"; };
+		6DB8160BA0A504911FCFC5E41D9A7F5F /* CBPhotoSelecterControllerDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterControllerDelegate.h; sourceTree = "<group>"; };
+		7027A613DFB5B4FBF2A46FBFE25C7096 /* UIColor+CBPic2ker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIColor+CBPic2ker.h"; sourceTree = "<group>"; };
+		70760DBE84BE3244F7F84B2984E47DAD /* NSArray+CBPic2ker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSArray+CBPic2ker.m"; sourceTree = "<group>"; };
+		712CA41C664C5FF3D47C4346DF62D7FB /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CBPhotoBrowserScrollViewCell+scrollViewDelegate.m"; sourceTree = "<group>"; };
+		71CDC8B96ABF4124E62925F42ED84218 /* CBPhotoSelecterPermissionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterPermissionView.h; sourceTree = "<group>"; };
+		72EE95BBFE305F6ADC0BD5768E02E0B0 /* CBPhotoSelecterAlbumSectionViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterAlbumSectionViewCell.m; sourceTree = "<group>"; };
+		73B8A5DC1BBD8D5D7BCFB2B20A175090 /* CBPhotoSelecterPhotoLibrary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterPhotoLibrary.m; sourceTree = "<group>"; };
+		74F6A05AB85FB02F5834EEB6F6B26E6F /* CBPhotoSelecterTitleView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterTitleView.h; sourceTree = "<group>"; };
+		7802545F86EBED9BFF5374F99096FEED /* CBCollectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCollectionView.m; sourceTree = "<group>"; };
+		79500E046AA5ADC9BE8747B16EF4211E /* CBPhotoSelecterAssetSectionViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterAssetSectionViewCell.m; sourceTree = "<group>"; };
+		7E31C021892F6B813E07E416A552170C /* UIColor+CBPic2ker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CBPic2ker.m"; sourceTree = "<group>"; };
+		8077B04507A2B70B84FA935B1D3A1FFA /* CBPhotoBrowserScrollViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoBrowserScrollViewCell.m; sourceTree = "<group>"; };
+		874BE551DDD0252F23B574A214D2916C /* CBPhotoSelecterAssetModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterAssetModel.h; sourceTree = "<group>"; };
+		8DA97B86953C2B1C4D6464FAD6B7E1DE /* NSArray+CBPic2ker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSArray+CBPic2ker.h"; sourceTree = "<group>"; };
 		8DED4A71624AC587491F755788EAEC8E /* Pods-CBPic2ker-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CBPic2ker-acknowledgements.plist"; sourceTree = "<group>"; };
+		8EBA3DAD2947890C8BABCEF05B673455 /* CBPhotoSelecterAssetSectionViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterAssetSectionViewCell.h; sourceTree = "<group>"; };
+		92608C2B7CC4D9C161E4D4913B119B73 /* CBCollectionViewSectionController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCollectionViewSectionController.h; sourceTree = "<group>"; };
+		933A0CDB55386784A1294CD7A7E18B17 /* CBCollectionViewSectionController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCollectionViewSectionController.m; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9D0625AAD37397B2A6F4CE96B3631288 /* CBPhotoSelecterAlbumView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterAlbumView.h; sourceTree = "<group>"; };
-		9DB3CAA7B83AACF31AD11C99A204FD1D /* CBCollectionViewAdapter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCollectionViewAdapter.m; sourceTree = "<group>"; };
-		9F2CE0F260973D0C71833B448573DF56 /* NSArray+CBPic2ker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSArray+CBPic2ker.h"; sourceTree = "<group>"; };
-		A00BAD7E8565A5CE25FFF0D472378247 /* CBPhotoSelecterPhotoLibrary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterPhotoLibrary.m; sourceTree = "<group>"; };
-		A0FB487DA29EC6CDF62032C5743281CC /* CBPhotoSelecterAlbumView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterAlbumView.m; sourceTree = "<group>"; };
-		A5A783AA8A09A28DD8A1C038E321F31A /* CBCollectionViewAdapter+scrollViewDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CBCollectionViewAdapter+scrollViewDelegate.h"; sourceTree = "<group>"; };
+		96BDE0F35BF1752B083A44435996EC5B /* CBPhotoBrowserScrollView+scrollViewDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CBPhotoBrowserScrollView+scrollViewDelegate.h"; sourceTree = "<group>"; };
+		981DFC3FCE4B5409F43CA402C6A6BFB7 /* CBPhotoSelecterAssetSectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterAssetSectionView.m; sourceTree = "<group>"; };
+		9887E539CAF4374E58B688363D022E84 /* CBPhotoSelecterAlbumSectionViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterAlbumSectionViewCell.h; sourceTree = "<group>"; };
+		9C404776A74276FB893E216F45042A87 /* CBPhotoSelecterAlbumModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterAlbumModel.h; sourceTree = "<group>"; };
+		A13D1FCA8DE37265365262C600626E66 /* CBPhotoBrowserAssetModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoBrowserAssetModel.h; sourceTree = "<group>"; };
+		A16CF8CDE7208FCAE3C5794F3B0BCDFE /* CBPhotoSelecterPreSectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterPreSectionView.m; sourceTree = "<group>"; };
 		A6564642C7B28884E8AE731057DCCCC8 /* Pods-CBPic2ker-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CBPic2ker-resources.sh"; sourceTree = "<group>"; };
-		A6F918A50B81632CCB6A040B503946A2 /* CBCollectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCollectionView.h; sourceTree = "<group>"; };
-		B22B75ADB8D14E36716E6644E9D57251 /* CBPhotoSelecterPreCollectionSectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterPreCollectionSectionView.m; sourceTree = "<group>"; };
-		B360A8DCCF8E7B2203412C8A71A887A4 /* CBCollectionViewAdapter+collectionViewDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CBCollectionViewAdapter+collectionViewDelegate.h"; sourceTree = "<group>"; };
+		A6956DA82F32C0AD5A8B3ED6EBE16974 /* CBPhotoSelecterAlbumButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterAlbumButton.h; sourceTree = "<group>"; };
+		A88A42634CAB6C257754899616F752E5 /* CBPhotoSelecterTitleView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterTitleView.m; sourceTree = "<group>"; };
+		B0F0676840E4652B5C31F3D45A532511 /* CBPhotoSelecterAlbumSectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterAlbumSectionView.h; sourceTree = "<group>"; };
+		B1265F92DDA31752378C77F2F5378137 /* CBPhotoSelecterAssetCollectionSectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterAssetCollectionSectionView.m; sourceTree = "<group>"; };
 		B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		B77DA176F7F05635D28F8F5DB5DCF577 /* CBPic2ker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CBPic2ker.xcconfig; sourceTree = "<group>"; };
-		BEB8B1ACE041258811D00CA8FED07B8E /* CBPhotoSelecterAssetCollectionSectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterAssetCollectionSectionView.m; sourceTree = "<group>"; };
-		BF4F88919DD8197D619FDEA9B23DFB08 /* CBPhotoSelecterAssetSectionViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterAssetSectionViewCell.h; sourceTree = "<group>"; };
+		B89381865C4ED929D1EFFCE51F570694 /* CBPhotoSelecterAssetModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterAssetModel.m; sourceTree = "<group>"; };
 		C3B9CEB708947FCD851E40ED71C8A603 /* Pods-CBPic2ker-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CBPic2ker-frameworks.sh"; sourceTree = "<group>"; };
-		C45FDB948B21865E46FDF86ED95F775D /* CBCollectionViewSectionController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCollectionViewSectionController.h; sourceTree = "<group>"; };
 		C4658301B0A5DB593B6BACE0CE36CD51 /* libCBPic2ker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCBPic2ker.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		CA2DA7DA1D5F2DCEB3E093C31E014B4B /* CBPhotoSelecterAlbumModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterAlbumModel.m; sourceTree = "<group>"; };
-		CA7B759D6E05AF002AFFE959BCA106B7 /* CBCollectionViewContextProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCollectionViewContextProtocol.h; sourceTree = "<group>"; };
+		C658EBC065EF88ABEDF84A7470D982F2 /* CBCollectionViewAdapter+collectionViewDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CBCollectionViewAdapter+collectionViewDelegate.h"; sourceTree = "<group>"; };
+		CB0F9BE7605CE401BD6446CCB1A75E56 /* CBPic2kerAlbumButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPic2kerAlbumButton.m; sourceTree = "<group>"; };
+		CD0C613CB5686F190A56CE843436F1DC /* CBCollectionViewAdapterDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCollectionViewAdapterDataSource.h; sourceTree = "<group>"; };
+		CEC3C7BDBB9C1E305ED4B9D27A15681A /* CBCollectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCollectionView.h; sourceTree = "<group>"; };
 		D3E09B536B3BE7778A7002919EB48451 /* Pods-CBPic2ker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CBPic2ker-dummy.m"; sourceTree = "<group>"; };
 		D4823EB183BFC1C12F25C8059E1651CC /* Pods-CBPic2ker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CBPic2ker.debug.xcconfig"; sourceTree = "<group>"; };
-		D4DCC6DEB18C8BCCD6D484ADD015B913 /* CBCollectionViewAdapterDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCollectionViewAdapterDataSource.h; sourceTree = "<group>"; };
-		D66DCF6FC8FD78E7899FD5119D98207C /* CBPhotoSelecterAlbumSectionViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterAlbumSectionViewCell.m; sourceTree = "<group>"; };
 		D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		DB2A212B42B52787D96D914A5541A174 /* CBPhotoSelecterPreSectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterPreSectionView.m; sourceTree = "<group>"; };
-		DBD283511B7D0D1B13C0F1704EE1A577 /* UIView+CBPic2ker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+CBPic2ker.m"; sourceTree = "<group>"; };
-		DC94145B45246E893CDDA157B4E59BC6 /* CBPhotoSelecterPermissionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterPermissionView.h; sourceTree = "<group>"; };
+		DEC6EC6D51C83B42F86B9031CD1AA4A6 /* CBPhotoBrowserAssetModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoBrowserAssetModel.m; sourceTree = "<group>"; };
 		E0F141F5152BB17B4E2C90B660CB6458 /* libPods-CBPic2ker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CBPic2ker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E1E4D5271854E172A55ACA9908BBE31E /* CBCollectionViewScrollDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCollectionViewScrollDelegate.h; sourceTree = "<group>"; };
-		E55870A3BFFE2A05AD50A7CF2A0F23E5 /* CBPhotoSelecterPreSectionViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterPreSectionViewCell.h; sourceTree = "<group>"; };
-		E7799246D49EBFA82FE75B2E30898C10 /* CBPhotoSelecterAssetModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterAssetModel.h; sourceTree = "<group>"; };
+		E1070E4434E2FBDC1CA3A98385B4D0E4 /* CBPhotoBrowserScrollViewDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoBrowserScrollViewDelegate.h; sourceTree = "<group>"; };
+		E5CBD1268361D2E6B9479431D9F7A4B4 /* CBPhotoSelecterPreSectionViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterPreSectionViewCell.h; sourceTree = "<group>"; };
 		EAC290B3BDB00A0E8E09227BC0B7DE15 /* CBPic2ker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CBPic2ker-prefix.pch"; sourceTree = "<group>"; };
-		F7FBF702334EC631A674B2FE36C4FD9D /* CBPhotoSelecterAssetSectionViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterAssetSectionViewCell.m; sourceTree = "<group>"; };
-		FB6AC786F9C1879DDDCDF5152BAF96EB /* CBCollectionViewDelegateProxy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBCollectionViewDelegateProxy.h; sourceTree = "<group>"; };
-		FCB7D8F0A02D1D93E92D9C01A9879BF9 /* CBPhotoSelecterTitleView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterTitleView.m; sourceTree = "<group>"; };
-		FCCAC51AC3A4E7ACACC421E71184C8D1 /* CBPic2kerAlbumButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPic2kerAlbumButton.m; sourceTree = "<group>"; };
-		FD159918B6C71DD9ADF40D73DADCC2CE /* CBPhotoSelecterController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterController.h; sourceTree = "<group>"; };
+		F1311899E40C87118EB33308FB21FC37 /* CBCollectionViewAdapterHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBCollectionViewAdapterHelper.m; sourceTree = "<group>"; };
+		F6F6FAEC4A4BFDA810095D4C4366EA74 /* CBPhotoBrowserScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoBrowserScrollView.h; sourceTree = "<group>"; };
+		F8505C04A1236D913B196950C46D10E7 /* CBPhotoSelecterPreSectionViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterPreSectionViewCell.m; sourceTree = "<group>"; };
+		F8A76FAB5526C709F87921E9D02FC07A /* UINavigationController+CBPic2ker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+CBPic2ker.h"; sourceTree = "<group>"; };
+		FABD421911E5205C851CD5EDF218E7B8 /* CBPhotoBrowserScrollView+scrollViewDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CBPhotoBrowserScrollView+scrollViewDelegate.m"; sourceTree = "<group>"; };
+		FD4A35B651B09AE2CDDC141324C6C4BE /* CBPhotoSelecterAssetSectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CBPhotoSelecterAssetSectionView.h; sourceTree = "<group>"; };
+		FD527F5A982FA956244A81F1E264E55D /* CBPhotoSelecterAlbumView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = CBPhotoSelecterAlbumView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		49E3B557F7C3C23673E5FC1D14800DD4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F88CFAB81502C232A647E8176BF6F44E /* Foundation.framework in Frameworks */,
+				90EDCD5E721FF67D9ABFA2B595166E89 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6DAC2FFBA692EA54B4ECFDF853C762D8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -204,26 +213,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BB243CB02601920DE8448BB8C917338C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DF2164289C0CF2E4E4569AD4F334AD80 /* Foundation.framework in Frameworks */,
-				998E3B4CF246AB703FFAF277BD176B26 /* UIKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1C38C7CEBD9897B364681E020C56C0C7 /* CBPic2ker */ = {
-			isa = PBXGroup;
-			children = (
-				EC5D7D39F927E93EFEFD6B29AC34D62B /* Classes */,
-			);
-			path = CBPic2ker;
-			sourceTree = "<group>";
-		};
 		200D3FB611152492FE25F1FCCA67A867 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,7 +242,7 @@
 		2330EEBCC979442576F6884A197BCDD3 /* CBPic2ker */ = {
 			isa = PBXGroup;
 			children = (
-				1C38C7CEBD9897B364681E020C56C0C7 /* CBPic2ker */,
+				F9BF5174E878DD90406CFC6A87C559FD /* CBPic2ker */,
 				CEA4532AC06B41571B8BCAB3AF7F1082 /* Resources */,
 				2CD1BB473E8973FDE4238CE2E5C6772C /* Support Files */,
 			);
@@ -258,22 +250,12 @@
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		2C3E0A651EE59D0800D9B769 /* CBPhotoBrowser */ = {
+		2BE9F61EF65EA3371CB2EBADCC50899C /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				2C3E0A6A1EE59D7700D9B769 /* CBPhotoBrowserScrollView.h */,
-				2C3E0A6B1EE59D7700D9B769 /* CBPhotoBrowserScrollView.m */,
-				2CB6A78A1EE6FB5600F4FD53 /* CBPhotoBrowserScrollView+scrollViewDelegate.h */,
-				2CB6A78B1EE6FB5700F4FD53 /* CBPhotoBrowserScrollView+scrollViewDelegate.m */,
-				2C3E0A721EE59F7800D9B769 /* CBPhotoBrowserScrollViewDelegate.h */,
-				2CB6A78E1EE6FDDE00F4FD53 /* CBPhotoBrowserScrollViewCell.h */,
-				2CB6A78F1EE6FDDE00F4FD53 /* CBPhotoBrowserScrollViewCell.m */,
-				2CB6A7921EE702F800F4FD53 /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.h */,
-				2CB6A7931EE702F800F4FD53 /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.m */,
-				2CFE9AF51EE7DD7100085BF4 /* CBPhotoBrowserAssetModel.h */,
-				2CFE9AF61EE7DD7100085BF4 /* CBPhotoBrowserAssetModel.m */,
+				F36ABFB08B280AD6312ED1265A62BE6E /* Categories */,
 			);
-			path = CBPhotoBrowser;
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		2CD1BB473E8973FDE4238CE2E5C6772C /* Support Files */ = {
@@ -321,54 +303,30 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4B4B83CB3792A45E0CA1B3A33805DBA8 /* CBPhotoSelecter */ = {
-			isa = PBXGroup;
-			children = (
-				74CABC32A9CE55330DEB4482AF1411A9 /* CBPhotoSelecterAlbumButton.h */,
-				23D27EBF13B094C3D957418EBB0238AA /* CBPhotoSelecterAlbumButtonSectionView.h */,
-				06A9B6CB9AA625AB2E4A418B0B124A61 /* CBPhotoSelecterAlbumButtonSectionView.m */,
-				02C5B6866CA4041AE1ADA6930DC41989 /* CBPhotoSelecterAlbumModel.h */,
-				CA2DA7DA1D5F2DCEB3E093C31E014B4B /* CBPhotoSelecterAlbumModel.m */,
-				7B0EEF142B801097367E132F47BC3102 /* CBPhotoSelecterAlbumSectionView.h */,
-				570763794D718DF42B84629F2202574A /* CBPhotoSelecterAlbumSectionView.m */,
-				793B5A6336EFCE527071940FF265874B /* CBPhotoSelecterAlbumSectionViewCell.h */,
-				D66DCF6FC8FD78E7899FD5119D98207C /* CBPhotoSelecterAlbumSectionViewCell.m */,
-				9D0625AAD37397B2A6F4CE96B3631288 /* CBPhotoSelecterAlbumView.h */,
-				A0FB487DA29EC6CDF62032C5743281CC /* CBPhotoSelecterAlbumView.m */,
-				38926F015ED410DE2A1CE2AAC656DCB3 /* CBPhotoSelecterAssetCollectionSectionView.h */,
-				BEB8B1ACE041258811D00CA8FED07B8E /* CBPhotoSelecterAssetCollectionSectionView.m */,
-				E7799246D49EBFA82FE75B2E30898C10 /* CBPhotoSelecterAssetModel.h */,
-				7ACFC85F0F4A0541A5E4067EE54FF121 /* CBPhotoSelecterAssetModel.m */,
-				64BE32572E0DE1B69FB2A03587BDDE5A /* CBPhotoSelecterAssetSectionView.h */,
-				5743C5A7EC5B7879BCEA405BB31FCD50 /* CBPhotoSelecterAssetSectionView.m */,
-				BF4F88919DD8197D619FDEA9B23DFB08 /* CBPhotoSelecterAssetSectionViewCell.h */,
-				F7FBF702334EC631A674B2FE36C4FD9D /* CBPhotoSelecterAssetSectionViewCell.m */,
-				FD159918B6C71DD9ADF40D73DADCC2CE /* CBPhotoSelecterController.h */,
-				10F92C972CA3EA5DC9391BB5E8AF0E31 /* CBPhotoSelecterController.m */,
-				5B7A30CAE14EE929C2F392FD3A0B42BA /* CBPhotoSelecterControllerDelegate.h */,
-				DC94145B45246E893CDDA157B4E59BC6 /* CBPhotoSelecterPermissionView.h */,
-				2790E6FFA717250CDDDD5480D1C729EF /* CBPhotoSelecterPermissionView.m */,
-				2A949E9B44203578876D99D369F66606 /* CBPhotoSelecterPhotoLibrary.h */,
-				A00BAD7E8565A5CE25FFF0D472378247 /* CBPhotoSelecterPhotoLibrary.m */,
-				401BCD0E57A61FEAB8F1CABCF0BD98B1 /* CBPhotoSelecterPreCollectionSectionView.h */,
-				B22B75ADB8D14E36716E6644E9D57251 /* CBPhotoSelecterPreCollectionSectionView.m */,
-				377DB5B1B1B5470CF7E8BC4CB96D41CB /* CBPhotoSelecterPreSectionView.h */,
-				DB2A212B42B52787D96D914A5541A174 /* CBPhotoSelecterPreSectionView.m */,
-				E55870A3BFFE2A05AD50A7CF2A0F23E5 /* CBPhotoSelecterPreSectionViewCell.h */,
-				2ACAB6FD721B9F260AB69586DA0F6422 /* CBPhotoSelecterPreSectionViewCell.m */,
-				4C9CD1AA1213688E865D4B5086A7AF5A /* CBPhotoSelecterTitleView.h */,
-				FCB7D8F0A02D1D93E92D9C01A9879BF9 /* CBPhotoSelecterTitleView.m */,
-				FCCAC51AC3A4E7ACACC421E71184C8D1 /* CBPic2kerAlbumButton.m */,
-			);
-			path = CBPhotoSelecter;
-			sourceTree = "<group>";
-		};
 		52E3A0328BE35537111E530FC7C9B349 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				07A2FC0FF8F78E6B6A44719CED3E1D34 /* CBPic2kerPicker.bundle */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		63EED34DE703C9B1AED6F12012B4D6E7 /* CBPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				A13D1FCA8DE37265365262C600626E66 /* CBPhotoBrowserAssetModel.h */,
+				DEC6EC6D51C83B42F86B9031CD1AA4A6 /* CBPhotoBrowserAssetModel.m */,
+				F6F6FAEC4A4BFDA810095D4C4366EA74 /* CBPhotoBrowserScrollView.h */,
+				047A9A9B7CB126FE94E6A9B22B539753 /* CBPhotoBrowserScrollView.m */,
+				96BDE0F35BF1752B083A44435996EC5B /* CBPhotoBrowserScrollView+scrollViewDelegate.h */,
+				FABD421911E5205C851CD5EDF218E7B8 /* CBPhotoBrowserScrollView+scrollViewDelegate.m */,
+				29740A627E485468E8A925D47935F7B6 /* CBPhotoBrowserScrollViewCell.h */,
+				8077B04507A2B70B84FA935B1D3A1FFA /* CBPhotoBrowserScrollViewCell.m */,
+				0772B0BF9049C5FDAC7412E7C3B01A1E /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.h */,
+				712CA41C664C5FF3D47C4346DF62D7FB /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.m */,
+				E1070E4434E2FBDC1CA3A98385B4D0E4 /* CBPhotoBrowserScrollViewDelegate.h */,
+			);
+			path = CBPhotoBrowser;
 			sourceTree = "<group>";
 		};
 		7293E160379ED916F9C5FB111FCB8CCE /* Targets Support Files */ = {
@@ -390,30 +348,72 @@
 			);
 			sourceTree = "<group>";
 		};
-		9EC9148B1DE17DDA9502074E83F84C11 /* CBCollectionView */ = {
+		937C4D4E8F8CA1C927746231E7EFD2C5 /* CBCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				A6F918A50B81632CCB6A040B503946A2 /* CBCollectionView.h */,
-				12CBBF5F72EC31123C103B873F76FF7D /* CBCollectionView.m */,
-				77E5618AAE4EC638377A31BC7806EB04 /* CBCollectionViewAdapter.h */,
-				9DB3CAA7B83AACF31AD11C99A204FD1D /* CBCollectionViewAdapter.m */,
-				B360A8DCCF8E7B2203412C8A71A887A4 /* CBCollectionViewAdapter+collectionViewDelegate.h */,
-				89A721CB98EB4445791B691756E4CC62 /* CBCollectionViewAdapter+collectionViewDelegate.m */,
-				8D880A72442E5767BFE8493B7B2B185D /* CBCollectionViewAdapter+context.h */,
-				89FFAC50B82819905C1055B3B78B6DD6 /* CBCollectionViewAdapter+context.m */,
-				A5A783AA8A09A28DD8A1C038E321F31A /* CBCollectionViewAdapter+scrollViewDelegate.h */,
-				6D8B892A7747EE90CF66A28216D2059F /* CBCollectionViewAdapter+scrollViewDelegate.m */,
-				D4DCC6DEB18C8BCCD6D484ADD015B913 /* CBCollectionViewAdapterDataSource.h */,
-				26B73F4B9D7CA8E673077FDD8AC4FC9A /* CBCollectionViewAdapterHelper.h */,
-				48B279A74399E6EC0359C5E63447DA4F /* CBCollectionViewAdapterHelper.m */,
-				CA7B759D6E05AF002AFFE959BCA106B7 /* CBCollectionViewContextProtocol.h */,
-				FB6AC786F9C1879DDDCDF5152BAF96EB /* CBCollectionViewDelegateProxy.h */,
-				458E93E7AF26B965AEBEB761E62A4C23 /* CBCollectionViewDelegateProxy.m */,
-				E1E4D5271854E172A55ACA9908BBE31E /* CBCollectionViewScrollDelegate.h */,
-				C45FDB948B21865E46FDF86ED95F775D /* CBCollectionViewSectionController.h */,
-				45D83CE1D186A988440DF5BBF666E8C0 /* CBCollectionViewSectionController.m */,
+				CEC3C7BDBB9C1E305ED4B9D27A15681A /* CBCollectionView.h */,
+				7802545F86EBED9BFF5374F99096FEED /* CBCollectionView.m */,
+				1DA48C8A60C1F5C7D635C3EAD4B26E0C /* CBCollectionViewAdapter.h */,
+				28260E2B448C3AB60507BE832D9215BD /* CBCollectionViewAdapter.m */,
+				C658EBC065EF88ABEDF84A7470D982F2 /* CBCollectionViewAdapter+collectionViewDelegate.h */,
+				1DE3B1A8E62DDF67B272BD62A976314A /* CBCollectionViewAdapter+collectionViewDelegate.m */,
+				5BB762006414FD8B767593203B5B6B56 /* CBCollectionViewAdapter+context.h */,
+				66AE0438E154D72C063FA6D749AFB95D /* CBCollectionViewAdapter+context.m */,
+				12C04256CD18CA43E7AFF5E9568E3AFA /* CBCollectionViewAdapter+scrollViewDelegate.h */,
+				1B95ADBB2F8834FA5D0AA4C871C848CD /* CBCollectionViewAdapter+scrollViewDelegate.m */,
+				CD0C613CB5686F190A56CE843436F1DC /* CBCollectionViewAdapterDataSource.h */,
+				0C3E92E2FA16D3C79917B4AB0445DD5A /* CBCollectionViewAdapterHelper.h */,
+				F1311899E40C87118EB33308FB21FC37 /* CBCollectionViewAdapterHelper.m */,
+				399CDEE18D1D876702135AA306C89411 /* CBCollectionViewContextProtocol.h */,
+				0A169FCBF665C34DC035FB5132CA649A /* CBCollectionViewDelegateProxy.h */,
+				5381D13D3EA57B3DB1EF41ABE7B587CE /* CBCollectionViewDelegateProxy.m */,
+				5A1DBB52E8B5592955EA1C496AF6D764 /* CBCollectionViewScrollDelegate.h */,
+				92608C2B7CC4D9C161E4D4913B119B73 /* CBCollectionViewSectionController.h */,
+				933A0CDB55386784A1294CD7A7E18B17 /* CBCollectionViewSectionController.m */,
 			);
 			path = CBCollectionView;
+			sourceTree = "<group>";
+		};
+		A016F10935908C2DA76E3E48C4EA79CE /* CBPhotoSelecter */ = {
+			isa = PBXGroup;
+			children = (
+				A6956DA82F32C0AD5A8B3ED6EBE16974 /* CBPhotoSelecterAlbumButton.h */,
+				2FEED8B7EDC166304EF0664DFB69C81B /* CBPhotoSelecterAlbumButtonSectionView.h */,
+				690F1E7F4FC24F99E9A675FA0C68924F /* CBPhotoSelecterAlbumButtonSectionView.m */,
+				9C404776A74276FB893E216F45042A87 /* CBPhotoSelecterAlbumModel.h */,
+				1618875F71FFD8F29B99EA42ECA94024 /* CBPhotoSelecterAlbumModel.m */,
+				B0F0676840E4652B5C31F3D45A532511 /* CBPhotoSelecterAlbumSectionView.h */,
+				6B6C651461CA367159C17005031E8118 /* CBPhotoSelecterAlbumSectionView.m */,
+				9887E539CAF4374E58B688363D022E84 /* CBPhotoSelecterAlbumSectionViewCell.h */,
+				72EE95BBFE305F6ADC0BD5768E02E0B0 /* CBPhotoSelecterAlbumSectionViewCell.m */,
+				1C4DBFC484B303034F000B15A57FB237 /* CBPhotoSelecterAlbumView.h */,
+				FD527F5A982FA956244A81F1E264E55D /* CBPhotoSelecterAlbumView.m */,
+				10B75F6C1930C7D695DF74E308897433 /* CBPhotoSelecterAssetCollectionSectionView.h */,
+				B1265F92DDA31752378C77F2F5378137 /* CBPhotoSelecterAssetCollectionSectionView.m */,
+				874BE551DDD0252F23B574A214D2916C /* CBPhotoSelecterAssetModel.h */,
+				B89381865C4ED929D1EFFCE51F570694 /* CBPhotoSelecterAssetModel.m */,
+				FD4A35B651B09AE2CDDC141324C6C4BE /* CBPhotoSelecterAssetSectionView.h */,
+				981DFC3FCE4B5409F43CA402C6A6BFB7 /* CBPhotoSelecterAssetSectionView.m */,
+				8EBA3DAD2947890C8BABCEF05B673455 /* CBPhotoSelecterAssetSectionViewCell.h */,
+				79500E046AA5ADC9BE8747B16EF4211E /* CBPhotoSelecterAssetSectionViewCell.m */,
+				47C59EED5C421CD7725632FFF53B6443 /* CBPhotoSelecterController.h */,
+				48EF92940C2E8AC41ECCC447669E6121 /* CBPhotoSelecterController.m */,
+				6DB8160BA0A504911FCFC5E41D9A7F5F /* CBPhotoSelecterControllerDelegate.h */,
+				71CDC8B96ABF4124E62925F42ED84218 /* CBPhotoSelecterPermissionView.h */,
+				02D87A785CE5E038F84FA12C64CD602F /* CBPhotoSelecterPermissionView.m */,
+				134D841357F596840CD9E03B21D082F2 /* CBPhotoSelecterPhotoLibrary.h */,
+				73B8A5DC1BBD8D5D7BCFB2B20A175090 /* CBPhotoSelecterPhotoLibrary.m */,
+				14F64C4C4D54F2233E0E56EA4405C045 /* CBPhotoSelecterPreCollectionSectionView.h */,
+				3E5B86023181AD353D1D5E1E3C587F75 /* CBPhotoSelecterPreCollectionSectionView.m */,
+				03A6F80766D9E4962C3FFE82D80FAC65 /* CBPhotoSelecterPreSectionView.h */,
+				A16CF8CDE7208FCAE3C5794F3B0BCDFE /* CBPhotoSelecterPreSectionView.m */,
+				E5CBD1268361D2E6B9479431D9F7A4B4 /* CBPhotoSelecterPreSectionViewCell.h */,
+				F8505C04A1236D913B196950C46D10E7 /* CBPhotoSelecterPreSectionViewCell.m */,
+				74F6A05AB85FB02F5834EEB6F6B26E6F /* CBPhotoSelecterTitleView.h */,
+				A88A42634CAB6C257754899616F752E5 /* CBPhotoSelecterTitleView.m */,
+				CB0F9BE7605CE401BD6446CCB1A75E56 /* CBPic2kerAlbumButton.m */,
+			);
+			path = CBPhotoSelecter;
 			sourceTree = "<group>";
 		};
 		CEA4532AC06B41571B8BCAB3AF7F1082 /* Resources */ = {
@@ -424,91 +424,91 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		E0E0B09064E5F153684DA26C3E8B300E /* Categories */ = {
+		F36ABFB08B280AD6312ED1265A62BE6E /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				9F2CE0F260973D0C71833B448573DF56 /* NSArray+CBPic2ker.h */,
-				2A34F52FB51ADA3EB87AED0FA4010EBC /* NSArray+CBPic2ker.m */,
-				24C099F847816D24B9BFF37E37805EFE /* UIColor+CBPic2ker.h */,
-				3B218FC96404E5510C306B5D0E0AA35B /* UIColor+CBPic2ker.m */,
-				86C4E40358ACCBE3CE56A43DF2DB8F31 /* UIImage+CBPic2ker.h */,
-				801146A09F5B612365230DB9374237C9 /* UIImage+CBPic2ker.m */,
-				6EB791FD703A4BF358C3488373C138F2 /* UINavigationController+CBPic2ker.h */,
-				3728CCD8A26D7E2AD00184B1E1E36812 /* UINavigationController+CBPic2ker.m */,
-				18A6BE817C81388A7C608FFC3B2BA29E /* UIView+CBPic2ker.h */,
-				DBD283511B7D0D1B13C0F1704EE1A577 /* UIView+CBPic2ker.m */,
+				8DA97B86953C2B1C4D6464FAD6B7E1DE /* NSArray+CBPic2ker.h */,
+				70760DBE84BE3244F7F84B2984E47DAD /* NSArray+CBPic2ker.m */,
+				7027A613DFB5B4FBF2A46FBFE25C7096 /* UIColor+CBPic2ker.h */,
+				7E31C021892F6B813E07E416A552170C /* UIColor+CBPic2ker.m */,
+				30C16B937B415B92DD9DF5582085E99E /* UIImage+CBPic2ker.h */,
+				467A9D842452078EB39A6E72DD323EBF /* UIImage+CBPic2ker.m */,
+				F8A76FAB5526C709F87921E9D02FC07A /* UINavigationController+CBPic2ker.h */,
+				5ACDE30AC361CAE4BD9F8A417C4CE1B5 /* UINavigationController+CBPic2ker.m */,
+				3C53D7FE5D740B1CA56B2E5CD73A6E60 /* UIView+CBPic2ker.h */,
+				0F2A9C591C3BC21195AC89FCD90DE4FB /* UIView+CBPic2ker.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
 		};
-		EC5D7D39F927E93EFEFD6B29AC34D62B /* Classes */ = {
+		F9BF5174E878DD90406CFC6A87C559FD /* CBPic2ker */ = {
 			isa = PBXGroup;
 			children = (
-				68A3721BA60881284865F5E5953B2F85 /* CBPic2ker.h */,
-				F04B5526BF9CFBB44EF6F7331050DEE7 /* Helper */,
-				9EC9148B1DE17DDA9502074E83F84C11 /* CBCollectionView */,
-				2C3E0A651EE59D0800D9B769 /* CBPhotoBrowser */,
-				4B4B83CB3792A45E0CA1B3A33805DBA8 /* CBPhotoSelecter */,
+				FDCA1BC5DD3F8AAE1EB030D782FA9A2A /* Classes */,
 			);
-			path = Classes;
+			path = CBPic2ker;
 			sourceTree = "<group>";
 		};
-		F04B5526BF9CFBB44EF6F7331050DEE7 /* Helper */ = {
+		FDCA1BC5DD3F8AAE1EB030D782FA9A2A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				E0E0B09064E5F153684DA26C3E8B300E /* Categories */,
+				2C5E3538A706C4F0DF72D3D65D4FCB0C /* CBPic2ker.h */,
+				937C4D4E8F8CA1C927746231E7EFD2C5 /* CBCollectionView */,
+				63EED34DE703C9B1AED6F12012B4D6E7 /* CBPhotoBrowser */,
+				A016F10935908C2DA76E3E48C4EA79CE /* CBPhotoSelecter */,
+				2BE9F61EF65EA3371CB2EBADCC50899C /* Helper */,
 			);
-			path = Helper;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		2CBFA30263190F8C388A1D7FA56FDFAB /* Headers */ = {
+		B12352126CB7471FA20959D4F2504D0F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				780FAA1C8A5A91BF3C17466C6403A83B /* CBCollectionView.h in Headers */,
-				B91D07CA3E29CC1D6832AC455F92F0D4 /* CBCollectionViewAdapter+collectionViewDelegate.h in Headers */,
-				1B033BDC559215A8573F77870A588F9C /* CBCollectionViewAdapter+context.h in Headers */,
-				16A0ADCC14947BBB22E9D3C87190799C /* CBCollectionViewAdapter+scrollViewDelegate.h in Headers */,
-				F21F2D2FCCCF1072FB3DAAE413F328B6 /* CBCollectionViewAdapter.h in Headers */,
-				2C3E0A6C1EE59D7700D9B769 /* CBPhotoBrowserScrollView.h in Headers */,
-				47E3C7B06B0955C459C8BF3CD922C502 /* CBCollectionViewAdapterDataSource.h in Headers */,
-				2C3E0A731EE59F7800D9B769 /* CBPhotoBrowserScrollViewDelegate.h in Headers */,
-				2775D546BE5752F7F7BB10FB6B61836C /* CBCollectionViewAdapterHelper.h in Headers */,
-				C708F298E9BBAC714F66620A87EEA5A6 /* CBCollectionViewContextProtocol.h in Headers */,
-				DDB34B2155CCA67EE5B96FCB14815AB2 /* CBCollectionViewDelegateProxy.h in Headers */,
-				B782A9E6CF8AD2CF2839E96BD4FBE33F /* CBCollectionViewScrollDelegate.h in Headers */,
-				43C2D2CFB15E5B608A16ED0C300E80D2 /* CBCollectionViewSectionController.h in Headers */,
-				BD8399BB416B74A8FA3FC7DFDFF0CA96 /* CBPhotoSelecterAlbumButton.h in Headers */,
-				100FFBF4C3C44C50F829DD2EEFEEF6BE /* CBPhotoSelecterAlbumButtonSectionView.h in Headers */,
-				40365F25CB45654A0CE113A2D6B2CE6D /* CBPhotoSelecterAlbumModel.h in Headers */,
-				E4B2D9228FD7C2C4F1F0E6F845CC5025 /* CBPhotoSelecterAlbumSectionView.h in Headers */,
-				44D72D0F8842BE6529A3808C6535AC70 /* CBPhotoSelecterAlbumSectionViewCell.h in Headers */,
-				0A2C28AD5D5ED236F1CE3C4CD58934C3 /* CBPhotoSelecterAlbumView.h in Headers */,
-				F030763DAD60D083566E0F62E3C1F750 /* CBPhotoSelecterAssetCollectionSectionView.h in Headers */,
-				2CB6A7941EE702F800F4FD53 /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.h in Headers */,
-				6D7408D74B88DC6706565CFB525AA564 /* CBPhotoSelecterAssetModel.h in Headers */,
-				0301BCE9C71EFF592E934FF09D99722E /* CBPhotoSelecterAssetSectionView.h in Headers */,
-				83D1B7ADC71485C30B3CA767C31300A2 /* CBPhotoSelecterAssetSectionViewCell.h in Headers */,
-				762DAEEB3A6B915D79BF25617DE5E748 /* CBPhotoSelecterController.h in Headers */,
-				3F092CDB6804DD70FE50B2B33F20DBE2 /* CBPhotoSelecterControllerDelegate.h in Headers */,
-				2CFE9AF71EE7DD7100085BF4 /* CBPhotoBrowserAssetModel.h in Headers */,
-				E380FCA52E2F00228F999783B1C34BF9 /* CBPhotoSelecterPermissionView.h in Headers */,
-				7F0ABB725A585766FF59CDC43A7D5009 /* CBPhotoSelecterPhotoLibrary.h in Headers */,
-				B054D65C2ABBDF6C58D4942C9AA27157 /* CBPhotoSelecterPreCollectionSectionView.h in Headers */,
-				830B6FE454F9FA19023FA9D0893AF59E /* CBPhotoSelecterPreSectionView.h in Headers */,
-				90488C1285BDC3E0917C2655B119A5DF /* CBPhotoSelecterPreSectionViewCell.h in Headers */,
-				2CB6A78C1EE6FB5700F4FD53 /* CBPhotoBrowserScrollView+scrollViewDelegate.h in Headers */,
-				406BA09B80358431448765004EDB1076 /* CBPhotoSelecterTitleView.h in Headers */,
-				F2C246BAB3C23501612025A7F3166BBD /* CBPic2ker.h in Headers */,
-				E180B361507493AC1F5A8129B149B231 /* NSArray+CBPic2ker.h in Headers */,
-				693F46732B1415BE9B5A1A88A3913BA1 /* UIColor+CBPic2ker.h in Headers */,
-				57D3DF7473963A00884D2BDB3AEE62FC /* UIImage+CBPic2ker.h in Headers */,
-				530C2F64412B81213F4A465751710C86 /* UINavigationController+CBPic2ker.h in Headers */,
-				260F5AB005BD7914F9D223F76F0D765E /* UIView+CBPic2ker.h in Headers */,
-				2CB6A7901EE6FDDE00F4FD53 /* CBPhotoBrowserScrollViewCell.h in Headers */,
+				141462067006B2AB00386848474DB849 /* CBCollectionView.h in Headers */,
+				482366FB666CB067D4EB5A70CC9A0D49 /* CBCollectionViewAdapter+collectionViewDelegate.h in Headers */,
+				20E6FAEC555DEC1D22FD0F33D56A86F7 /* CBCollectionViewAdapter+context.h in Headers */,
+				674F1C7AB84087DCF9BB34F2A7A7528B /* CBCollectionViewAdapter+scrollViewDelegate.h in Headers */,
+				7B6981F89915EA4E3B6D509AFC9AB854 /* CBCollectionViewAdapter.h in Headers */,
+				82BA94819FCAD94858D3D19433BD2F28 /* CBCollectionViewAdapterDataSource.h in Headers */,
+				AFA6358D8E3C8EB59217EACC74BE0F5C /* CBCollectionViewAdapterHelper.h in Headers */,
+				967D2631A91EED421CE931718C6D7BA3 /* CBCollectionViewContextProtocol.h in Headers */,
+				0756AD97FCEEB629923AFB9E4D71A250 /* CBCollectionViewDelegateProxy.h in Headers */,
+				3DAE09F7B3EC750871A8E887EB9A74D0 /* CBCollectionViewScrollDelegate.h in Headers */,
+				D58D32E871C60F99B152AC8BA9B3F633 /* CBCollectionViewSectionController.h in Headers */,
+				9C5494CE86E6DEFEC77DC3286B67414D /* CBPhotoBrowserAssetModel.h in Headers */,
+				D29370C62644F1294BD678E496AA9980 /* CBPhotoBrowserScrollView+scrollViewDelegate.h in Headers */,
+				961161FDCCB8E558AA5A07530FE662DB /* CBPhotoBrowserScrollView.h in Headers */,
+				9907E8A6F392B4F11F5F0656F474DEDB /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.h in Headers */,
+				BE81081B24C04CE541BAC3534811CFC1 /* CBPhotoBrowserScrollViewCell.h in Headers */,
+				512A9BF5EA08B705578D8892F71AEAB3 /* CBPhotoBrowserScrollViewDelegate.h in Headers */,
+				2A54FA472A56CE46D165CB921F7D9741 /* CBPhotoSelecterAlbumButton.h in Headers */,
+				B60629AA8C93716CE8142BA960C531AD /* CBPhotoSelecterAlbumButtonSectionView.h in Headers */,
+				16475BCFF9210B3D5D7F3F48E51509BB /* CBPhotoSelecterAlbumModel.h in Headers */,
+				9EF0DABD94EF72CC94DC7DCD92BB7BA5 /* CBPhotoSelecterAlbumSectionView.h in Headers */,
+				A3020B4D8F6340114163051EF46F4943 /* CBPhotoSelecterAlbumSectionViewCell.h in Headers */,
+				1EFF5CF6188F76432595A42179D05B3F /* CBPhotoSelecterAlbumView.h in Headers */,
+				84922F34B96C009C3265F629231E1903 /* CBPhotoSelecterAssetCollectionSectionView.h in Headers */,
+				9D792F26CD5622EE52DF5E80E686DD09 /* CBPhotoSelecterAssetModel.h in Headers */,
+				EA3E8AE270B65921D737BD0D9998D571 /* CBPhotoSelecterAssetSectionView.h in Headers */,
+				FEFA6DAAE693F128E60B86A906634227 /* CBPhotoSelecterAssetSectionViewCell.h in Headers */,
+				D422F827DA07AA16D2B2E6B8C568367E /* CBPhotoSelecterController.h in Headers */,
+				05065CA6B2F86614C86CDF6921B27C91 /* CBPhotoSelecterControllerDelegate.h in Headers */,
+				B979CF62CA5FFF3C651166953D33584F /* CBPhotoSelecterPermissionView.h in Headers */,
+				96DAB8CE7D95291BDD249FA58885D620 /* CBPhotoSelecterPhotoLibrary.h in Headers */,
+				7D0FBEC77BD155E48E7BB612795B0384 /* CBPhotoSelecterPreCollectionSectionView.h in Headers */,
+				3BAC9BE6C7A0FA7705BC4E3A5A7E9616 /* CBPhotoSelecterPreSectionView.h in Headers */,
+				55FB580E5A3BEDA79E93DB0FDA86AA65 /* CBPhotoSelecterPreSectionViewCell.h in Headers */,
+				8133B5598849A29A21CF8F3A73A78C6A /* CBPhotoSelecterTitleView.h in Headers */,
+				1C2D4C44B0FBB5E2016B81AB10B8BD7B /* CBPic2ker.h in Headers */,
+				94AEA653FFCACFFCD24FFD835DA1208E /* NSArray+CBPic2ker.h in Headers */,
+				C0AC206AC5EF443F1020A74A374E778B /* UIColor+CBPic2ker.h in Headers */,
+				5224054A7D577B32A2C0D429D5A25078 /* UIImage+CBPic2ker.h in Headers */,
+				472EDC81A090FB31EAE1064EC105B0FC /* UINavigationController+CBPic2ker.h in Headers */,
+				2636205984D19E66BDE6E3658E510F87 /* UIView+CBPic2ker.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,13 +532,13 @@
 			productReference = E0F141F5152BB17B4E2C90B660CB6458 /* libPods-CBPic2ker.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		6DC56EA62B1961A937BEA0223619FB20 /* CBPic2ker */ = {
+		D31CB7C08D3A54117A17C079CE01C3CC /* CBPic2ker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D773FA4AD5EFAF2FFF5B0450897C821B /* Build configuration list for PBXNativeTarget "CBPic2ker" */;
+			buildConfigurationList = 6767FFAEE278751A2BE6565B9445B60D /* Build configuration list for PBXNativeTarget "CBPic2ker" */;
 			buildPhases = (
-				523886EE5F4A5E7A049C45E99B8110EA /* Sources */,
-				BB243CB02601920DE8448BB8C917338C /* Frameworks */,
-				2CBFA30263190F8C388A1D7FA56FDFAB /* Headers */,
+				AA5C842FAC968A25DC3848A5B81B1CA6 /* Sources */,
+				49E3B557F7C3C23673E5FC1D14800DD4 /* Frameworks */,
+				B12352126CB7471FA20959D4F2504D0F /* Headers */,
 			);
 			buildRules = (
 			);
@@ -570,7 +570,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6DC56EA62B1961A937BEA0223619FB20 /* CBPic2ker */,
+				D31CB7C08D3A54117A17C079CE01C3CC /* CBPic2ker */,
 				35DBB315843540BE47E08EF7C0AB1AFA /* Pods-CBPic2ker */,
 			);
 		};
@@ -585,46 +585,46 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		523886EE5F4A5E7A049C45E99B8110EA /* Sources */ = {
+		AA5C842FAC968A25DC3848A5B81B1CA6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4821312B6E0FF5835B3E55F33D6BA83F /* CBCollectionView.m in Sources */,
-				7F0C7A66DB05ADBDF80F882905A8143E /* CBCollectionViewAdapter+collectionViewDelegate.m in Sources */,
-				B36CA6A75158FD148808F4C7A4A44FC5 /* CBCollectionViewAdapter+context.m in Sources */,
-				02707F5FCB033BB77E04FB64006A7AEB /* CBCollectionViewAdapter+scrollViewDelegate.m in Sources */,
-				1957ADCD06F930AAAE4EEC7A00D80877 /* CBCollectionViewAdapter.m in Sources */,
-				2CFE9AF81EE7DD7100085BF4 /* CBPhotoBrowserAssetModel.m in Sources */,
-				A58771ECD05DCEB9901F23E4A7D09263 /* CBCollectionViewAdapterHelper.m in Sources */,
-				7A64A9606515A5C55D2417B6FFBD4476 /* CBCollectionViewDelegateProxy.m in Sources */,
-				14AC906A2CDF39AB02C7CC5ED8F5C6EC /* CBCollectionViewSectionController.m in Sources */,
-				41929C7769E7C5DABDC857374E40924A /* CBPhotoSelecterAlbumButtonSectionView.m in Sources */,
-				669F7FA2E18686563FE443B454F3FDBB /* CBPhotoSelecterAlbumModel.m in Sources */,
-				C47FD5B95772AA817420F95DA2B1A744 /* CBPhotoSelecterAlbumSectionView.m in Sources */,
-				CC76AF432B435EC3F7C0260B5C60108A /* CBPhotoSelecterAlbumSectionViewCell.m in Sources */,
-				2CB6A78D1EE6FB5700F4FD53 /* CBPhotoBrowserScrollView+scrollViewDelegate.m in Sources */,
-				D0FD1297E4FA5C72EF71066EA1479EC7 /* CBPhotoSelecterAlbumView.m in Sources */,
-				EE39F282CC747238D0C610376FBEE9E0 /* CBPhotoSelecterAssetCollectionSectionView.m in Sources */,
-				2CB6A7951EE702F800F4FD53 /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.m in Sources */,
-				3F9DB338AA4085B5D5CE824C77C1E95E /* CBPhotoSelecterAssetModel.m in Sources */,
-				F5A6D98279711E9CB52427975439EE95 /* CBPhotoSelecterAssetSectionView.m in Sources */,
-				D3E251740ADE119C6C5BAA3928663E55 /* CBPhotoSelecterAssetSectionViewCell.m in Sources */,
-				A2BB9D34E17BE58B7EED1B8C3244FAD5 /* CBPhotoSelecterController.m in Sources */,
-				2C3E0A6D1EE59D7700D9B769 /* CBPhotoBrowserScrollView.m in Sources */,
-				2CB6A7911EE6FDDE00F4FD53 /* CBPhotoBrowserScrollViewCell.m in Sources */,
-				928A14EC912B513FCFA79FE5374BD3D0 /* CBPhotoSelecterPermissionView.m in Sources */,
-				A0F6B2D2CF098811A65954D2ACEB5B72 /* CBPhotoSelecterPhotoLibrary.m in Sources */,
-				E95ED8CBF501A7CC2F00802734C14AAE /* CBPhotoSelecterPreCollectionSectionView.m in Sources */,
-				A45AEA3184EA36203A78C0E3889D255E /* CBPhotoSelecterPreSectionView.m in Sources */,
-				CECC831C90BE2911F3E46CE1E47180B3 /* CBPhotoSelecterPreSectionViewCell.m in Sources */,
-				7A667DCFDCB7A06BF277CF0D7AF04968 /* CBPhotoSelecterTitleView.m in Sources */,
-				84487D49BFE4CD8ECF7D393D07D23E01 /* CBPic2ker-dummy.m in Sources */,
-				2A10654086E1232346C16A7296DA67B5 /* CBPic2kerAlbumButton.m in Sources */,
-				116DABBE2988ECF719A50D22892368C1 /* NSArray+CBPic2ker.m in Sources */,
-				6EC4C7219B1A6CE7B485DA27A19AF65E /* UIColor+CBPic2ker.m in Sources */,
-				A275F57A086EE1336396C8F48A7C4542 /* UIImage+CBPic2ker.m in Sources */,
-				9579D4A41D43D971F00C9031C4FE02D6 /* UINavigationController+CBPic2ker.m in Sources */,
-				39E88520C186A6112EAF27A29C0F0D68 /* UIView+CBPic2ker.m in Sources */,
+				B5EF84D21FBE2CBC13AE929310BB8E1F /* CBCollectionView.m in Sources */,
+				21ECFCA519CD1707AB32D5D896F3EF5B /* CBCollectionViewAdapter+collectionViewDelegate.m in Sources */,
+				80B348EF51C0052F51781A5229E098B1 /* CBCollectionViewAdapter+context.m in Sources */,
+				E5EEE60E7D1E1951248557FE1AE2F8C2 /* CBCollectionViewAdapter+scrollViewDelegate.m in Sources */,
+				63021683FCB8C20D1AB6C18E1F042026 /* CBCollectionViewAdapter.m in Sources */,
+				BE90B2B32AE9C17B50CB7F1AA4BBF65B /* CBCollectionViewAdapterHelper.m in Sources */,
+				E3E31E0BAECC899917B850B4A82A94C1 /* CBCollectionViewDelegateProxy.m in Sources */,
+				3F22930672561138F15FDA733A53C2F7 /* CBCollectionViewSectionController.m in Sources */,
+				AAE52A3DA877B679ED3D097213BB694B /* CBPhotoBrowserAssetModel.m in Sources */,
+				55F577AD08969E360FBA8E448078DB75 /* CBPhotoBrowserScrollView+scrollViewDelegate.m in Sources */,
+				BFD0748EED18A901B59CCD524C647DFE /* CBPhotoBrowserScrollView.m in Sources */,
+				246561E55126312D74EF7EE34991A886 /* CBPhotoBrowserScrollViewCell+scrollViewDelegate.m in Sources */,
+				CE1081521BC36BBB0ED2639DB15BBEB7 /* CBPhotoBrowserScrollViewCell.m in Sources */,
+				B659CC8962AE069A2B4FCA4145412242 /* CBPhotoSelecterAlbumButtonSectionView.m in Sources */,
+				B224850D7BB5DF3D0B52A3CB9C4E5396 /* CBPhotoSelecterAlbumModel.m in Sources */,
+				CC0F0B37541D6D3B1A0FCC039E65D8D7 /* CBPhotoSelecterAlbumSectionView.m in Sources */,
+				0BB75DBCF19A3166ABBC032290E75855 /* CBPhotoSelecterAlbumSectionViewCell.m in Sources */,
+				7C0C6262725482608F59E272C8C0F23F /* CBPhotoSelecterAlbumView.m in Sources */,
+				507C785F64D3BE97167FAD3A7950DA3F /* CBPhotoSelecterAssetCollectionSectionView.m in Sources */,
+				E533CDE9FFCB4257D83894238D159360 /* CBPhotoSelecterAssetModel.m in Sources */,
+				23A39790AE178CA83C9DF13E3104E3FB /* CBPhotoSelecterAssetSectionView.m in Sources */,
+				3656E8E0A9163402323853493F02C8DF /* CBPhotoSelecterAssetSectionViewCell.m in Sources */,
+				9D5BC989350C21B219AA272710B9D3A0 /* CBPhotoSelecterController.m in Sources */,
+				1909F4C6068CC853CE1247AB0D558881 /* CBPhotoSelecterPermissionView.m in Sources */,
+				0A8E33F1F17E1C0ACF07B6AF19CCF6D1 /* CBPhotoSelecterPhotoLibrary.m in Sources */,
+				DF0B4A0D23BE4999C3930C7B7301074E /* CBPhotoSelecterPreCollectionSectionView.m in Sources */,
+				4BD5145D74829122A5B696272786EC23 /* CBPhotoSelecterPreSectionView.m in Sources */,
+				89D01CA3DCFDBC20258A141BA908D3E9 /* CBPhotoSelecterPreSectionViewCell.m in Sources */,
+				B890903539A6202E9FDC45BBDAC37FDB /* CBPhotoSelecterTitleView.m in Sources */,
+				F0040B02506D6C3691481867FC4B0457 /* CBPic2ker-dummy.m in Sources */,
+				A4B43AAC6BF1A8CB4D2D7373729534F4 /* CBPic2kerAlbumButton.m in Sources */,
+				817B07FB231647114B39DA4D9FB44830 /* NSArray+CBPic2ker.m in Sources */,
+				C0A93781346AF45CE51A952DED36279E /* UIColor+CBPic2ker.m in Sources */,
+				2D51C2F28323B9A11881C57211879EE3 /* UIImage+CBPic2ker.m in Sources */,
+				8E8B78FE4DFCA179877BCE8E513FB11B /* UINavigationController+CBPic2ker.m in Sources */,
+				B7CD180184F9258CC81FA6E01CB2F720 /* UIView+CBPic2ker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,35 +634,12 @@
 		82C1CFC97B46DB561A73F32D7C86312A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CBPic2ker;
-			target = 6DC56EA62B1961A937BEA0223619FB20 /* CBPic2ker */;
+			target = D31CB7C08D3A54117A17C079CE01C3CC /* CBPic2ker */;
 			targetProxy = 73A51019416F1797C60E12EA85541308 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0DDD6BB12623BBB46B32120E645D3F19 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B77DA176F7F05635D28F8F5DB5DCF577 /* CBPic2ker.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/CBPic2ker/CBPic2ker-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
 		2A5098568D1B71CF2A8D882950FA5C6E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D4823EB183BFC1C12F25C8059E1651CC /* Pods-CBPic2ker.debug.xcconfig */;
@@ -729,6 +706,29 @@
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
+		};
+		77E95E89D4E30744AB33DD6F939BEDD1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B77DA176F7F05635D28F8F5DB5DCF577 /* CBPic2ker.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/CBPic2ker/CBPic2ker-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
 		};
 		9631950D30B1C3C180921ED4C9763423 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -801,7 +801,7 @@
 			};
 			name = Debug;
 		};
-		FEC4B45B118564397C058E6ED1AFD287 /* Release */ = {
+		CDBF1CDB90FB71A4D7356BB7248926E5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B77DA176F7F05635D28F8F5DB5DCF577 /* CBPic2ker.xcconfig */;
 			buildSettings = {
@@ -845,11 +845,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D773FA4AD5EFAF2FFF5B0450897C821B /* Build configuration list for PBXNativeTarget "CBPic2ker" */ = {
+		6767FFAEE278751A2BE6565B9445B60D /* Build configuration list for PBXNativeTarget "CBPic2ker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0DDD6BB12623BBB46B32120E645D3F19 /* Debug */,
-				FEC4B45B118564397C058E6ED1AFD287 /* Release */,
+				77E95E89D4E30744AB33DD6F939BEDD1 /* Debug */,
+				CDBF1CDB90FB71A4D7356BB7248926E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

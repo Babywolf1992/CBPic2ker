@@ -120,6 +120,7 @@
     _type = type;
     
     switch (_type) {
+            /*
         case CBPhotoSelecterAssetModelMediaTypeVideo:
             _bottomView.hidden = false;
             _typeLable.hidden = false;
@@ -131,7 +132,6 @@
             _typeLable.hidden = YES;
             _timeLength.text = @"GIF";
             break;
-            /*
         case CBPhotoSelecterAssetModelMediaTypeLivePhoto:
             _bottomView.hidden = false;
             _typeLable.hidden = false;
@@ -144,15 +144,6 @@
             break;
     }
 }
-
-//- (UIImageView *)videoImgView {
-//    if (!_videoImgView) {
-//        _videoImgView = [[UIImageView alloc] initWithFrame:CGRectMake(8, 0, 17, 17)];
-//        [_videoImgView setImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] pathForResource:@"CBPic2kerPicker" ofType:@"bundle"] stringByAppendingString:@"/Vid"]]];
-//        [self.bottomView addSubview:_videoImgView];
-//    }
-//    return _videoImgView;
-//}
 
 - (UILabel *)timeLength {
     if (!_timeLength) {
@@ -181,7 +172,7 @@
     _assetModel.isSelected = selectedStatus;
     
     if (selectedStatus) {
-        [_selectButton setBackgroundImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] pathForResource:@"CBPic2kerPicker" ofType:@"bundle"] stringByAppendingString:@"/Sel"]] forState:UIControlStateNormal];
+        [_selectButton setBackgroundImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] pathForResource:@"CBPic2kerPicker" ofType:@"bundle"] stringByAppendingString:@"/SEL"]] forState:UIControlStateNormal];
         [UIView animateWithDuration:0.1 animations:^{
             self.transform = CGAffineTransformMakeScale(0.975, 0.975);
         }];

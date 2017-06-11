@@ -1,0 +1,1 @@
+../../../../../CBPic2ker/Classes/Helper/Categories/NSString+CBPic2ker.h

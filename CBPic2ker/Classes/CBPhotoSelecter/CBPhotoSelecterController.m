@@ -31,6 +31,7 @@
 #import <CBPic2ker/CBCollectionViewAdapter+collectionViewDelegate.h>
 #import <CBPic2ker/CBPhotoSelecterPreCollectionSectionView.h>
 #import <CBPic2ker/CBPhotoSelecterAlbumButtonSectionView.h>
+#import <CBPic2ker/CBPhotoSelecterAssetSectionViewCell.h>
 #import <CBPic2ker/CBPhotoSelecterAssetCollectionSectionView.h>
 
 @interface CBPhotoSelecterController () <CBCollectionViewAdapterDataSource>
@@ -62,7 +63,7 @@
 
 @synthesize currentAlbumModel = _currentAlbumModel;
 
-#pragma mark - Internal.
+#pragma mark - Life cycle.
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -98,6 +99,7 @@
     }
 }
 
+#pragma mark -Internal
 - (void)observeAuthrizationStatusChange {
     if ([[CBPhotoSelecterPhotoLibrary sharedPhotoLibrary] authorizationStatusAuthorized]) {
         [self fetchDataWhenEntering];
@@ -161,13 +163,33 @@
 }
 
 - (void)backAction:(id)sender {
+    if ([self.pickerDelegate respondsToSelector:@selector(photoSelecterDidCancelWithController:)]) {
+        [self.pickerDelegate photoSelecterDidCancelWithController:self];
+    }
+    
     [CBPhotoSelecterPhotoLibrary wipeSharedData];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)useAction:(id)sender {
+    if ([self.pickerDelegate respondsToSelector:@selector(photoSelecterController:sourceAsset:)]) {
+        NSMutableArray *assetArr = [[NSMutableArray alloc] init];
+        [self.photoLibrary.selectedAssetArr enumerateObjectsUsingBlock:^(CBPhotoSelecterAssetModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [assetArr addObject:obj.asset];
+        }];
+        
+        [self.pickerDelegate photoSelecterController:self
+                                         sourceAsset:assetArr.copy];
+    }
     
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)reachPhotoNumberLimitWithCell:(CBPhotoSelecterAssetSectionViewCell *)cell {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Reach Photo Number Limit" message:[NSString stringWithFormat:@"You can only select %ld photos.",(long) self.photoLibrary.maxSlectedImagesCount] delegate:nil cancelButtonTitle:@"I know" otherButtonTitles:nil];
+    [alert show];
+    cell.selectedStatus = NO;
 }
 
 - (void)setCurrentAlbumModel:(CBPhotoSelecterAlbumModel *)currentAlbumModel {
@@ -227,62 +249,69 @@
         _collectionSectionView = [[CBPhotoSelecterAssetCollectionSectionView alloc] initWithColumnNumber:_columnNumber preViewHeight:_preScrollViewHeight];
         
         __weak typeof(self) weakSelf = self;
-        self.collectionSectionView.assetButtonTouchActionBlockInternal = ^(CBPhotoSelecterAssetModel *model, id cell, NSInteger index) {
+        self.collectionSectionView.assetButtonTouchActionBlockInternal = ^(CBPhotoSelecterAssetModel *model, CBPhotoSelecterAssetSectionViewCell *cell, NSInteger index) {
             __strong __typeof(self) strongSelf = weakSelf;
             
-            if ([strongSelf.photoLibrary.selectedAssetIdentifierArr containsObject:[(PHAsset *)model.asset localIdentifier]]) {
-                [strongSelf.photoLibrary removeSelectedAssetWithIdentifier:[(PHAsset *)model.asset localIdentifier]];
+            if (strongSelf.photoLibrary.maxSlectedImagesCount && strongSelf.photoLibrary.maxSlectedImagesCount <= strongSelf.photoLibrary.selectedAssetArr.count && ![strongSelf.photoLibrary.selectedAssetIdentifierArr containsObject:[(PHAsset *)model.asset localIdentifier]]) {
+                [strongSelf reachPhotoNumberLimitWithCell:cell];
             } else {
-                [strongSelf.photoLibrary addSelectedAssetWithModel:model];
-                
-                if(strongSelf -> _alreadyShowPreView) {
-                    [UIView animateWithDuration:0.15
-                                     animations:^{
-                                         [strongSelf.collectionSectionView.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:NO];
-                                     } completion:nil];
+                if ([strongSelf.photoLibrary.selectedAssetIdentifierArr containsObject:[(PHAsset *)model.asset localIdentifier]]) {
+                    [strongSelf.photoLibrary removeSelectedAssetWithIdentifier:[(PHAsset *)model.asset localIdentifier]];
+                } else {
+                    [strongSelf.photoLibrary addSelectedAssetWithModel:model];
+                    if(strongSelf -> _alreadyShowPreView) {
+                        [UIView animateWithDuration:0.15
+                                         animations:^{
+                                             [strongSelf.collectionSectionView.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:NO];
+                                         } completion:nil];
+                    }
                 }
-            }
-            
-            strongSelf.titleLableView.text = strongSelf.photoLibrary.selectedAssetArr.count ? [NSString stringWithFormat:@"%lu Photos Selected", (unsigned long)strongSelf.photoLibrary.selectedAssetArr.count] : @"Select Photos";
-            
-            [strongSelf.adapter updateObjects:[strongSelf objectsForAdapter:strongSelf.adapter] dataSource:strongSelf];
-            
-            if (strongSelf.photoLibrary.selectedAssetArr.count == 0 && strongSelf.collectionView.numberOfSections == 3) {
-                [UIView animateWithDuration:0.25
-                                      delay:0
-                     usingSpringWithDamping:0.85
-                      initialSpringVelocity:20
-                                    options:UIViewAnimationOptionCurveEaseOut
-                                 animations:^{
-                                     [strongSelf.collectionView deleteSections:[NSIndexSet indexSetWithIndex:0]];
-                                 } completion:^(BOOL finished) {
-                                     _alreadyShowPreView = NO;
-                                     
-                                     [strongSelf.preCollectionSectionView changeCollectionViewLocation];
-                                 }];
-            } else if (strongSelf.photoLibrary.selectedAssetArr.count == 1 && strongSelf.collectionView.numberOfSections == 2) {
-                [UIView animateWithDuration:0.5
-                                      delay:0
-                     usingSpringWithDamping:0.65
-                      initialSpringVelocity:20
-                                    options:UIViewAnimationOptionCurveEaseOut
-                                 animations:^{
-                                     [strongSelf.collectionView insertSections:[NSIndexSet indexSetWithIndex:0]];
-                                 } completion:^(BOOL finished) {
-                                     _alreadyShowPreView = YES;
-                                     
-                                     [strongSelf.collectionSectionView.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:NO];
-                                     
-                                     [strongSelf.preCollectionSectionView changeCollectionViewLocation];
-                                 }];
-            } else {
-                [strongSelf.preCollectionSectionView changeCollectionViewLocation];
+                
+                strongSelf.titleLableView.text = strongSelf.photoLibrary.selectedAssetArr.count ? [NSString stringWithFormat:@"%lu Photos Selected", (unsigned long)strongSelf.photoLibrary.selectedAssetArr.count] : @"Select Photos";
+                
+                [strongSelf colectonViewChangeWithCellIndex:index];
             }
         };
     }
     return _collectionSectionView;
 }
 
+- (void)colectonViewChangeWithCellIndex:(NSInteger)index {
+    [self.adapter updateObjects:[self objectsForAdapter:self.adapter] dataSource:self];
+    if (self.photoLibrary.selectedAssetArr.count == 0 && self.collectionView.numberOfSections == 3) {
+        [UIView animateWithDuration:0.25
+                              delay:0
+             usingSpringWithDamping:0.85
+              initialSpringVelocity:20
+                            options:UIViewAnimationOptionCurveEaseOut
+                         animations:^{
+                             [self.collectionView deleteSections:[NSIndexSet indexSetWithIndex:0]];
+                         } completion:^(BOOL finished) {
+                             _alreadyShowPreView = NO;
+                             
+                             [self.preCollectionSectionView changeCollectionViewLocation];
+                         }];
+    } else if (self.photoLibrary.selectedAssetArr.count == 1 && self.collectionView.numberOfSections == 2) {
+        [UIView animateWithDuration:0.5
+                              delay:0
+             usingSpringWithDamping:0.65
+              initialSpringVelocity:20
+                            options:UIViewAnimationOptionCurveEaseOut
+                         animations:^{
+                             [self.collectionView insertSections:[NSIndexSet indexSetWithIndex:0]];
+                         } completion:^(BOOL finished) {
+                             _alreadyShowPreView = YES;
+                             
+                             [self.collectionSectionView.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:NO];
+                             
+                             [self.preCollectionSectionView changeCollectionViewLocation];
+                         }];
+    } else {
+        [self.preCollectionSectionView changeCollectionViewLocation];
+    }
+}
+
+#pragma mark - Setter && Getter
 - (CBPhotoSelecterPreCollectionSectionView *)preCollectionSectionView {
     if (!_preCollectionSectionView) {
         _preCollectionSectionView = [[CBPhotoSelecterPreCollectionSectionView alloc] initWithPreViewHeight:_preScrollViewHeight];
@@ -299,6 +328,7 @@
 
 - (CBPhotoSelecterPhotoLibrary *)photoLibrary {
     _photoLibrary = [CBPhotoSelecterPhotoLibrary sharedPhotoLibrary];
+    _photoLibrary.maxSlectedImagesCount = self.maxSlectedImagesCount;
     return _photoLibrary;
 }
 
@@ -307,6 +337,11 @@
         _currentAlbumModel = [[CBPhotoSelecterAlbumModel alloc] init];
     }
     return _currentAlbumModel;
+}
+
+- (void)setPreScrollViewHeight:(NSInteger)preScrollViewHeight {
+    _preScrollViewHeight = preScrollViewHeight;
+    self.photoLibrary.preScrollViewHeight = preScrollViewHeight;
 }
 
 - (NSMutableArray<CBPhotoSelecterAssetModel *> *)currentAlbumAssetsModelsArray {
@@ -378,7 +413,7 @@
         _maxSlectedImagesCount = maxSelectedImagesCount;
         _columnNumber = columnNumber;
         _pickerDelegate = delegate;
-        _preScrollViewHeight = [[UIScreen mainScreen] bounds].size.width / 2.25;
+        self.preScrollViewHeight = [[UIScreen mainScreen] bounds].size.width / 2.25;
     }
     return self;
 }

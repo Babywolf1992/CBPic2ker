@@ -21,6 +21,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, BFAccuracy) {
+    kBFAccuracyLow = 0,
+    kBFAccuracyHigh,
+};
+
 @interface UIImage (CBPic2ker)
 
 /**
@@ -40,5 +45,15 @@
  */
 + (UIImage *)scaleImage:(UIImage *)image
                  toSize:(CGSize)size;
+
+/**
+ Handle image to suit human face.
+ 
+ @param size Target size.
+ @param accurary Image quilty.
+ @return Handled image.
+ */
+- (UIImage *)betterFaceImageForSize:(CGSize)size
+                           accuracy:(BFAccuracy)accurary;
 
 @end

@@ -71,11 +71,22 @@
             */
         default: {
             [self.contentView addSubview:self.imageView];
+            /*
             if (assetModel.mediaType == CBPhotoSelecterAssetModelMediaTypeVideo) {
                 [self.contentView addSubview:self.playButton];
             }
+             */
             
             self.imageView.image = _assetModel.fullSizeImage ? _assetModel.fullSizeImage : (_assetModel.middleSizeImage ? _assetModel.middleSizeImage: _assetModel.smallSizeImage);
+            
+            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                UIImage *faceImage = [self.imageView.image betterFaceImageForSize:self.contentView.frame.size accuracy:kBFAccuracyLow];
+                if (faceImage) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self updateImageViewWithImage:faceImage];
+                    });
+                }
+            });
             
             if (!_assetModel.middleSizeImage) {
                 imageRequestID = [[CBPhotoSelecterPhotoLibrary sharedPhotoLibrary] getPhotoWithAsset:assetModel.asset photoWidth:self.frame.size.width completion:^(UIImage *photo, NSDictionary *info, BOOL isDegraded) {
@@ -83,6 +94,15 @@
                         if ([self.representedAssetIdentifier isEqualToString:[(PHAsset *)assetModel.asset localIdentifier]]) {
                             self.imageView.image = photo;
                             assetModel.middleSizeImage = photo;
+                            
+                            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                                UIImage *faceImage = [self.imageView.image betterFaceImageForSize:self.contentView.frame.size accuracy:kBFAccuracyLow];
+                                if (faceImage) {
+                                    dispatch_async(dispatch_get_main_queue(), ^{
+                                        [self updateImageViewWithImage:faceImage];
+                                    });
+                                }
+                            });
                         } else {
                             [[PHImageManager defaultManager] cancelImageRequest:self.imageRequestID];
                         }
@@ -94,6 +114,23 @@
     }
     
     self.imageRequestID = imageRequestID;
+}
+
+- (void)updateImageViewWithImage:(UIImage *)image {
+    UIViewAnimationOptions option;
+    if ([[[CBPhotoSelecterPhotoLibrary sharedPhotoLibrary] selectedAssetArr] count] == 1 && [[CBPhotoSelecterPhotoLibrary sharedPhotoLibrary] isInsetAsset] ) {
+        option = UIViewAnimationOptionTransitionCrossDissolve;
+    } else {
+        option = UIViewAnimationOptionCurveEaseIn;
+    }
+    
+    [UIView transitionWithView:self.imageView
+                      duration:0.5
+                       options:option
+                    animations:^{
+                        self.imageView.image = image;
+                        self.assetModel.middleSizeImage = image;
+                    } completion:nil];
 }
 
 - (UIImageView *)imageView {

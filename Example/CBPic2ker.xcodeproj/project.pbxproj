@@ -12,10 +12,10 @@
 		2C67278A1ECEF3970014224E /* CBPic2ker.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 2C6727891ECEF3970014224E /* CBPic2ker.podspec */; };
 		2C67279B1ECEF3A20014224E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C67278D1ECEF3A20014224E /* AppDelegate.m */; };
 		2C67279C1ECEF3A20014224E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C67278E1ECEF3A20014224E /* Assets.xcassets */; };
-		2C67279D1ECEF3A20014224E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C67278F1ECEF3A20014224E /* LaunchScreen.storyboard */; };
-		2C67279E1ECEF3A20014224E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C6727911ECEF3A20014224E /* Main.storyboard */; };
 		2C6727A01ECEF3A20014224E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6727941ECEF3A20014224E /* main.m */; };
 		2C6727A31ECEF3A20014224E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C67279A1ECEF3A20014224E /* ViewController.m */; };
+		2CCD16881EEC4B11003B8943 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD16841EEC4B11003B8943 /* LaunchScreen.storyboard */; };
+		2CCD16891EEC4B11003B8943 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD16861EEC4B11003B8943 /* Main.storyboard */; };
 		5B6A37AE00D621DAE6D03C72 /* libPods-CBPic2ker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CB797CACD4962708BEB2C678 /* libPods-CBPic2ker.a */; };
 /* End PBXBuildFile section */
 
@@ -27,12 +27,11 @@
 		2C67278C1ECEF3A20014224E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2C67278D1ECEF3A20014224E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2C67278E1ECEF3A20014224E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2C6727901ECEF3A20014224E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		2C6727921ECEF3A20014224E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2C6727931ECEF3A20014224E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C6727941ECEF3A20014224E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2C6727991ECEF3A20014224E /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		2C67279A1ECEF3A20014224E /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2CCD16851EEC4B11003B8943 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2CCD16871EEC4B11003B8943 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A9E0D9105BFC77D0FB715596 /* Pods-CBPic2ker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CBPic2ker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CBPic2ker/Pods-CBPic2ker.debug.xcconfig"; sourceTree = "<group>"; };
 		C16078392347D5A4BF7D4573 /* Pods-CBPic2ker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CBPic2ker.release.xcconfig"; path = "Pods/Target Support Files/Pods-CBPic2ker/Pods-CBPic2ker.release.xcconfig"; sourceTree = "<group>"; };
 		CB797CACD4962708BEB2C678 /* libPods-CBPic2ker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CBPic2ker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,10 +93,9 @@
 				2C67278D1ECEF3A20014224E /* AppDelegate.m */,
 				2C6727991ECEF3A20014224E /* ViewController.h */,
 				2C67279A1ECEF3A20014224E /* ViewController.m */,
-				2C67278F1ECEF3A20014224E /* LaunchScreen.storyboard */,
-				2C6727911ECEF3A20014224E /* Main.storyboard */,
+				2CCD16841EEC4B11003B8943 /* LaunchScreen.storyboard */,
+				2CCD16861EEC4B11003B8943 /* Main.storyboard */,
 				2C67278E1ECEF3A20014224E /* Assets.xcassets */,
-				2C6727931ECEF3A20014224E /* Info.plist */,
 				2C6727941ECEF3A20014224E /* main.m */,
 			);
 			path = CBPic2ker;
@@ -156,7 +154,6 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
 			);
 			mainGroup = 2C62B0851EC987270055DCB6;
@@ -175,8 +172,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C67278A1ECEF3970014224E /* CBPic2ker.podspec in Resources */,
-				2C67279E1ECEF3A20014224E /* Main.storyboard in Resources */,
-				2C67279D1ECEF3A20014224E /* LaunchScreen.storyboard in Resources */,
+				2CCD16891EEC4B11003B8943 /* Main.storyboard in Resources */,
+				2CCD16881EEC4B11003B8943 /* LaunchScreen.storyboard in Resources */,
 				2C67279C1ECEF3A20014224E /* Assets.xcassets in Resources */,
 				2C62B0AD1EC9892D0055DCB6 /* LICENSE in Resources */,
 			);
@@ -247,18 +244,18 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2C67278F1ECEF3A20014224E /* LaunchScreen.storyboard */ = {
+		2CCD16841EEC4B11003B8943 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2C6727901ECEF3A20014224E /* Base */,
+				2CCD16851EEC4B11003B8943 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		2C6727911ECEF3A20014224E /* Main.storyboard */ = {
+		2CCD16861EEC4B11003B8943 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2C6727921ECEF3A20014224E /* Base */,
+				2CCD16871EEC4B11003B8943 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -270,6 +267,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -319,6 +317,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -365,7 +364,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = E3FWW9E846;
-				INFOPLIST_FILE = "$(SRCROOT)/CBPic2ker/Info.plist";
+				INFOPLIST_FILE = "/Users/cbangchen/Desktop/Working Projects/CBPic2ker/Example/CBPic2ker/Base.lproj/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chenchaobang.CBPic2ker;
@@ -381,7 +380,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = E3FWW9E846;
-				INFOPLIST_FILE = "$(SRCROOT)/CBPic2ker/Info.plist";
+				INFOPLIST_FILE = "/Users/cbangchen/Desktop/Working Projects/CBPic2ker/Example/CBPic2ker/Base.lproj/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chenchaobang.CBPic2ker;
