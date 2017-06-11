@@ -9,7 +9,7 @@
 
 ## Effect
 
-<p align="left">
+<p align="center">
   <img src="PhotoPickerInteraction.gif" width="600" height="400"/>
 </p>
 
