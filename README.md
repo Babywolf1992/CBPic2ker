@@ -2,12 +2,68 @@
   <img src="http://ww1.sinaimg.cn/large/006tNbRwgy1fgfgm49j1yj30az0b5747.jpg" width="220" height="220"/>
 </p>
 
-# CBPic2ker
+[![Cbangchen](https://img.shields.io/badge/cbangchen-iOS-yellow.svg)](http://cbangchen.com)
+[![Version](https://img.shields.io/cocoapods/v/CBPic2ker.svg?style=flat)](http://cocoapods.org/pods/CBPic2ker)
+[![License](https://img.shields.io/cocoapods/l/CBPic2ker.svg?style=flat)](http://cocoapods.org/pods/CBPic2ker)
+[![Platform](https://img.shields.io/cocoapods/p/CBPic2ker.svg?style=flat)](http://cocoapods.org/pods/CBPic2ker)
 
-// ...
-
-# Effect
+## Effect
 
 <p align="left">
-  <img src="PhotoPickerInteraction.gif" width="500" height="375"/>
+  <img src="PhotoPickerInteraction.gif" width="1000" height="375"/>
 </p>
+
+## Features
+
+- Cool 
+- Smooth 
+- Face Recognition 
+
+## Requirements 
+
+- iOS 10.0
+
+## Installation 
+
+TLPhotoPicker is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+platform :ios, '10.0'
+pod "CBPic2ker"
+```
+
+Don't forget the Privacy Description in `info.plist`.
+
+![](http://ww2.sinaimg.cn/large/006tNbRwgy1fghh98s9wqj31g8024t8u.jpg)
+
+## Usage 
+
+### Call
+
+```Objective-C
+CBPhotoSelecterController *controller = [[CBPhotoSelecterController alloc] initWithDelegate:self];
+controller.columnNumber = 4;
+controller.maxSlectedImagesCount = 5;
+UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:controller];
+[self presentViewController:nav animated:YES completion:nil];
+```
+
+### Delegate
+
+```Objective-C
+- (void)photoSelecterController:(CBPhotoSelecterController *)pickerController sourceAsset:(NSArray *)sourceAsset {
+	/...
+}
+- (void)photoSelecterDidCancelWithController:(CBPhotoSelecterController *)pickerController {
+   /...
+}
+```
+
+## Author
+
+cbangchen, cbangchen007@gmail.com
+
+## License 
+
+CBPic2ker is available under the MIT license. See the LICENSE file for more info.
