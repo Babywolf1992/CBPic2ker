@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = 'CBPic2ker'
   s.version          = '0.0.1'
-  s.summary          = 'A common timeline framework.'
+  s.summary          = 'A cool photo selecter, will blow your mind.'
   s.description      = <<-DESC
 TODO: Add long description of the pod here.
                        DESC
