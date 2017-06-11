@@ -39,7 +39,11 @@ Don't forget the Privacy Description in `info.plist`.
 
 ## Usage 
 
+### Import
+
+```Objective-C
 #import "CBPic2ker.h"
+```
 
 ### Call
 
