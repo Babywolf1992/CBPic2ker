@@ -10,7 +10,7 @@
 ## 效果图
 
 <p align="center">
-  <img src="PhotoPickerInteraction.gif" width="600" height="400"/>
+  <img src="PhotoPickerInteraction.gif" width="600" height="450"/>
 </p>
 
 ## 特性
