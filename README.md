@@ -7,6 +7,8 @@
 [![License](https://img.shields.io/cocoapods/l/CBPic2ker.svg?style=flat)](http://cocoapods.org/pods/CBPic2ker)
 [![Platform](https://img.shields.io/cocoapods/p/CBPic2ker.svg?style=flat)](http://cocoapods.org/pods/CBPic2ker)
 
+中文介绍，请点击[此](https://github.com/cbangchen/CBPic2ker/blob/master/README_CN.md)处。
+
 ## Effect
 
 <p align="center">
