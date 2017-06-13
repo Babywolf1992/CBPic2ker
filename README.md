@@ -12,7 +12,7 @@
 ## Effect
 
 <p align="center">
-  <img src="PhotoPickerInteraction.gif" width="600" height="400"/>
+  <img src="PhotoPickerInteraction.gif" width="600" height="450"/>
 </p>
 
 ## Features
