@@ -184,6 +184,8 @@
     }
     
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    [CBPhotoSelecterPhotoLibrary wipeSharedData];
 }
 
 - (void)reachPhotoNumberLimitWithCell:(CBPhotoSelecterAssetSectionViewCell *)cell {
